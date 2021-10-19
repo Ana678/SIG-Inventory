@@ -1,15 +1,16 @@
 ///////////////////////////////////////////////////////////////////////////////
-///             Universidade Federal do Rio Grande do Norte                 ///
-///                 Centro de Ensino Superior do Seridó                     ///
-///               Departamento de Computação e Tecnologia                   ///
-///                  Disciplina DCT1106 -- Programação                      ///
+///                                                                         ///
+///               Universidade Federal do Rio Grande do Norte               ///
+///                   Centro de Ensino Superior do Seridó                   ///
+///                 Departamento de Computação e Tecnologia                 ///
+///                    Disciplina DCT1106 -- Programação                    ///
 ///                  Projeto Sistema de Controle de Estoque                 ///
-///                Developed by  @ana678 and @daviddevolin - Out, 2021      ///
+///            Developed by @ana678 and @daviddevolin - Out, 2021           ///
+///                                                                         ///
 ///////////////////////////////////////////////////////////////////////////////
 
 #include <stdio.h>
-#include <stdlib.h>
-#include <locale.h>
+
 /////
 // Assinatura das funções
 void telaSobre(void);
@@ -32,43 +33,48 @@ void telaSobre(void) {
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
-    printf("///             Universidade Federal do Rio Grande do Norte                 ///\n");
-    printf("///                 Centro de Ensino Superior do Seridó                     ///\n");
-    printf("///               Departamento de Computação e Tecnologia                   ///\n");
-    printf("///                  Disciplina DCT1106 -- Programação                      ///\n");
-    printf("///                  Projeto Sistema de Controle de Estoques                ///\n");
-    printf("///                Developed by   @ana678 and @daviddevolin - Out, 2021     ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Seridó                   ///\n");
+    printf("///                 Departamento de Computação e Tecnologia                 ///\n");
+    printf("///                    Disciplina DCT1106 -- Programação                    ///\n");
+    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
-    printf("///            = = = = = Sistema de Controle de Estoques = = = = =          ///\n");
+    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
     printf("///                                                                         ///\n");
-    printf("///  Programa exemplo utilizado na disciplina DCT1106 - Programação, para   ///\n");
-    printf("///  fins didáticos de ilustração. O programa contém os principais módulos  ///\n");
-    printf("///  e funcionalidades que serão exigidos na avaliação dos projetos a serem ///\n");
-    printf("///  desenvolvidos pelos alunos ao longo da disciplina. Serve como um guia  ///\n");
-    printf("///  de consulta e referência para o desenvolvidos dos demais projetos.     ///\n");
-    printf("///                                                                         ///\n");
+    printf("///         Esse programa pretende auxiliar no controle de estoque de um    ///\n");
+    printf("/// supermercado, por meio do fornecimento de ferramentas que auxiliam      ///\n");
+    printf("/// o cliente, seja este o gerente ou um funcionário de uma empresa, com    ///\n");
+    printf("/// a organização do seu espaço para estoque, buscando armazenamento efi-   ///\n");
+    printf("/// ciente e bem estruturado para que empresa evite gastos desnecessários,  ///\n");
+    printf("/// assim como a falta de produtos.                                         ///\n");
+    printf("///         Esse projeto trata-se de um requisito parcial para a obtenção   ///\n");
+    printf("/// da nota da primeira unidade da disciplina de Programação DCT1106, assim ///\n");
+    printf("/// como será um arquivo que marca o aprendizado de uma nova linguagem de   ///\n");
+    printf("/// programação, contribuindo, portanto, para a formação profissional dos   ///\n");
+    printf("/// envolvidos.                                                             ///\n");
+    printf("///                                                                        ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
 }
-
 
 
 void telaPrincipal(void) {
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
-    printf("///             Universidade Federal do Rio Grande do Norte                 ///\n");
-    printf("///                 Centro de Ensino Superior do Seridó                     ///\n");
-    printf("///               Departamento de Computação e Tecnologia                   ///\n");
-    printf("///                  Disciplina DCT1106 -- Programação                      ///\n");
-    printf("///                  Projeto Sistema de Controle de Estoques                ///\n");
-    printf("///                Developed by  @ana678 @daviddevolin - Out, 2021          ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Seridó                   ///\n");
+    printf("///                 Departamento de Computação e Tecnologia                 ///\n");
+    printf("///                    Disciplina DCT1106 -- Programação                    ///\n");
+    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
-    printf("///            = = = = = Sistema de Controle de Estoque = = = = =           ///\n");
+    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
     printf("///                                                                         ///\n");
     printf("///            1. Módulo Produtos                                           ///\n");
     printf("///            2. Módulo Departamento                                       ///\n");
@@ -87,20 +93,20 @@ void telaEquipe(void) {
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
-    printf("///             Universidade Federal do Rio Grande do Norte                 ///\n");
-    printf("///                 Centro de Ensino Superior do Seridó                     ///\n");
-    printf("///               Departamento de Computação e Tecnologia                   ///\n");
-    printf("///                  Disciplina DCT1106 -- Programação                      ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Seridó                   ///\n");
+    printf("///                 Departamento de Computação e Tecnologia                 ///\n");
+    printf("///                    Disciplina DCT1106 -- Programação                    ///\n");
     printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
-    printf("///                Developed by  @ana678 @daviddevolin - Out, 2021          ///\n");
+    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
-    printf("///            = = = = = Sistema de Gestão Escolar = = = = =                ///\n");
+    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
     printf("///                                                                         ///\n");
     printf("///            Este projeto  está sendo desenvolvido por:                   ///\n");
     printf("///                                                                         ///\n");
-    printf("///            Ana carolina de araújo                                       ///\n");
+    printf("///            Ana Carolina de Araújo                                       ///\n");
     printf("///            E-mail: carolina.araujo.017@ufrn.edu.br                      ///\n");
     printf("///            Redes sociais: @ana678                                       ///\n");
     printf("///                                                                         ///\n");
