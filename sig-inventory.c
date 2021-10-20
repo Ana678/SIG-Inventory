@@ -16,6 +16,9 @@
 void telaSobre(void);
 void telaPrincipal(void);
 void telaEquipe(void);
+void tela1(void);
+void tela2(void);
+void tela3(void);
 
 /////
 // Programa principal
