@@ -76,11 +76,11 @@ void telaPrincipal(void) {
     printf("///                                                                         ///\n");
     printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
     printf("///                                                                         ///\n");
-    printf("///            1. Módulo Produtos                                           ///\n");
-    printf("///            2. Módulo Departamento                                       ///\n");
-    printf("///            3. Módulo Relatórios                                         ///\n");
-    printf("///            4. Módulo Códigos                                            ///\n");
-    printf("///            5. Módulo Relatórios                                         ///\n");
+    printf("///            1. Produtos                                                  ///\n");
+    printf("///            2. Departamento                                              ///\n");
+    printf("///            3. Relatórios                                                ///\n");
+    printf("///            4. Códigos                                                   ///\n");
+    printf("///            5. Cadastrar produto                                         ///\n");
     printf("///            0. Sair                                                      ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -115,6 +115,78 @@ void telaEquipe(void) {
     printf("///            Redes sociais: @daviddevolin                                 ///\n");
     printf("///                                                                         ///\n");
     printf("///            Repositório: https://github.com/Ana678/SIG-Inventory.git     ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+}
+
+void tela1(void) {
+    printf("\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Seridó                   ///\n");
+    printf("///                 Departamento de Computação e Tecnologia                 ///\n");
+    printf("///                    Disciplina DCT1106 -- Programação                    ///\n");
+    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///            Qual produto está procurando ?                               ///\n");
+    printf("///                                                                         ///\n");
+    printf("///           Informações do produto                                        ///\n");
+    printf("///            0. menu                                                      ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+}
+
+void tela2(void) {
+    printf("\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Seridó                   ///\n");
+    printf("///                 Departamento de Computação e Tecnologia                 ///\n");
+    printf("///                    Disciplina DCT1106 -- Programação                    ///\n");
+    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                       lista de departamentos                            ///\n");
+    printf("///            0. menu                                                      ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+}
+
+void tela3(void) {
+    printf("\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Seridó                   ///\n");
+    printf("///                 Departamento de Computação e Tecnologia                 ///\n");
+    printf("///                    Disciplina DCT1106 -- Programação                    ///\n");
+    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///            1. relatório do tipo de produto 1                            ///\n");
+    printf("///            2. relatório do tipo de produto 2                            ///\n");
+    printf("///            3. relatório do tipo de produto 3                            ///\n");
+    printf("///            4. relatório do tipo de produto 4                            ///\n");
+    printf("///            5. relatório do tipo de produto 5                            ///\n");
+    printf("///            0. menu                                                      ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
