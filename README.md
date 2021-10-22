@@ -5,8 +5,7 @@
 
 >Este projeto está sendo desenvolvido por Ana Carolina de Araújo e David do Nascimento Santos 
 
-
->Este projeto utiliza **PHP 8**
+>Este projeto utiliza a linguagem de programação **C**
 
 **Um pouco sobre o projeto**
 
