@@ -275,7 +275,7 @@ void telaFluxoProdutos(void) {
     printf("///                                                                         ///\n");  
     printf("///            # Insira o codigo do produto:                                ///\n");
     printf("///                                                                         ///\n");
-    printf("///            # Deseja (c) cadastrar ou (r) retirar do estoque?            ///\n");
+    printf("///            # Deseja (a) adicionar ou (r) retirar do estoque?            ///\n");
     printf("///                                                                         ///\n");
     printf("///            # Qual a quantidade?                                         ///\n");
     printf("///                                                                         ///\n");
