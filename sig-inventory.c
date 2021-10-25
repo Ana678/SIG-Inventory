@@ -21,6 +21,7 @@ void telaProdutos(void);
 void telaDepartamentos(void);
 void telaRelatorios(void);
 void telaCadastros(void);
+void telaFluxoProdutos(void);
 
 /////
 // Programa principal
@@ -32,6 +33,7 @@ int main(void) {
     telaDepartamentos();
     telaRelatorios();
     telaCadastros();
+    telaFluxoProdutos();
     return 0;
 }
 
@@ -249,6 +251,7 @@ void telaCadastros(void) {
     printf("///                                                                         ///\n");  
     printf("///            1. Cadastrar novo produto                                    ///\n");
     printf("///            2. Cadastrar novo departamento                               ///\n");
+    printf("///            3. Cadastrar novo fornecedor                                 ///\n");
     printf("///                                                                         ///\n");
     printf("///            # Escolha o que voce deseja cadastrar:                       ///\n");
     printf("///                                                                         ///\n");
