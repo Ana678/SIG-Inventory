@@ -222,7 +222,7 @@ void telaRelatorios(void) {
     printf("///            | Codigo do Produto | Quantidade | Situacao |                ///\n");
     printf("///                                                                         ///\n");
     printf("///            | 0193467787878     |     6      | Estavel  |                ///\n");
-    printf("///            | 0193467799975     |     10     | Excesso  |                ///\n");
+    printf("///            | 0193467799975     |     11     | Excesso  |                ///\n");
     printf("///            | 0193345657689     |     8      | Escassa  |                ///\n");
     printf("///            | 1343490657878     |     20     | Excesso  |                ///\n");
     printf("///                                                                         ///\n");
