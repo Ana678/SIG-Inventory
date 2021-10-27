@@ -23,6 +23,8 @@ void telaRelatorios(void);
 void telaCadastros(void);
 void telaFluxoProdutos(void);
 
+void telaCadastrarDepartamento(void);
+
 /////
 // Programa principal
 int main(void) {
@@ -34,6 +36,7 @@ int main(void) {
     telaRelatorios();
     telaCadastros();
     telaFluxoProdutos();
+    telaCadastrarDepartamento();
     return 0;
 }
 
@@ -281,6 +284,33 @@ void telaFluxoProdutos(void) {
     printf("///            # Deseja (a) adicionar ou (r) retirar do estoque?            ///\n");
     printf("///                                                                         ///\n");
     printf("///            # Qual a quantidade?                                         ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+}
+
+void telaCadastrarDepartamento(void) {  
+    printf("\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
+    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
+    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
+    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                     - Cadastro de departamentos -                       ///\n");
+    printf("///                                                                         ///\n");  
+    printf("///            # Insira o nome do novo departamento:                        ///\n");
+    printf("///                                                                         ///\n");
+    printf("///            # qual o cpf do responsavel pelo departamento ?              ///\n");
+    printf("///                                                                         ///\n");
+    printf("///            # Qual o nome do responsavel pelo departamento?              ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
