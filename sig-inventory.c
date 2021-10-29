@@ -25,6 +25,7 @@ void telaFluxoProdutos(void);
 
 void telaCadastrarProduto(void);
 void telaCadastrarDepartamento(void);
+void telaDetalharDepartamento(void);
 
 /////
 // Programa principal
@@ -41,6 +42,7 @@ int main(void) {
     
     telaCadastrarProduto();
     telaCadastrarDepartamento();
+    telaDetalharDepartamento();
     
     return 0;
 }
@@ -354,6 +356,44 @@ void telaCadastrarDepartamento(void) {
     printf("///            # Qual o cpf do responsavel pelo departamento ?              ///\n");
     printf("///                                                                         ///\n");
     printf("///            # Qual o nome do responsavel pelo departamento?              ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+}
+
+void telaDetalharDepartamento(void){  
+    printf("\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
+    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
+    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
+    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                              - Departamento -                           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                                                                         ///\n");
+    printf("///            -> Informacoes do Departamento                               ///\n");
+    printf("///                                                                         ///\n");
+    printf("///            . Nome Do Departamento: Vestuario                            ///\n");
+    printf("///            . Quantidade de produtos: 300                                ///\n");
+    printf("///            . Nome Do Responsavel: Julio                                 ///\n");
+    printf("///            . Cpf do Responsavel: 111.111.111-11                         ///\n");
+    printf("///                                                                         ///\n");
+    printf("///            -> Acoes                                                     ///\n");
+    printf("///                                                                         ///\n");
+    printf("///            1. Alterar Dados do Departamento                             ///\n");
+    printf("///            2. Excluir Departamento                                      ///\n");
+    printf("///            3. Ver Produtos Departamento                                 ///\n");
+    printf("///            0. Sair                                                      ///\n");
+    printf("///                                                                         ///\n");
+    printf("///            # Deseja executar qual acao?                                 ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
