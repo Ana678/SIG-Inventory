@@ -27,6 +27,8 @@ void telaCadastrarProduto(void);
 void telaCadastrarDepartamento(void);
 void telaDetalharDepartamento(void);
 void telaEditarProduto(void);
+void telaEditarDepartamento(void);
+void telaCadastrarFornecedor(void);
 
 /////
 // Programa principal
@@ -47,8 +49,8 @@ int main(void) {
     
     telaCadastrarDepartamento();
     telaDetalharDepartamento();
-
-    
+    telaEditarDepartamento();
+    telaCadastrarFornecedor();
     return 0;
 }
 
@@ -108,6 +110,8 @@ void telaPrincipal(void) {
     printf("///            4. Cadastros                                                 ///\n");
     printf("///            5. Fluxo de Produtos                                         ///\n");
     printf("///            0. Sair                                                      ///\n");
+    printf("///                                                                         ///\n");
+    printf("///            # Deseja executar qual acao?                                 ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
@@ -243,6 +247,12 @@ void telaRelatorios(void) {
     printf("///            | 0193345657689     |     8      | Escassa  |                ///\n");
     printf("///            | 1343490657878     |     20     | Excesso  |                ///\n");
     printf("///                                                                         ///\n");
+    printf("///            -> Acoes                                                     ///\n");
+    printf("///                                                                         ///\n");
+    printf("///            0. Sair                                                      ///\n");
+    printf("///                                                                         ///\n");
+    printf("///            # Escolha o que voce deseja cadastrar:                       ///\n");
+    printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
 }
@@ -264,9 +274,10 @@ void telaCadastros(void) {
     printf("///                                                                         ///\n");
     printf("///                              - Cadastros -                              ///\n");
     printf("///                                                                         ///\n");  
-    printf("///            1. Cadastrar novo produto                                    ///\n");
-    printf("///            2. Cadastrar novo departamento                               ///\n");
-    printf("///            3. Cadastrar novo fornecedor                                 ///\n");
+    printf("///            1. Cadastrar Novo Produto                                    ///\n");
+    printf("///            2. Cadastrar Novo Departamento                               ///\n");
+    printf("///            3. Cadastrar Novo Fornecedor                                 ///\n");
+    printf("///            0. Sair                                                      ///\n");
     printf("///                                                                         ///\n");
     printf("///            # Escolha o que voce deseja cadastrar:                       ///\n");
     printf("///                                                                         ///\n");
@@ -440,6 +451,72 @@ void telaEditarProduto(void) {
     printf("///            0. Sair                                                      ///\n");
     printf("///                                                                         ///\n");
     printf("///            # Por fim, deseja executar qual acao (1/0)? 0                ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+}
+
+void telaEditarDepartamento(void) {  
+    printf("\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
+    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
+    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
+    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                         - Editar Departamento -                         ///\n");
+    printf("///                                                                         ///\n");
+    printf("///            1. Nome do Departamento: Vestuario                           ///\n");
+    printf("///            2. Nome Do Responsavel: Julio                                ///\n");
+    printf("///            3. Cpf do Responsavel: 111.111.111-11                        ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                                                                         ///\n");
+    printf("///            # Deseja editar algum parametro(s/n)? s                      ///\n");
+    printf("///              . Qual parametro deseja editar? 1                          ///\n");
+    printf("///              . Nome do Departamento: Roupas                             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///            # Deseja editar algum parametro(s/n)? n                      ///\n");
+    printf("///                                                                         ///\n");
+    printf("///            -> Acoes                                                     ///\n");
+    printf("///                                                                         ///\n");
+    printf("///            1. Excluir Departamento                                      ///\n");
+    printf("///            0. Sair                                                      ///\n");
+    printf("///                                                                         ///\n");
+    printf("///            # Por fim, deseja executar qual acao (1/0)? 0                ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+}
+
+void telaCadastrarFornecedor(void) {  
+    printf("\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
+    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
+    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
+    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                        - Cadastro de Fornecedor -                       ///\n");
+    printf("///                                                                         ///\n");  
+    printf("///            # Insira o nome do novo fornecedor:                          ///\n");
+    printf("///                                                                         ///\n");
+    printf("///            # Qual o CNPJ desse fornecedor?                              ///\n");
+    printf("///                                                                         ///\n");
+    printf("///            # Onde e a sede dessa empresa?                               ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
