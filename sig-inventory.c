@@ -26,6 +26,7 @@ void telaFluxoProdutos(void);
 void telaCadastrarProduto(void);
 void telaCadastrarDepartamento(void);
 void telaDetalharDepartamento(void);
+void telaEditarProduto(void);
 
 /////
 // Programa principal
@@ -34,15 +35,19 @@ int main(void) {
     telaPrincipal();
     telaEquipe();
     
-    telaProdutos();
-    telaDepartamentos();
+    
     telaRelatorios();
     telaCadastros();
+    telaProdutos();
+    telaDepartamentos();
     telaFluxoProdutos();
-    
+
     telaCadastrarProduto();
+    telaEditarProduto();
+    
     telaCadastrarDepartamento();
     telaDetalharDepartamento();
+
     
     return 0;
 }
@@ -170,8 +175,8 @@ void telaProdutos(void) {
     printf("///                                                                         ///\n");
     printf("///            -> Acoes                                                     ///\n");
     printf("///                                                                         ///\n");
-    printf("///            1. Alterar dados de produto                                  ///\n");
-    printf("///            2. Excluir produto                                           ///\n");
+    printf("///            1. Alterar Dados de Produto                                  ///\n");
+    printf("///            2. Excluir Produto                                           ///\n");
     printf("///            0. Sair                                                      ///\n");
     printf("///                                                                         ///\n");
     printf("///            # Deseja executar qual acao?                                 ///\n");
@@ -394,6 +399,47 @@ void telaDetalharDepartamento(void){
     printf("///            0. Sair                                                      ///\n");
     printf("///                                                                         ///\n");
     printf("///            # Deseja executar qual acao?                                 ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+}
+
+void telaEditarProduto(void) {  
+    printf("\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
+    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
+    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
+    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                           - Editar Produto -                            ///\n");
+    printf("///                                                                         ///\n");
+    printf("///            1. Codigo do Produto: 0192942442                             ///\n");
+    printf("///            2. Nome do Produto: Chinelo Preto                            ///\n");
+    printf("///            3. Marca Fornecedora: Havaianas                              ///\n");
+    printf("///            4. Quantidade Atual: 14                                      ///\n");
+    printf("///            5. Departamento: Vestuario                                   ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                                                                         ///\n");
+    printf("///            # Deseja editar algum parametro(s/n)? s                      ///\n");
+    printf("///              . Qual parametro deseja editar? 2                          ///\n");
+    printf("///              . Nome do Produto: Chinelo Rosa                            ///\n");
+    printf("///                                                                         ///\n");
+    printf("///            # Deseja editar algum parametro(s/n)? n                      ///\n");
+    printf("///                                                                         ///\n");
+    printf("///            -> Acoes                                                     ///\n");
+    printf("///                                                                         ///\n");
+    printf("///            1. Excluir Produto                                           ///\n");
+    printf("///            0. Sair                                                      ///\n");
+    printf("///                                                                         ///\n");
+    printf("///            # Por fim, deseja executar qual acao (1/0)? 0                ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
