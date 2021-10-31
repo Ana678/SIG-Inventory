@@ -595,7 +595,7 @@ void telaCadastrarFornecedor(void) {
     printf("///                                                                         ///\n");
     printf("///            # Qual o CNPJ desse fornecedor?                              ///\n");
     printf("///                                                                         ///\n");
-    printf("///            # Onde e a sede dessa empresa?                               ///\n");
+    printf("///            # Onde e a sede desse fornecedor?                            ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
