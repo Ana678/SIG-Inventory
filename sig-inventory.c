@@ -10,6 +10,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include <stdio.h>
+#include <stdlib.h>
 
 /////
 // Assinatura das funções
@@ -39,28 +40,31 @@ void telaEditarFornecedor(void);
 
 /////
 // Programa principal
+//    telaSobre();
+//    telaPrincipal();
+//    telaEquipe();
+
+//    telaRelatorios();
+//    telaCadastros();
+//    telaProdutos();
+//    telaDepartamentos();
+//    telaFluxoProdutos();
+//    telaListarFornecedores();
+
+//    telaCadastrarProduto();
+//    telaEditarProduto();
+    
+//    telaCadastrarDepartamento();
+//    telaDetalharDepartamento();
+//    telaVerProdutosDepartamento();
+//    telaEditarDepartamento();
+    
+//    telaCadastrarFornecedor();
+//    telaEditarFornecedor();
+    
 int main(void) {
-    telaSobre();
+
     telaPrincipal();
-    telaEquipe();
-
-    telaRelatorios();
-    telaCadastros();
-    telaProdutos();
-    telaDepartamentos();
-    telaFluxoProdutos();
-    telaListarFornecedores();
-
-    telaCadastrarProduto();
-    telaEditarProduto();
-    
-    telaCadastrarDepartamento();
-    telaDetalharDepartamento();
-    telaVerProdutosDepartamento();
-    telaEditarDepartamento();
-    
-    telaCadastrarFornecedor();
-    telaEditarFornecedor();
     
     return 0;
 }
@@ -69,6 +73,8 @@ int main(void) {
 // Funções
 
 void telaSobre(void) {
+    system("clear||cls");
+    char sair;
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -96,11 +102,21 @@ void telaSobre(void) {
     printf("/// envolvidos.                                                             ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n               # Aperte s para sair ... ");
+    sair = getchar();
     printf("\n");
+    if (sair == 's'){
+        telaPrincipal();
+    }else{
+        telaSobre();
+    }
 }
 
 
 void telaPrincipal(void) {
+    system("clear||cls");
+    int escolha;
+
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -115,23 +131,61 @@ void telaPrincipal(void) {
     printf("///                                                                         ///\n");
     printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
     printf("///                                                                         ///\n");
-    printf("///            1. Produtos                                                  ///\n");
-    printf("///            2. Departamentos                                             ///\n");
-    printf("///            3. Relatorios                                                ///\n");
-    printf("///            4. Cadastros                                                 ///\n");
-    printf("///            5. Fluxo de Produtos                                         ///\n");
+    printf("///            1. Listar Produto                                            ///\n");
+    printf("///            2. Listar Departamentos                                      ///\n");
+    printf("///            3. Obter um Relatorio                                        ///\n");
+    printf("///            4. Fazer um Cadastro                                         ///\n");
+    printf("///            5. Cadastrar Fluxo de Produtos                               ///\n");
     printf("///            6. Listar Fornecedores                                       ///\n");
+    printf("///            7. Ler Sobre o Projeto                                       ///\n");
+    printf("///            8. Ver Participantes do Projeto                              ///\n");
     printf("///            0. Sair                                                      ///\n");
-    printf("///                                                                         ///\n");
-    printf("///            # Deseja executar qual acao?                                 ///\n");
-    printf("///                                                                         ///\n");
+    printf("///                                                                         ///\n");                                                                       ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n               # Deseja executar qual acao? ");
+    scanf("%d", &escolha);
     printf("\n");
+
+    if (escolha == 1){
+        telaProdutos();
+
+    }else if (escolha == 2){
+        telaDepartamentos();
+
+    }else if (escolha == 3){
+        telaRelatorios();
+
+    }else if (escolha == 4){
+        telaCadastros();
+
+    }else if (escolha == 5){
+        telaFluxoProdutos();
+
+    }else if (escolha == 6){
+        telaListarFornecedores();
+    
+    }else if (escolha == 7){
+        telaSobre();
+
+    }else if (escolha == 8){
+        
+        telaEquipe();
+
+    }else if (escolha == 0){
+        system("clear||cls");
+
+    }else{
+        printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
+        telaPrincipal();
+        
+    }
 }
 
 
-
 void telaEquipe(void) {
+    system("clear||cls");
+    char sair;
+
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -159,10 +213,20 @@ void telaEquipe(void) {
     printf("///            Repositorio: https://github.com/Ana678/SIG-Inventory.git     ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n               # Aperte s para sair ... ");
+    sair = getchar();
     printf("\n");
+    if (sair == 's'){
+        telaPrincipal();
+    }else{
+        telaEquipe();
+    }
+
 }
 
 void telaProdutos(void) {  
+    system("clear||cls");
+
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -203,6 +267,7 @@ void telaProdutos(void) {
 
 
 void telaDepartamentos(void) {
+    system("clear||cls");
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -236,6 +301,8 @@ void telaDepartamentos(void) {
 
 
 void telaRelatorios(void) {  
+    system("clear||cls");
+    char sair;
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -259,13 +326,19 @@ void telaRelatorios(void) {
     printf("///            | 0193345657689     |     8      | Escassa  |                ///\n");
     printf("///            | 1343490657878     |     20     | Excesso  |                ///\n");
     printf("///                                                                         ///\n");
-    printf("///            # Deseja sair(s/n)?                                          ///\n");
-    printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n               # Aperte s para sair ... ");
+    sair = getchar();
     printf("\n");
+    if (sair == 's'){
+        telaPrincipal();
+    }else{
+        telaRelatorios();
+    }
 }
 
 void telaCadastros(void) {  
+    system("clear||cls");
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -294,6 +367,7 @@ void telaCadastros(void) {
 }
 
 void telaFluxoProdutos(void) {  
+    system("clear||cls");
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -321,6 +395,8 @@ void telaFluxoProdutos(void) {
 }
 
 void telaListarFornecedores(void) {  
+    system("clear||cls");
+    char sair;
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -344,10 +420,15 @@ void telaListarFornecedores(void) {
     printf("///            | 09.911.270/0001-29  |          Nescau         |            ///\n");
     printf("///            | 23.643.315/0110-06  |          Danone         |            ///\n");
     printf("///                                                                         ///\n");
-    printf("///            # Deseja sair(s/n)?                                          ///\n");
-    printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n               # Aperte s para sair ... ");
+    sair = getchar();
     printf("\n");
+    if (sair == 's'){
+        telaPrincipal();
+    }else{
+        telaListarFornecedores();
+    }
 }
 
 /// TELAS SECUNDÁRIAS
@@ -355,6 +436,7 @@ void telaListarFornecedores(void) {
 ////////////////////////////////////         PRODUTOS         ////////////////////////////////////
 
 void telaCadastrarProduto(void) {  
+    system("clear||cls");
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -390,6 +472,7 @@ void telaCadastrarProduto(void) {
 }
 
 void telaEditarProduto(void) {  
+    system("clear||cls");
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -436,6 +519,7 @@ void telaEditarProduto(void) {
 //////////////////////////////////         DEPARTAMENTOS         /////////////////////////////////
 
 void telaCadastrarDepartamento(void) {  
+    system("clear||cls");
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -463,6 +547,7 @@ void telaCadastrarDepartamento(void) {
 }
 
 void telaDetalharDepartamento(void){  
+    system("clear||cls");
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -501,6 +586,8 @@ void telaDetalharDepartamento(void){
 }
 
 void telaVerProdutosDepartamento(void) {  
+    system("clear||cls");
+    char sair;
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -524,13 +611,19 @@ void telaVerProdutosDepartamento(void) {
     printf("///            | 0193345786242     |   Meias     |     8      |             ///\n");
     printf("///            | 1343494863725     |   Camisas   |     20     |             ///\n");
     printf("///                                                                         ///\n");
-    printf("///            # Deseja sair(s/n)?                                          ///\n");
-    printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n               # Aperte s para sair ... ");
+    sair = getchar();
     printf("\n");
+    if (sair == 's'){
+        telaPrincipal();
+    }else{
+        telaVerProdutosDepartamento();
+    }
 }
 
 void telaEditarDepartamento(void) {  
+    system("clear||cls");
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -573,6 +666,7 @@ void telaEditarDepartamento(void) {
 //////////////////////////////////         FORNECEDORES         //////////////////////////////////
 
 void telaCadastrarFornecedor(void) {  
+    system("clear||cls");
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -602,6 +696,7 @@ void telaCadastrarFornecedor(void) {
 }
 
 void telaEditarFornecedor(void) {  
+    system("clear||cls");
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
