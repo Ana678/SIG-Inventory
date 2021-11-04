@@ -226,7 +226,7 @@ void telaEquipe(void) {
 
 void telaProdutos(void) {  
     system("clear||cls");
-
+    int escolha;
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -259,15 +259,31 @@ void telaProdutos(void) {
     printf("///            2. Excluir Produto                                           ///\n");
     printf("///            0. Sair                                                      ///\n");
     printf("///                                                                         ///\n");
-    printf("///            # Deseja executar qual acao?                                 ///\n");
-    printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n               # Deseja executar qual acao? ");
+    scanf("%d", &escolha);
     printf("\n");
+
+    if (escolha == 1) {
+        telaEditarProduto();
+
+    }else if (escolha == 2){
+        printf("\n///           = = = = = AINDA NAO E POSSIVEL EXCLUIR = = = = =            ///\n");
+        telaProdutos();
+
+    }else if (escolha == 0){
+        telaPrincipal();
+    
+    }else{
+        telaProdutos();
+    }
+
 }
 
 
 void telaDepartamentos(void) {
     system("clear||cls");
+    int escolha;
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -291,12 +307,23 @@ void telaDepartamentos(void) {
     printf("///            5. Condimentos                                               ///\n");    
     printf("///            6. Enlatados                                                 ///\n");  
     printf("///            7. Bebidas                                                   ///\n");
-    printf("///            8. Vestuario                                                 ///\n");    
-    printf("///                                                                         ///\n");
-    printf("///            # Digite o numero do departamento para detalha-lo:           ///\n"); 
+    printf("///            8. Vestuario                                                 ///\n"); 
+    printf("///            0. Sair                                                      ///\n");    
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n               # Digite o numero do departamento para detalha-lo: ");
+    scanf("%d", &escolha);
     printf("\n");
+
+    if (escolha == 1 || escolha == 2 || escolha == 3 || escolha == 4 || escolha == 5 || escolha == 6 || escolha == 7 || escolha == 8) {
+        telaDetalharDepartamento();
+
+    }else if (escolha == 0){
+        telaPrincipal();
+
+    }else{
+        telaDepartamentos();
+    }
 }
 
 
@@ -339,6 +366,8 @@ void telaRelatorios(void) {
 
 void telaCadastros(void) {  
     system("clear||cls");
+    int escolha;
+
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -360,14 +389,30 @@ void telaCadastros(void) {
     printf("///            3. Cadastrar Novo Fornecedor                                 ///\n");
     printf("///            0. Sair                                                      ///\n");
     printf("///                                                                         ///\n");
-    printf("///            # Escolha o que voce deseja cadastrar:                       ///\n");
-    printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n               # Deseja executar qual acao? ");
+    scanf("%d", &escolha);
     printf("\n");
+
+    if (escolha == 1){
+        telaCadastrarProduto();
+
+    }else if (escolha == 2){
+        telaCadastrarDepartamento();
+
+    }else if (escolha == 3){
+        telaCadastrarFornecedor();
+
+    }else if(escolha == 0){
+        telaPrincipal();
+    }else{
+        telaCadastros();
+    }
 }
 
 void telaFluxoProdutos(void) {  
     system("clear||cls");
+    char sair;
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -391,7 +436,14 @@ void telaFluxoProdutos(void) {
     printf("///            # Qual a quantidade?                                         ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n               # Aperte s para sair ... ");
+    sair = getchar();
     printf("\n");
+    if (sair == 's'){
+        telaPrincipal();
+    }else{
+        telaFluxoProdutos();
+    }
 }
 
 void telaListarFornecedores(void) {  
@@ -434,7 +486,6 @@ void telaListarFornecedores(void) {
 /// TELAS SECUNDÁRIAS
 
 ////////////////////////////////////         PRODUTOS         ////////////////////////////////////
-
 void telaCadastrarProduto(void) {  
     system("clear||cls");
     printf("\n");
@@ -473,6 +524,7 @@ void telaCadastrarProduto(void) {
 
 void telaEditarProduto(void) {  
     system("clear||cls");
+    int escolha;
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -509,10 +561,21 @@ void telaEditarProduto(void) {
     printf("///            1. Excluir Produto                                           ///\n");
     printf("///            0. Sair                                                      ///\n");
     printf("///                                                                         ///\n");
-    printf("///            # Por fim, deseja executar qual acao (1/0)? 0                ///\n");
-    printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n               # Por fim, deseja executar qual acao (1/0)?  ");
+    scanf("%d", &escolha);
     printf("\n");
+
+    if (escolha == 1) {
+        printf("\n///           = = = = = AINDA NAO E POSSIVEL EXCLUIR = = = = =            ///\n");
+        telaEditarProduto();
+
+    }else if (escolha == 0){
+        telaPrincipal();
+
+    }else{
+        telaEditarProduto();
+    }
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -548,6 +611,7 @@ void telaCadastrarDepartamento(void) {
 
 void telaDetalharDepartamento(void){  
     system("clear||cls");
+    int escolha;
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -579,10 +643,27 @@ void telaDetalharDepartamento(void){
     printf("///            3. Ver Produtos Departamento                                 ///\n");
     printf("///            0. Sair                                                      ///\n");
     printf("///                                                                         ///\n");
-    printf("///            # Deseja executar qual acao?                                 ///\n");
-    printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n               # Deseja executar qual acao?   ");
+    scanf("%d", &escolha);
     printf("\n");
+
+    if (escolha == 1){
+        telaEditarDepartamento();
+
+    }else if (escolha == 2) {
+        printf("\n///           = = = = = AINDA NAO E POSSIVEL EXCLUIR = = = = =            ///\n");
+        telaDetalharDepartamento();
+
+    }else if(escolha == 3){
+        telaVerProdutosDepartamento();
+    
+    }else if (escolha == 0){
+        telaPrincipal();
+
+    }else{
+        telaDetalharDepartamento();
+    }
 }
 
 void telaVerProdutosDepartamento(void) {  
@@ -624,6 +705,7 @@ void telaVerProdutosDepartamento(void) {
 
 void telaEditarDepartamento(void) {  
     system("clear||cls");
+    int escolha;
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -656,10 +738,21 @@ void telaEditarDepartamento(void) {
     printf("///            1. Excluir Departamento                                      ///\n");
     printf("///            0. Sair                                                      ///\n");
     printf("///                                                                         ///\n");
-    printf("///            # Por fim, deseja executar qual acao (1/0)? 0                ///\n");
-    printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n               # Por fim, deseja executar qual acao (1/0)?  ");
+    scanf("%d", &escolha);
     printf("\n");
+
+    if (escolha == 1) {
+        printf("\n///           = = = = = AINDA NAO E POSSIVEL EXCLUIR = = = = =            ///\n");
+        telaEditarDepartamento();
+
+    }else if (escolha == 0){
+        telaPrincipal();
+
+    }else{
+        telaEditarDepartamento();
+    }
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -697,6 +790,7 @@ void telaCadastrarFornecedor(void) {
 
 void telaEditarFornecedor(void) {  
     system("clear||cls");
+    int escolha;
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -721,19 +815,30 @@ void telaEditarFornecedor(void) {
     printf("///                                                                         ///\n");
     printf("///            # Deseja editar algum parametro(s/n)? s                      ///\n");
     printf("///              . Qual parametro deseja editar? 1                          ///\n");
-    printf("///              . Nome do Departamento: Nestle Brasil                      ///\n");
+    printf("///              . Nome do Fornecedor: Nestle Brasil                        ///\n");
     printf("///                                                                         ///\n");
     printf("///            # Deseja editar algum parametro(s/n)? n                      ///\n");
     printf("///                                                                         ///\n");
     printf("///            -> Acoes                                                     ///\n");
     printf("///                                                                         ///\n");
-    printf("///            1. Excluir Departamento                                      ///\n");
+    printf("///            1. Excluir Fornecedor                                        ///\n");
     printf("///            0. Sair                                                      ///\n");
     printf("///                                                                         ///\n");
-    printf("///            # Por fim, deseja executar qual acao (1/0)? 0                ///\n");
-    printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n               # Por fim, deseja executar qual acao (1/0)?  ");
+    scanf("%d", &escolha);
     printf("\n");
+
+    if (escolha == 1) {
+        printf("\n///           = = = = = AINDA NAO E POSSIVEL EXCLUIR = = = = =            ///\n");
+        telaEditarFornecedor();
+
+    }else if (escolha == 0){
+        telaPrincipal();
+
+    }else{
+        telaEditarFornecedor();
+    }
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
