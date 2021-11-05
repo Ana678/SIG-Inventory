@@ -103,13 +103,15 @@ void telaSobre(void) {
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Aperte s para sair ... ");
+    // aq tbm ????? 
     sair = getchar();
-    printf("\n");
+
     if (sair == 's'){
         telaPrincipal();
     }else{
         telaSobre();
     }
+    
 }
 
 
@@ -144,7 +146,7 @@ void telaPrincipal(void) {
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Deseja executar qual acao? ");
     scanf("%d", &escolha);
-    printf("\n");
+    getchar();
 
     if (escolha == 1){
         telaProdutos();
@@ -214,8 +216,9 @@ void telaEquipe(void) {
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Aperte s para sair ... ");
+    // aq tbm
     sair = getchar();
-    printf("\n");
+
     if (sair == 's'){
         telaPrincipal();
     }else{
@@ -227,6 +230,8 @@ void telaEquipe(void) {
 void telaProdutos(void) {  
     system("clear||cls");
     int escolha;
+    int codigo;
+
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -244,6 +249,9 @@ void telaProdutos(void) {
     printf("///                               - Produtos -                              ///\n");
     printf("///                                                                         ///\n");
     printf("///            # Insira o codigo do produto que esta procurando?            ///\n");
+    scanf("%d",codigo);
+    getchar();
+    
     printf("///                                                                         ///\n");
     printf("///            -> Informacoes do produto                                    ///\n");
     printf("///                                                                         ///\n");
@@ -262,7 +270,7 @@ void telaProdutos(void) {
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Deseja executar qual acao? ");
     scanf("%d", &escolha);
-    printf("\n");
+    getchar();
 
     if (escolha == 1) {
         telaEditarProduto();
@@ -313,7 +321,7 @@ void telaDepartamentos(void) {
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Digite o numero do departamento para detalha-lo: ");
     scanf("%d", &escolha);
-    printf("\n");
+    getchar();
 
     if (escolha == 1 || escolha == 2 || escolha == 3 || escolha == 4 || escolha == 5 || escolha == 6 || escolha == 7 || escolha == 8) {
         telaDetalharDepartamento();
@@ -355,8 +363,9 @@ void telaRelatorios(void) {
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Aperte s para sair ... ");
+    // aq tbm
     sair = getchar();
-    printf("\n");
+    
     if (sair == 's'){
         telaPrincipal();
     }else{
@@ -392,7 +401,7 @@ void telaCadastros(void) {
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Deseja executar qual acao? ");
     scanf("%d", &escolha);
-    printf("\n");
+    getchar();
 
     if (escolha == 1){
         telaCadastrarProduto();
@@ -438,7 +447,8 @@ void telaFluxoProdutos(void) {
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Aperte s para sair ... ");
     sair = getchar();
-    printf("\n");
+
+    //aq tbm
     if (sair == 's'){
         telaPrincipal();
     }else{
@@ -475,7 +485,8 @@ void telaListarFornecedores(void) {
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Aperte s para sair ... ");
     sair = getchar();
-    printf("\n");
+
+    //aq tambem
     if (sair == 's'){
         telaPrincipal();
     }else{
@@ -486,8 +497,19 @@ void telaListarFornecedores(void) {
 /// TELAS SECUNDÁRIAS
 
 ////////////////////////////////////         PRODUTOS         ////////////////////////////////////
+
 void telaCadastrarProduto(void) {  
     system("clear||cls");
+
+    char prod[20];
+    char cod[12];
+    char forn[14];
+    char depar[10];
+
+    int qtd;
+    int qtd_minima;
+    int qtd_maxima;
+
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -504,26 +526,48 @@ void telaCadastrarProduto(void) {
     printf("///                                                                         ///\n");
     printf("///                         - Cadastro de Produto -                         ///\n");
     printf("///                                                                         ///\n");  
-    printf("///            # Insira o nome do novo produto:                             ///\n");
+    printf("///            # Insira o nome do novo produto: ");
+    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", prod);
+    getchar();
+
     printf("///                                                                         ///\n");  
-    printf("///            # Insira o codigo desse produto:                             ///\n");
+    printf("///            # Insira o codigo desse produto: ");
+    scanf("%[0-9]", cod);
+    getchar(); 
+
+    printf("///                                                                         ///\n");      		
+    printf("///            # Insira o CNPJ do fornecedor: ");
+    scanf("%[0-9]", forn);
+    getchar();
+
     printf("///                                                                         ///\n");  
-    printf("///            # Insira o fornecedor desse produto:                         ///\n");
+    printf("///            # Insira o nome do departamento: ");
+    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", depar);
+    getchar();
+
     printf("///                                                                         ///\n");  
-    printf("///            # Insira o departamento desse produto:                       ///\n");
-    printf("///                                                                         ///\n");  
-    printf("///            # Quantidade inicial desse produto:                          ///\n");
+    printf("///            # Quantidade inicial do produto: ");
+    scanf("%d", &qtd);
+    getchar();
+
     printf("///                                                                         ///\n");
-    printf("///            # Qual a quantidade minima ideal desse produto?              ///\n");
+    printf("///            # Qual a quantidade minima ideal desse produto? ");
+    scanf("%d", &qtd_minima);
+    getchar();
+    
     printf("///                                                                         ///\n");
-    printf("///            # Qual a quantidade maxima ideal desse produto?              ///\n");
+    printf("///            # Qual a quantidade maxima ideal desse produto? ");
+    scanf("%d", &qtd_maxima);
+    getchar();
+
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n");
+
 }
 
 void telaEditarProduto(void) {  
     system("clear||cls");
+    char editar;
     int escolha;
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -551,8 +595,12 @@ void telaEditarProduto(void) {
     printf("///                                                                         ///\n");
     printf("///                                                                         ///\n");
     printf("///            # Deseja editar algum parametro(s/n)? s                      ///\n");
+    scanf("%c",editar);
+    getchar();
     printf("///              . Qual parametro deseja editar? 2                          ///\n");
-    printf("///              . Nome do Produto: Chinelo Rosa                            ///\n");
+    scanf("%d",escolha);
+    getchar();
+    printf("///              . Novo Nome do Produto: Chinelo Rosa                       ///\n");
     printf("///                                                                         ///\n");
     printf("///            # Deseja editar algum parametro(s/n)? n                      ///\n");
     printf("///                                                                         ///\n");
@@ -564,7 +612,7 @@ void telaEditarProduto(void) {
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Por fim, deseja executar qual acao (1/0)?  ");
     scanf("%d", &escolha);
-    printf("\n");
+    getchar();
 
     if (escolha == 1) {
         printf("\n///           = = = = = AINDA NAO E POSSIVEL EXCLUIR = = = = =            ///\n");
@@ -606,7 +654,7 @@ void telaCadastrarDepartamento(void) {
     printf("///            # Qual o nome do responsavel pelo departamento?              ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n");
+    
 }
 
 void telaDetalharDepartamento(void){  
@@ -646,7 +694,7 @@ void telaDetalharDepartamento(void){
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Deseja executar qual acao?   ");
     scanf("%d", &escolha);
-    printf("\n");
+    getchar();
 
     if (escolha == 1){
         telaEditarDepartamento();
@@ -694,8 +742,9 @@ void telaVerProdutosDepartamento(void) {
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Aperte s para sair ... ");
+    // podemos adicionar o scanf aq e ver se o bug n ta por aq
     sair = getchar();
-    printf("\n");
+
     if (sair == 's'){
         telaPrincipal();
     }else{
@@ -741,7 +790,7 @@ void telaEditarDepartamento(void) {
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Por fim, deseja executar qual acao (1/0)?  ");
     scanf("%d", &escolha);
-    printf("\n");
+    getchar();
 
     if (escolha == 1) {
         printf("\n///           = = = = = AINDA NAO E POSSIVEL EXCLUIR = = = = =            ///\n");
@@ -785,7 +834,9 @@ void telaCadastrarFornecedor(void) {
     printf("///            # Onde e a sede desse fornecedor?                            ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n");
+
+    getchar();
+    
 }
 
 void telaEditarFornecedor(void) {  
@@ -827,7 +878,7 @@ void telaEditarFornecedor(void) {
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Por fim, deseja executar qual acao (1/0)?  ");
     scanf("%d", &escolha);
-    printf("\n");
+    getchar();
 
     if (escolha == 1) {
         printf("\n///           = = = = = AINDA NAO E POSSIVEL EXCLUIR = = = = =            ///\n");
