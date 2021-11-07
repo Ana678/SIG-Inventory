@@ -103,7 +103,6 @@ void telaSobre(void) {
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Aperte s para sair ... ");
-    // aq tbm ????? 
     sair = getchar();
 
     if (sair == 's'){
@@ -421,6 +420,11 @@ void telaCadastros(void) {
 
 void telaFluxoProdutos(void) {  
     system("clear||cls");
+    
+    char cod[12];
+    char acao;
+    int qtd;
+    
     char sair;
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -438,17 +442,25 @@ void telaFluxoProdutos(void) {
     printf("///                                                                         ///\n");
     printf("///                          - Fluxo de Produtos -                          ///\n");
     printf("///                                                                         ///\n");  
-    printf("///            # Insira o codigo do produto:                                ///\n");
+    printf("///            # Insira o codigo do produto: ");
+    scanf("%[0-9]",cod);
+    getchar();
+    
     printf("///                                                                         ///\n");
-    printf("///            # Deseja (a) adicionar ou (r) retirar do estoque?            ///\n");
+    printf("///            # Deseja (a) adicionar ou (r) retirar do estoque? ");
+    scanf("%c", &acao);
+    getchar();
+
     printf("///                                                                         ///\n");
-    printf("///            # Qual a quantidade?                                         ///\n");
+    printf("///            # Qual a quantidade? ");
+    scanf("%d", &qtd);
+    getchar();
+
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Aperte s para sair ... ");
     sair = getchar();
 
-    //aq tbm
     if (sair == 's'){
         telaPrincipal();
     }else{
@@ -476,7 +488,7 @@ void telaListarFornecedores(void) {
     printf("///                                                                         ///\n");
     printf("///                       - Listagem de Fornecedores -                      ///\n");
     printf("///                                                                         ///\n");
-    printf("///        |   Nº  |         CNPJ        |     Nome da Empresa     |        ///\n");
+    printf("///        |   N*  |         CNPJ        |     Nome da Empresa     |        ///\n");
     printf("///                                                                         ///\n");
     printf("///        |   1   | 14.854.618/0001-23  |         Havaianas       |        ///\n");
     printf("///        |   2   | 60.409.075/0001-52  |          Nestle         |        ///\n");
