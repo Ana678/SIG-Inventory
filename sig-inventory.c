@@ -248,8 +248,8 @@ void telaProdutos(void) {
     printf("///                                                                         ///\n");
     printf("///                               - Produtos -                              ///\n");
     printf("///                                                                         ///\n");
-    printf("///            # Insira o codigo do produto que esta procurando?            ///\n");
-    scanf("%d",codigo);
+    printf("///            # Insira o codigo do produto que esta procurando? ");
+    scanf("%d", &codigo);
     getchar();
     
     printf("///                                                                         ///\n");
@@ -510,6 +510,7 @@ void telaCadastrarProduto(void) {
     int qtd_minima;
     int qtd_maxima;
 
+    char sair;
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -562,13 +563,24 @@ void telaCadastrarProduto(void) {
 
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n               # Aperte s para sair ... ");
+    sair = getchar();
 
+    //aq tbm
+    if (sair == 's'){
+        telaPrincipal();
+    }else{
+        getchar();
+        telaCadastrarProduto();
+    }
 }
 
 void telaEditarProduto(void) {  
     system("clear||cls");
     char editar;
+    int escolha_editar;
     int escolha;
+
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -594,15 +606,20 @@ void telaEditarProduto(void) {
     printf("///            7. Quantidade Maxima Ideal: 40                               ///\n");
     printf("///                                                                         ///\n");
     printf("///                                                                         ///\n");
-    printf("///            # Deseja editar algum parametro(s/n)? s                      ///\n");
-    scanf("%c",editar);
+    printf("///            # Deseja editar algum parametro(s/n)? ");
+    scanf("%c", &editar);
     getchar();
-    printf("///              . Qual parametro deseja editar? 2                          ///\n");
-    scanf("%d",escolha);
+
+    printf("\n///              . Qual parametro deseja editar? ");
+    scanf("%d", &escolha_editar);
     getchar();
-    printf("///              . Novo Nome do Produto: Chinelo Rosa                       ///\n");
+
+    printf("\n///              . Novo Nome do Produto: Chinelo Rosa                       ///\n");
     printf("///                                                                         ///\n");
-    printf("///            # Deseja editar algum parametro(s/n)? n                      ///\n");
+    printf("///            # Deseja editar algum parametro(s/n)? ");
+    scanf("%c", &editar);
+    getchar();
+
     printf("///                                                                         ///\n");
     printf("///            -> Acoes                                                     ///\n");
     printf("///                                                                         ///\n");
@@ -631,6 +648,12 @@ void telaEditarProduto(void) {
 
 void telaCadastrarDepartamento(void) {  
     system("clear||cls");
+
+    char nome[20];
+    char cpf[11];
+    char nome_responsavel[15];
+    char sair;
+
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -647,14 +670,32 @@ void telaCadastrarDepartamento(void) {
     printf("///                                                                         ///\n");
     printf("///                      - Cadastro de Departamentos -                      ///\n");
     printf("///                                                                         ///\n");  
-    printf("///            # Insira o nome do novo departamento:                        ///\n");
+    printf("///            # Insira o nome do novo departamento: ");
+    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+    getchar();
+
     printf("///                                                                         ///\n");
-    printf("///            # Qual o CPF do responsavel pelo departamento?               ///\n");
+    printf("///            # Qual o CPF do responsavel pelo departamento? ");
+    scanf("%[0-9]", cpf);
+    getchar();
+
     printf("///                                                                         ///\n");
-    printf("///            # Qual o nome do responsavel pelo departamento?              ///\n");
+    printf("///            # Qual o nome do responsavel pelo departamento? ");
+    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome_responsavel);
+    getchar();
+
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    
+    printf("\n               # Aperte s para sair ... ");
+    sair = getchar();
+
+    //aq tbm
+    if (sair == 's'){
+        telaPrincipal();
+    }else{
+        getchar();
+        telaCadastrarDepartamento();
+    }
 }
 
 void telaDetalharDepartamento(void){  
@@ -754,7 +795,11 @@ void telaVerProdutosDepartamento(void) {
 
 void telaEditarDepartamento(void) {  
     system("clear||cls");
+
+    char editar;
+    int escolha_editar;
     int escolha;
+    
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -776,11 +821,20 @@ void telaEditarDepartamento(void) {
     printf("///            3. Cpf do Responsavel: 111.111.111-11                        ///\n");
     printf("///                                                                         ///\n");
     printf("///                                                                         ///\n");
-    printf("///            # Deseja editar algum parametro(s/n)? s                      ///\n");
-    printf("///              . Qual parametro deseja editar? 1                          ///\n");
-    printf("///              . Nome do Departamento: Roupas                             ///\n");
+    printf("///            # Deseja editar algum parametro(s/n)? ");
+    scanf("%c", &editar);
+    getchar();
+
+    printf("\n///              . Qual parametro deseja editar? ");
+    scanf("%d", &escolha_editar);
+    getchar();
+
+    printf("\n///              . Nome do Departamento: Roupas                             ///\n");
     printf("///                                                                         ///\n");
-    printf("///            # Deseja editar algum parametro(s/n)? n                      ///\n");
+    printf("///            # Deseja editar algum parametro(s/n)? ");
+    scanf("%c", &editar);
+    getchar();
+
     printf("///                                                                         ///\n");
     printf("///            -> Acoes                                                     ///\n");
     printf("///                                                                         ///\n");
