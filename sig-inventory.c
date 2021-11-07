@@ -775,6 +775,7 @@ void telaDetalharDepartamento(void){
 void telaVerProdutosDepartamento(void) {  
     system("clear||cls");
     char sair;
+    
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
