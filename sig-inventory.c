@@ -458,7 +458,8 @@ void telaFluxoProdutos(void) {
 
 void telaListarFornecedores(void) {  
     system("clear||cls");
-    char sair;
+    int escolha;
+    
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -475,20 +476,24 @@ void telaListarFornecedores(void) {
     printf("///                                                                         ///\n");
     printf("///                       - Listagem de Fornecedores -                      ///\n");
     printf("///                                                                         ///\n");
-    printf("///            |         CNPJ        |     Nome da Empresa     |            ///\n");
+    printf("///        |   Nº  |         CNPJ        |     Nome da Empresa     |        ///\n");
     printf("///                                                                         ///\n");
-    printf("///            | 14.854.618/0001-23  |         Havaianas       |            ///\n");
-    printf("///            | 60.409.075/0001-52  |          Nestle         |            ///\n");
-    printf("///            | 09.911.270/0001-29  |          Nescau         |            ///\n");
-    printf("///            | 23.643.315/0110-06  |          Danone         |            ///\n");
+    printf("///        |   1   | 14.854.618/0001-23  |         Havaianas       |        ///\n");
+    printf("///        |   2   | 60.409.075/0001-52  |          Nestle         |        ///\n");
+    printf("///        |   3   | 09.911.270/0001-29  |          Nescau         |        ///\n");
+    printf("///        |   4   | 23.643.315/0110-06  |          Danone         |        ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n               # Aperte s para sair ... ");
-    sair = getchar();
+    printf("\n               # Digite o numero do fornecedor para edita-lo: ");
+    scanf("%d", &escolha);
+    getchar();
 
-    //aq tambem
-    if (sair == 's'){
+    if (escolha == 1 || escolha == 2 || escolha == 3 || escolha == 4) {
+        telaEditarFornecedor();
+
+    }else if (escolha == 0){
         telaPrincipal();
+
     }else{
         telaListarFornecedores();
     }
@@ -783,7 +788,6 @@ void telaVerProdutosDepartamento(void) {
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Aperte s para sair ... ");
-    // podemos adicionar o scanf aq e ver se o bug n ta por aq
     sair = getchar();
 
     if (sair == 's'){
@@ -863,6 +867,14 @@ void telaEditarDepartamento(void) {
 
 void telaCadastrarFornecedor(void) {  
     system("clear||cls");
+    
+    char nome[20];
+    char razao_social[30];
+    char cnpj[14];
+    char sede[60];
+
+    char sair;
+
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -879,23 +891,45 @@ void telaCadastrarFornecedor(void) {
     printf("///                                                                         ///\n");
     printf("///                        - Cadastro de Fornecedor -                       ///\n");
     printf("///                                                                         ///\n");  
-    printf("///            # Insira o nome do novo fornecedor:                          ///\n");
+    printf("///            # Insira o nome do novo fornecedor: ");
+    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]",nome);
+    getchar();
+    
     printf("///                                                                         ///\n");  
-    printf("///            # Insira a razao social desse fornecedor:                    ///\n");
+    printf("///            # Insira a razao social desse fornecedor: ");
+    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]",razao_social);
+    getchar();
+    
     printf("///                                                                         ///\n");
-    printf("///            # Qual o CNPJ desse fornecedor?                              ///\n");
+    printf("///            # Qual o CNPJ desse fornecedor? ");
+    scanf("%[0-9.]",cnpj);
+    getchar();
+    
     printf("///                                                                         ///\n");
-    printf("///            # Onde e a sede desse fornecedor?                            ///\n");
+    printf("///            # Onde e a sede desse fornecedor? ");
+    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ,:-.0-9]",sede);
+    getchar();
+    
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n               # Aperte s para sair ... ");
+    sair = getchar();
 
-    getchar();
+    if (sair == 's'){
+        telaPrincipal();
+    }else{
+        getchar();
+        telaCadastrarFornecedor();
+    }
     
 }
 
 void telaEditarFornecedor(void) {  
     system("clear||cls");
+    char editar;
+    int escolha_editar;
     int escolha;
+
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -918,11 +952,20 @@ void telaEditarFornecedor(void) {
     printf("///            3. Sede da Empresa: Sao Paulo, Brasil                        ///\n");
     printf("///                                                                         ///\n");
     printf("///                                                                         ///\n");
-    printf("///            # Deseja editar algum parametro(s/n)? s                      ///\n");
-    printf("///              . Qual parametro deseja editar? 1                          ///\n");
-    printf("///              . Nome do Fornecedor: Nestle Brasil                        ///\n");
+    printf("///            # Deseja editar algum parametro(s/n)? ");
+    scanf("%c", &editar);
+    getchar();
+
+    printf("///              . Qual parametro deseja editar? ");
+    scanf("%d", &escolha_editar);
+    getchar();
+
+    printf("\n///              . Nome do Fornecedor: Nestle Brasil                        ///\n");
     printf("///                                                                         ///\n");
-    printf("///            # Deseja editar algum parametro(s/n)? n                      ///\n");
+    printf("///            # Deseja editar algum parametro(s/n)? ");
+    scanf("%c", &editar);
+    getchar();
+
     printf("///                                                                         ///\n");
     printf("///            -> Acoes                                                     ///\n");
     printf("///                                                                         ///\n");
