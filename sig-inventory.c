@@ -63,7 +63,7 @@ void telaEditarFornecedor(void);
 //    telaEditarFornecedor();
     
 int main(void) {
-
+    system("clear||cls");
     telaPrincipal();
     
     return 0;
@@ -107,6 +107,7 @@ void telaSobre(void) {
     sair = getchar();
 
     if (sair == 's'){
+        system("clear||cls");
         telaPrincipal();
     }else{
         telaSobre();
@@ -116,7 +117,7 @@ void telaSobre(void) {
 
 
 void telaPrincipal(void) {
-    system("clear||cls");
+    //system("clear||cls");
     int escolha;
 
     printf("\n");
@@ -150,10 +151,12 @@ void telaPrincipal(void) {
     
     switch(escolha){
         case 1:
+            system("clear||cls");
             telaProdutos();
             break;
        
         case 2:
+            system("clear||cls");
             telaDepartamentos();
             break;        
 
@@ -162,6 +165,7 @@ void telaPrincipal(void) {
             break;
 
         case 4:
+            system("clear||cls");
             telaCadastros();
             break;
             
@@ -170,6 +174,7 @@ void telaPrincipal(void) {
             break;
 
         case 6:
+            system("clear||cls");
             telaListarFornecedores();
             break;
 
@@ -185,6 +190,7 @@ void telaPrincipal(void) {
             break;
         
         default:
+            system("clear||cls");
             printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
             telaPrincipal();
             
@@ -225,10 +231,11 @@ void telaEquipe(void) {
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Aperte s para sair ... ");
-    // aq tbm
+    
     sair = getchar();
 
     if (sair == 's'){
+        system("clear||cls");
         telaPrincipal();
     }else{
         telaEquipe();
@@ -237,7 +244,7 @@ void telaEquipe(void) {
 }
 
 void telaProdutos(void) {  
-    system("clear||cls");
+    //system("clear||cls");
     int escolha;
     int codigo;
 
@@ -281,17 +288,24 @@ void telaProdutos(void) {
     scanf("%d", &escolha);
     getchar();
 
-    if (escolha == 1) {
+    switch (escolha){
+    case 1:
+        system("clear||cls");
         telaEditarProduto();
-
-    }else if (escolha == 2){
+        break;
+    
+    case 2:
+        system("clear||cls");
         printf("\n///           = = = = = AINDA NAO E POSSIVEL EXCLUIR = = = = =            ///\n");
         telaProdutos();
-
-    }else if (escolha == 0){
+        break;
+    case 0:
+        system("clear||cls");
         telaPrincipal();
-    
-    }else{
+        break;
+    default:
+        system("clear||cls");
+        printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
         telaProdutos();
     }
 
@@ -299,7 +313,7 @@ void telaProdutos(void) {
 
 
 void telaDepartamentos(void) {
-    system("clear||cls");
+    //system("clear||cls");
     int escolha;
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -333,13 +347,17 @@ void telaDepartamentos(void) {
     getchar();
 
     if (escolha == 1 || escolha == 2 || escolha == 3 || escolha == 4 || escolha == 5 || escolha == 6 || escolha == 7 || escolha == 8) {
+        system("clear||cls");
         telaDetalharDepartamento();
 
     }else if (escolha == 0){
+        system("clear||cls");
         telaPrincipal();
 
     }else{
-        telaDepartamentos();
+        system("clear||cls");
+        printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
+        telaDepartamentos();    
     }
 }
 
@@ -376,6 +394,7 @@ void telaRelatorios(void) {
     sair = getchar();
     
     if (sair == 's'){
+        system("clear||cls");
         telaPrincipal();
     }else{
         telaRelatorios();
@@ -383,7 +402,7 @@ void telaRelatorios(void) {
 }
 
 void telaCadastros(void) {  
-    system("clear||cls");
+    //system("clear||cls");
     int escolha;
 
     printf("\n");
@@ -411,20 +430,27 @@ void telaCadastros(void) {
     printf("\n               # Deseja executar qual acao? ");
     scanf("%d", &escolha);
     getchar();
+    
+    switch (escolha){
+        case 1:
+            telaCadastrarProduto();
+            break;
+        case 2:
+            telaCadastrarDepartamento();
+            break;
+        case 3:
+            telaCadastrarFornecedor();
+            break;
 
-    if (escolha == 1){
-        telaCadastrarProduto();
+        case 0:
+            system("clear||cls");
+            telaPrincipal();
+            break;
 
-    }else if (escolha == 2){
-        telaCadastrarDepartamento();
-
-    }else if (escolha == 3){
-        telaCadastrarFornecedor();
-
-    }else if(escolha == 0){
-        telaPrincipal();
-    }else{
-        telaCadastros();
+        default:
+            system("clear||cls");
+            printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
+            telaCadastros();
     }
 
 }
@@ -473,6 +499,7 @@ void telaFluxoProdutos(void) {
     sair = getchar();
 
     if (sair == 's'){
+        system("clear||cls");
         telaPrincipal();
     }else{
         telaFluxoProdutos();
@@ -480,7 +507,7 @@ void telaFluxoProdutos(void) {
 }
 
 void telaListarFornecedores(void) {  
-    system("clear||cls");
+    //system("clear||cls");
     int escolha;
     
     printf("\n");
@@ -512,12 +539,16 @@ void telaListarFornecedores(void) {
     getchar();
 
     if (escolha == 1 || escolha == 2 || escolha == 3 || escolha == 4) {
+        system("clear||cls");
         telaEditarFornecedor();
 
     }else if (escolha == 0){
+        system("clear||cls");
         telaPrincipal();
 
     }else{
+        system("clear||cls");
+        printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
         telaListarFornecedores();
     }
 }
@@ -596,6 +627,7 @@ void telaCadastrarProduto(void) {
 
     //aq tbm
     if (sair == 's'){
+        system("clear||cls");
         telaPrincipal();
     }else{
         getchar();
@@ -604,7 +636,7 @@ void telaCadastrarProduto(void) {
 }
 
 void telaEditarProduto(void) {  
-    system("clear||cls");
+    //system("clear||cls");
     char editar;
     int escolha_editar;
     int escolha;
@@ -660,13 +692,17 @@ void telaEditarProduto(void) {
     getchar();
 
     if (escolha == 1) {
+        system("clear||cls");
         printf("\n///           = = = = = AINDA NAO E POSSIVEL EXCLUIR = = = = =            ///\n");
         telaEditarProduto();
 
     }else if (escolha == 0){
+        system("clear||cls");
         telaPrincipal();
 
     }else{
+        system("clear||cls");
+        printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
         telaEditarProduto();
     }
 }
@@ -719,6 +755,7 @@ void telaCadastrarDepartamento(void) {
 
     //aq tbm
     if (sair == 's'){
+        system("clear||cls");
         telaPrincipal();
     }else{
         getchar();
@@ -727,7 +764,7 @@ void telaCadastrarDepartamento(void) {
 }
 
 void telaDetalharDepartamento(void){  
-    system("clear||cls");
+    //system("clear||cls");
     int escolha;
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -765,22 +802,55 @@ void telaDetalharDepartamento(void){
     scanf("%d", &escolha);
     getchar();
 
-    if (escolha == 1){
+    switch (escolha)
+    {
+    case 1:
+        system("clear||cls");
+        telaEditarDepartamento();
+        break;
+
+    case 2:
+        system("clear||cls");
+        printf("\n///           = = = = = AINDA NAO E POSSIVEL EXCLUIR = = = = =            ///\n");
+        telaDetalharDepartamento();
+        break;
+        
+    case 3:
+         telaVerProdutosDepartamento();
+        break;
+
+    case 0:
+        system("clear||cls");
+        telaPrincipal();
+        break;
+        
+    default:
+        system("clear||cls");
+        printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
+        telaDetalharDepartamento();
+    }
+
+    /*if (escolha == 1){
+        system("clear||cls");
         telaEditarDepartamento();
 
     }else if (escolha == 2) {
+        system("clear||cls");
         printf("\n///           = = = = = AINDA NAO E POSSIVEL EXCLUIR = = = = =            ///\n");
         telaDetalharDepartamento();
 
     }else if(escolha == 3){
         telaVerProdutosDepartamento();
     
-    }else if (escolha == 0){
+    }else if (escolha == 0){ 
+        system("clear||cls");
         telaPrincipal();
 
     }else{
+        system("clear||cls");
+        printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
         telaDetalharDepartamento();
-    }
+    }*/
 }
 
 void telaVerProdutosDepartamento(void) {  
@@ -815,6 +885,7 @@ void telaVerProdutosDepartamento(void) {
     sair = getchar();
 
     if (sair == 's'){
+        system("clear||cls");
         telaPrincipal();
     }else{
         telaVerProdutosDepartamento();
@@ -822,7 +893,7 @@ void telaVerProdutosDepartamento(void) {
 }
 
 void telaEditarDepartamento(void) {  
-    system("clear||cls");
+    //system("clear||cls");
 
     char editar;
     int escolha_editar;
@@ -874,15 +945,23 @@ void telaEditarDepartamento(void) {
     scanf("%d", &escolha);
     getchar();
 
-    if (escolha == 1) {
-        printf("\n///           = = = = = AINDA NAO E POSSIVEL EXCLUIR = = = = =            ///\n");
-        telaEditarDepartamento();
-
-    }else if (escolha == 0){
-        telaPrincipal();
-
-    }else{
-        telaEditarDepartamento();
+    switch (escolha){
+        case 1:
+            system("clear||cls");
+            printf("\n///           = = = = = AINDA NAO E POSSIVEL EXCLUIR = = = = =            ///\n");
+            telaEditarDepartamento();
+            break;
+            
+        case 0:
+            system("clear||cls");
+            telaPrincipal();
+            break;
+        
+        default:
+            system("clear||cls");
+            printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
+            telaEditarDepartamento();
+            break;
     }
 }
 
@@ -940,6 +1019,7 @@ void telaCadastrarFornecedor(void) {
     sair = getchar();
 
     if (sair == 's'){
+        system("clear||cls");
         telaPrincipal();
     }else{
         getchar();
@@ -949,7 +1029,7 @@ void telaCadastrarFornecedor(void) {
 }
 
 void telaEditarFornecedor(void) {  
-    system("clear||cls");
+    //system("clear||cls");
     char editar;
     int escolha_editar;
     int escolha;
@@ -1001,16 +1081,38 @@ void telaEditarFornecedor(void) {
     scanf("%d", &escolha);
     getchar();
 
-    if (escolha == 1) {
+    switch (escolha){
+    case 1:
+        system("clear||cls");
         printf("\n///           = = = = = AINDA NAO E POSSIVEL EXCLUIR = = = = =            ///\n");
         telaEditarFornecedor();
-
-    }else if (escolha == 0){
+        break;
+    
+    case 0:
+        system("clear||cls");
         telaPrincipal();
-
-    }else{
+        break;
+        
+    default:
+        system("clear||cls");
+        printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
         telaEditarFornecedor();
     }
+
+    //if (escolha == 1) {
+        //system("clear||cls");
+        //printf("\n///           = = = = = AINDA NAO E POSSIVEL EXCLUIR = = = = =            ///\n");
+        //telaEditarFornecedor();
+
+    //}else if (escolha == 0){
+        //system("clear||cls");
+        //telaPrincipal();
+
+    //}else{
+        //system("clear||cls");
+        //printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
+        //telaEditarFornecedor();
+    //}
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
