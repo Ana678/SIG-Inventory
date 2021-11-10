@@ -75,6 +75,7 @@ int main(void) {
 void telaSobre(void) {
     system("clear||cls");
     char sair;
+    
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -146,40 +147,49 @@ void telaPrincipal(void) {
     printf("\n               # Deseja executar qual acao? ");
     scanf("%d", &escolha);
     getchar();
-
-    if (escolha == 1){
-        telaProdutos();
-
-    }else if (escolha == 2){
-        telaDepartamentos();
-
-    }else if (escolha == 3){
-        telaRelatorios();
-
-    }else if (escolha == 4){
-        telaCadastros();
-
-    }else if (escolha == 5){
-        telaFluxoProdutos();
-
-    }else if (escolha == 6){
-        telaListarFornecedores();
     
-    }else if (escolha == 7){
-        telaSobre();
+    switch(escolha){
+        case 1:
+            telaProdutos();
+            break;
+       
+        case 2:
+            telaDepartamentos();
+            break;        
 
-    }else if (escolha == 8){
+        case 3:
+            telaRelatorios();
+            break;
+
+        case 4:
+            telaCadastros();
+            break;
+            
+        case 5:
+            telaFluxoProdutos();
+            break;
+
+        case 6:
+            telaListarFornecedores();
+            break;
+
+        case 7:
+            telaSobre();
+            break;
+
+        case 8:
+            telaEquipe();
+            break;
         
-        telaEquipe();
-
-    }else if (escolha == 0){
-        system("clear||cls");
-
-    }else{
-        printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
-        telaPrincipal();
+        case 0:
+            break;
         
+        default:
+            printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
+            telaPrincipal();
+            
     }
+
 }
 
 
@@ -416,6 +426,7 @@ void telaCadastros(void) {
     }else{
         telaCadastros();
     }
+
 }
 
 void telaFluxoProdutos(void) {  
