@@ -36,32 +36,6 @@ void telaVerProdutosDepartamento(void);
 void telaCadastrarFornecedor(void);
 void telaEditarFornecedor(void);
 
-
-
-/////
-// Programa principal
-//    telaSobre();
-//    telaPrincipal();
-//    telaEquipe();
-
-//    telaRelatorios();
-//    telaCadastros();
-//    telaProdutos();
-//    telaDepartamentos();
-//    telaFluxoProdutos();
-//    telaListarFornecedores();
-
-//    telaCadastrarProduto();
-//    telaEditarProduto();
-    
-//    telaCadastrarDepartamento();
-//    telaDetalharDepartamento();
-//    telaVerProdutosDepartamento();
-//    telaEditarDepartamento();
-    
-//    telaCadastrarFornecedor();
-//    telaEditarFornecedor();
-    
 int main(void) {
     system("clear||cls");
     telaPrincipal();
@@ -117,7 +91,6 @@ void telaSobre(void) {
 
 
 void telaPrincipal(void) {
-    //system("clear||cls");
     int escolha;
 
     printf("\n");
@@ -244,7 +217,6 @@ void telaEquipe(void) {
 }
 
 void telaProdutos(void) {  
-    //system("clear||cls");
     int escolha;
     int codigo;
 
@@ -313,7 +285,6 @@ void telaProdutos(void) {
 
 
 void telaDepartamentos(void) {
-    //system("clear||cls");
     int escolha;
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -402,7 +373,6 @@ void telaRelatorios(void) {
 }
 
 void telaCadastros(void) {  
-    //system("clear||cls");
     int escolha;
 
     printf("\n");
@@ -507,7 +477,6 @@ void telaFluxoProdutos(void) {
 }
 
 void telaListarFornecedores(void) {  
-    //system("clear||cls");
     int escolha;
     
     printf("\n");
@@ -764,7 +733,6 @@ void telaCadastrarDepartamento(void) {
 }
 
 void telaDetalharDepartamento(void){  
-    //system("clear||cls");
     int escolha;
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -829,28 +797,6 @@ void telaDetalharDepartamento(void){
         printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
         telaDetalharDepartamento();
     }
-
-    /*if (escolha == 1){
-        system("clear||cls");
-        telaEditarDepartamento();
-
-    }else if (escolha == 2) {
-        system("clear||cls");
-        printf("\n///           = = = = = AINDA NAO E POSSIVEL EXCLUIR = = = = =            ///\n");
-        telaDetalharDepartamento();
-
-    }else if(escolha == 3){
-        telaVerProdutosDepartamento();
-    
-    }else if (escolha == 0){ 
-        system("clear||cls");
-        telaPrincipal();
-
-    }else{
-        system("clear||cls");
-        printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
-        telaDetalharDepartamento();
-    }*/
 }
 
 void telaVerProdutosDepartamento(void) {  
@@ -893,8 +839,6 @@ void telaVerProdutosDepartamento(void) {
 }
 
 void telaEditarDepartamento(void) {  
-    //system("clear||cls");
-
     char editar;
     int escolha_editar;
     int escolha;
@@ -1029,7 +973,6 @@ void telaCadastrarFornecedor(void) {
 }
 
 void telaEditarFornecedor(void) {  
-    //system("clear||cls");
     char editar;
     int escolha_editar;
     int escolha;
