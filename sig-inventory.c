@@ -390,7 +390,7 @@ void telaRelatorios(void) {
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Aperte s para sair ... ");
-    // aq tbm
+    
     sair = getchar();
     
     if (sair == 's'){
@@ -625,7 +625,7 @@ void telaCadastrarProduto(void) {
     printf("\n               # Aperte s para sair ... ");
     sair = getchar();
 
-    //aq tbm
+    
     if (sair == 's'){
         system("clear||cls");
         telaPrincipal();
@@ -753,7 +753,7 @@ void telaCadastrarDepartamento(void) {
     printf("\n               # Aperte s para sair ... ");
     sair = getchar();
 
-    //aq tbm
+    
     if (sair == 's'){
         system("clear||cls");
         telaPrincipal();
@@ -1098,21 +1098,7 @@ void telaEditarFornecedor(void) {
         printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
         telaEditarFornecedor();
     }
-
-    //if (escolha == 1) {
-        //system("clear||cls");
-        //printf("\n///           = = = = = AINDA NAO E POSSIVEL EXCLUIR = = = = =            ///\n");
-        //telaEditarFornecedor();
-
-    //}else if (escolha == 0){
-        //system("clear||cls");
-        //telaPrincipal();
-
-    //}else{
-        //system("clear||cls");
-        //printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
-        //telaEditarFornecedor();
-    //}
+    
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
