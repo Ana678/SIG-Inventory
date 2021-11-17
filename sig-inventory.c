@@ -35,32 +35,6 @@ void telaVerProdutosDepartamento(void);
 
 void telaCadastrarFornecedor(void);
 void telaEditarFornecedor(void);
-
-
-
-/////
-// Programa principal
-//    telaSobre();
-//    telaPrincipal();
-//    telaEquipe();
-
-//    telaRelatorios();
-//    telaCadastros();
-//    telaProdutos();
-//    telaDepartamentos();
-//    telaFluxoProdutos();
-//    telaListarFornecedores();
-
-//    telaCadastrarProduto();
-//    telaEditarProduto();
-    
-//    telaCadastrarDepartamento();
-//    telaDetalharDepartamento();
-//    telaVerProdutosDepartamento();
-//    telaEditarDepartamento();
-    
-//    telaCadastrarFornecedor();
-//    telaEditarFornecedor();
     
 int main(void) {
     system("clear||cls");
@@ -103,10 +77,10 @@ void telaSobre(void) {
     printf("/// envolvidos.                                                             ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n               # Aperte s para sair ... ");
+    printf("\n               # Aperte v para voltar ... ");
     sair = getchar();
 
-    if (sair == 's'){
+    if (sair == 'v'){
         system("clear||cls");
         telaPrincipal();
     }else{
@@ -117,7 +91,6 @@ void telaSobre(void) {
 
 
 void telaPrincipal(void) {
-    //system("clear||cls");
     int escolha;
 
     printf("\n");
@@ -230,11 +203,11 @@ void telaEquipe(void) {
     printf("///            Repositorio: https://github.com/Ana678/SIG-Inventory.git     ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n               # Aperte s para sair ... ");
+    printf("\n               # Aperte v para voltar ... ");
     
     sair = getchar();
 
-    if (sair == 's'){
+    if (sair == 'v'){
         system("clear||cls");
         telaPrincipal();
     }else{
@@ -281,6 +254,7 @@ void telaProdutos(void) {
     printf("///                                                                         ///\n");
     printf("///            1. Alterar Dados de Produto                                  ///\n");
     printf("///            2. Excluir Produto                                           ///\n");
+    printf("///            3. Voltar para Tela de Cadastros                             ///\n");
     printf("///            0. Sair                                                      ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -298,6 +272,10 @@ void telaProdutos(void) {
         system("clear||cls");
         printf("\n///           = = = = = AINDA NAO E POSSIVEL EXCLUIR = = = = =            ///\n");
         telaProdutos();
+        break;
+    case 3:
+        system("clear||cls");
+        telaCadastros();
         break;
     case 0:
         system("clear||cls");
@@ -389,11 +367,11 @@ void telaRelatorios(void) {
     printf("///            | 1343490657878     |     20     | Excesso  |                ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n               # Aperte s para sair ... ");
+    printf("\n               # Aperte v para voltar ... ");
     
     sair = getchar();
     
-    if (sair == 's'){
+    if (sair == 'v'){
         system("clear||cls");
         telaPrincipal();
     }else{
@@ -830,27 +808,6 @@ void telaDetalharDepartamento(void){
         telaDetalharDepartamento();
     }
 
-    /*if (escolha == 1){
-        system("clear||cls");
-        telaEditarDepartamento();
-
-    }else if (escolha == 2) {
-        system("clear||cls");
-        printf("\n///           = = = = = AINDA NAO E POSSIVEL EXCLUIR = = = = =            ///\n");
-        telaDetalharDepartamento();
-
-    }else if(escolha == 3){
-        telaVerProdutosDepartamento();
-    
-    }else if (escolha == 0){ 
-        system("clear||cls");
-        telaPrincipal();
-
-    }else{
-        system("clear||cls");
-        printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
-        telaDetalharDepartamento();
-    }*/
 }
 
 void telaVerProdutosDepartamento(void) {  
@@ -1098,7 +1055,7 @@ void telaEditarFornecedor(void) {
         printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
         telaEditarFornecedor();
     }
-    
+     
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
