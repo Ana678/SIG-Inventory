@@ -35,7 +35,7 @@ void telaVerProdutosDepartamento(void);
 
 void telaCadastrarFornecedor(void);
 void telaEditarFornecedor(void);
-
+    
 int main(void) {
     system("clear||cls");
     telaPrincipal();
@@ -77,10 +77,10 @@ void telaSobre(void) {
     printf("/// envolvidos.                                                             ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n               # Aperte s para sair ... ");
+    printf("\n               # Aperte v para voltar ... ");
     sair = getchar();
 
-    if (sair == 's'){
+    if (sair == 'v'){
         system("clear||cls");
         telaPrincipal();
     }else{
@@ -203,11 +203,11 @@ void telaEquipe(void) {
     printf("///            Repositorio: https://github.com/Ana678/SIG-Inventory.git     ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n               # Aperte s para sair ... ");
+    printf("\n               # Aperte v para voltar ... ");
     
     sair = getchar();
 
-    if (sair == 's'){
+    if (sair == 'v'){
         system("clear||cls");
         telaPrincipal();
     }else{
@@ -253,6 +253,7 @@ void telaProdutos(void) {
     printf("///                                                                         ///\n");
     printf("///            1. Alterar Dados de Produto                                  ///\n");
     printf("///            2. Excluir Produto                                           ///\n");
+    printf("///            3. Voltar para Tela de Cadastros                             ///\n");
     printf("///            0. Sair                                                      ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -270,6 +271,10 @@ void telaProdutos(void) {
         system("clear||cls");
         printf("\n///           = = = = = AINDA NAO E POSSIVEL EXCLUIR = = = = =            ///\n");
         telaProdutos();
+        break;
+    case 3:
+        system("clear||cls");
+        telaCadastros();
         break;
     case 0:
         system("clear||cls");
@@ -360,11 +365,11 @@ void telaRelatorios(void) {
     printf("///            | 1343490657878     |     20     | Excesso  |                ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n               # Aperte s para sair ... ");
+    printf("\n               # Aperte v para voltar ... ");
     
     sair = getchar();
     
-    if (sair == 's'){
+    if (sair == 'v'){
         system("clear||cls");
         telaPrincipal();
     }else{
@@ -593,7 +598,6 @@ void telaCadastrarProduto(void) {
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Aperte s para sair ... ");
     sair = getchar();
-
     
     if (sair == 's'){
         system("clear||cls");
@@ -784,7 +788,7 @@ void telaDetalharDepartamento(void){
         break;
         
     case 3:
-         telaVerProdutosDepartamento();
+        telaVerProdutosDepartamento();
         break;
 
     case 0:
@@ -827,10 +831,10 @@ void telaVerProdutosDepartamento(void) {
     printf("///            | 1343494863725     |   Camisas   |     20     |             ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n               # Aperte s para sair ... ");
+    printf("\n               # Aperte v para voltar ... ");
     sair = getchar();
 
-    if (sair == 's'){
+    if (sair == 'v'){
         system("clear||cls");
         telaPrincipal();
     }else{
@@ -882,6 +886,7 @@ void telaEditarDepartamento(void) {
     printf("///            -> Acoes                                                     ///\n");
     printf("///                                                                         ///\n");
     printf("///            1. Excluir Departamento                                      ///\n");
+    printf("///            2. Voltar aos Detalhes do Departamento                       ///\n");
     printf("///            0. Sair                                                      ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -895,7 +900,12 @@ void telaEditarDepartamento(void) {
             printf("\n///           = = = = = AINDA NAO E POSSIVEL EXCLUIR = = = = =            ///\n");
             telaEditarDepartamento();
             break;
-            
+
+        case 2:
+            system("clear||cls");
+            telaDetalharDepartamento();
+            break;
+
         case 0:
             system("clear||cls");
             telaPrincipal();
@@ -1017,6 +1027,7 @@ void telaEditarFornecedor(void) {
     printf("///            -> Acoes                                                     ///\n");
     printf("///                                                                         ///\n");
     printf("///            1. Excluir Fornecedor                                        ///\n");
+    printf("///            2. Voltar a Listar Fornecedores                              ///\n");
     printf("///            0. Sair                                                      ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -1030,7 +1041,12 @@ void telaEditarFornecedor(void) {
         printf("\n///           = = = = = AINDA NAO E POSSIVEL EXCLUIR = = = = =            ///\n");
         telaEditarFornecedor();
         break;
-    
+
+    case 2:
+        system("clear||cls");
+        telaListarFornecedores();
+        break;
+
     case 0:
         system("clear||cls");
         telaPrincipal();
@@ -1041,7 +1057,7 @@ void telaEditarFornecedor(void) {
         printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
         telaEditarFornecedor();
     }
-    
+     
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
