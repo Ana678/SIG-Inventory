@@ -22,6 +22,7 @@ void telaRelatorios(void);
 void telaCadastros(void);
 void telaFluxoProdutos(void);
 void telaListarFornecedores(void);
+void telaListagens(void);
 
 void telaProdutos(void);
 void telaCadastrarProduto(void);
@@ -107,14 +108,12 @@ void telaPrincipal(void) {
     printf("///                                                                         ///\n");
     printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
     printf("///                                                                         ///\n");
-    printf("///            1. Listar Produto                                            ///\n");
-    printf("///            2. Listar Departamentos                                      ///\n");
-    printf("///            3. Obter um Relatorio                                        ///\n");
-    printf("///            4. Fazer um Cadastro                                         ///\n");
-    printf("///            5. Cadastrar Fluxo de Produtos                               ///\n");
-    printf("///            6. Listar Fornecedores                                       ///\n");
-    printf("///            7. Ler Sobre o Projeto                                       ///\n");
-    printf("///            8. Ver Participantes do Projeto                              ///\n");
+    printf("///            1. Obter um Relatorio                                        ///\n");
+    printf("///            2. Fazer um Cadastro                                         ///\n");
+    printf("///            3. Fazer uma Listagem                                        ///\n");
+    printf("///            4. Cadastrar Fluxo de Produtos                               ///\n");
+    printf("///            5. Ler Sobre o Projeto                                       ///\n");
+    printf("///            6. Ver Participantes do Projeto                              ///\n");
     printf("///            0. Sair                                                      ///\n");
     printf("///                                                                         ///\n");                                                                       ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -124,38 +123,28 @@ void telaPrincipal(void) {
     
     switch(escolha){
         case 1:
-            system("clear||cls");
-            telaProdutos();
-            break;
-       
-        case 2:
-            system("clear||cls");
-            telaDepartamentos();
-            break;        
-
-        case 3:
             telaRelatorios();
             break;
 
-        case 4:
+        case 2:
             system("clear||cls");
             telaCadastros();
             break;
             
-        case 5:
+        case 3:
+            system("clear||cls");
+            telaListagens();
+            break;
+            
+        case 4:
             telaFluxoProdutos();
             break;
 
-        case 6:
-            system("clear||cls");
-            telaListarFornecedores();
-            break;
-
-        case 7:
+        case 5:
             telaSobre();
             break;
 
-        case 8:
+        case 6:
             telaEquipe();
             break;
         
@@ -427,6 +416,37 @@ void telaCadastros(void) {
             printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
             telaCadastros();
     }
+
+}
+
+void telaListagens(void) {  
+    int escolha;
+
+    printf("\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
+    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
+    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
+    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                              - Listagens -                              ///\n");
+    printf("///                                                                         ///\n");  
+    printf("///            1. Listar Produtos                                           ///\n");
+    printf("///            2. Listar Departamentos                                      ///\n");
+    printf("///            3. Listar  Fornecedores                                      ///\n");
+    printf("///            0. Sair                                                      ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n               # Deseja executar qual acao? ");
+    scanf("%d", &escolha);
+    getchar();
 
 }
 
