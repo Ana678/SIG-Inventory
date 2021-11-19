@@ -448,6 +448,32 @@ void telaListagens(void) {
     scanf("%d", &escolha);
     getchar();
 
+    switch (escolha){
+    case 1:
+        system("clear||cls");
+        telaProdutos();
+        break;
+
+    case 2:
+        system("clear||cls");
+        telaDepartamentos();
+        break;
+        
+    case 3:
+        telaListarFornecedores();
+        break;
+
+    case 0:
+        system("clear||cls");
+        telaPrincipal();
+        break;
+        
+    default:
+        system("clear||cls");
+        printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
+        telaListagens();
+    }
+
 }
 
 void telaFluxoProdutos(void) {  
