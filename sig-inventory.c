@@ -78,7 +78,7 @@ void telaSobre(void) {
     printf("/// envolvidos.                                                             ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n               # Aperte v para voltar ... ");
+    printf("\n               # Aperte v para voltar para tela principal ... ");
     sair = getchar();
 
     if (sair == 'v'){
@@ -192,7 +192,7 @@ void telaEquipe(void) {
     printf("///            Repositorio: https://github.com/Ana678/SIG-Inventory.git     ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n               # Aperte v para voltar ... ");
+    printf("\n               # Aperte v para voltar para tela principal ... ");
     
     sair = getchar();
 
@@ -243,7 +243,7 @@ void telaProdutos(void) {
     printf("///            1. Alterar Dados de Produto                                  ///\n");
     printf("///            2. Excluir Produto                                           ///\n");
     printf("///            3. Voltar para Tela de Cadastros                             ///\n");
-    printf("///            0. Sair                                                      ///\n");
+    printf("///            0. Voltar para Tela Principal                                ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Deseja executar qual acao? ");
@@ -304,7 +304,7 @@ void telaDepartamentos(void) {
     printf("///            6. Enlatados                                                 ///\n");  
     printf("///            7. Bebidas                                                   ///\n");
     printf("///            8. Vestuario                                                 ///\n"); 
-    printf("///            0. Sair                                                      ///\n");    
+    printf("///            0. Voltar para Tela Principal                                ///\n");    
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Digite o numero do departamento para detalha-lo: ");
@@ -354,7 +354,7 @@ void telaRelatorios(void) {
     printf("///            | 1343490657878     |     20     | Excesso  |                ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n               # Aperte v para voltar ... ");
+    printf("\n               # Aperte v para voltar para tela principal ... ");
     
     sair = getchar();
     
@@ -388,7 +388,7 @@ void telaCadastros(void) {
     printf("///            1. Cadastrar Novo Produto                                    ///\n");
     printf("///            2. Cadastrar Novo Departamento                               ///\n");
     printf("///            3. Cadastrar Novo Fornecedor                                 ///\n");
-    printf("///            0. Sair                                                      ///\n");
+    printf("///            0. Voltar para Tela Principal                                ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Deseja executar qual acao? ");
@@ -441,7 +441,7 @@ void telaListagens(void) {
     printf("///            1. Listar Produtos                                           ///\n");
     printf("///            2. Listar Departamentos                                      ///\n");
     printf("///            3. Listar  Fornecedores                                      ///\n");
-    printf("///            0. Sair                                                      ///\n");
+    printf("///            0. Voltar para Tela Principal                                ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Deseja executar qual acao? ");
@@ -516,7 +516,7 @@ void telaFluxoProdutos(void) {
 
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n               # Aperte s para sair ... ");
+    printf("\n               # Aperte s para sair dessa tela ... ");
     sair = getchar();
 
     if (sair == 's'){
@@ -642,7 +642,7 @@ void telaCadastrarProduto(void) {
 
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n               # Aperte s para sair ... ");
+    printf("\n               # Aperte s para sair dessa tela ... ");
     sair = getchar();
     
     if (sair == 's'){
