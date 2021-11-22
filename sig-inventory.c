@@ -703,7 +703,7 @@ void telaEditarProduto(void) {
     printf("///            -> Acoes                                                     ///\n");
     printf("///                                                                         ///\n");
     printf("///            1. Excluir Produto                                           ///\n");
-    printf("///            0. voltar par tela principal                                 ///\n");
+    printf("///            0. Voltar par tela principal                                 ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Por fim, deseja executar qual acao (1/0)?  ");
@@ -813,7 +813,7 @@ void telaDetalharDepartamento(void){
     printf("///            1. Alterar Dados do Departamento                             ///\n");
     printf("///            2. Excluir Departamento                                      ///\n");
     printf("///            3. Ver Produtos Departamento                                 ///\n");
-    printf("///            0. voltar para  tela principal                               ///\n");
+    printf("///            0. Voltar para  tela principal                               ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Deseja executar qual acao?   ");
@@ -933,7 +933,7 @@ void telaEditarDepartamento(void) {
     printf("///                                                                         ///\n");
     printf("///            1. Excluir Departamento                                      ///\n");
     printf("///            2. Voltar aos Detalhes do Departamento                       ///\n");
-    printf("///            0. voltar para tela principal                                ///\n");
+    printf("///            0. Voltar para tela principal                                ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Por fim, deseja executar qual acao (1/0)?  ");
@@ -1074,7 +1074,7 @@ void telaEditarFornecedor(void) {
     printf("///                                                                         ///\n");
     printf("///            1. Excluir Fornecedor                                        ///\n");
     printf("///            2. Voltar a Listar Fornecedores                              ///\n");
-    printf("///            0. voltar para tela principal                                ///\n");
+    printf("///            0. Voltar para tela principal                                ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Por fim, deseja executar qual acao (1/0)?  ");
