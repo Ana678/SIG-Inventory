@@ -34,6 +34,7 @@ void telaCadastrarDepartamento(void);
 void telaDetalharDepartamento(void);
 void telaEditarDepartamento(void);
 void telaVerProdutosDepartamento(void);
+void telaListarDepartamento(void);
 
 void telaCadastrarFornecedor(void);
 void telaEditarFornecedor(void);
@@ -110,10 +111,11 @@ void telaPrincipal(void) {
     printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
     printf("///                                                                         ///\n");
     printf("///            1. Modulo Produtos                                           ///\n");
-    printf("///            2. Fazer uma Listagem                                        ///\n");
-    printf("///            3. Cadastrar Fluxo de Produtos                               ///\n");
-    printf("///            4. Ler Sobre o Projeto                                       ///\n");
-    printf("///            5. Ver Participantes do Projeto                              ///\n");
+    printf("///            2. Modulo Departamentos                                        ///\n");
+    printf("///            3. Fazer uma Listagem                                        ///\n");
+    printf("///            4. Cadastrar Fluxo de Produtos                               ///\n");
+    printf("///            5. Ler Sobre o Projeto                                       ///\n");
+    printf("///            6. Ver Participantes do Projeto                              ///\n");
     printf("///            0. Sair                                                      ///\n");
     printf("///                                                                         ///\n");                                                                       ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -129,21 +131,26 @@ void telaPrincipal(void) {
 
         case 2:
             system("clear||cls");
-            telaListagens();
+            telaDepartamentos();
             break;
             
         case 3:
-            telaFluxoProdutos();
+            telaListagens();
             break;
 
         case 4:
+            telaFluxoProdutos();
             telaSobre();
             break;
 
         case 5:
+            telaSobre();
+            break;
+    
+        case 6:
             telaEquipe();
             break;
-        
+
         case 0:
             break;
         
@@ -325,7 +332,7 @@ void telaPesquisarProdutos(void) {
 
 void telaDepartamentos(void) {
     int escolha;
-    printf("\n");
+    /*printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
     printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
@@ -354,9 +361,60 @@ void telaDepartamentos(void) {
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Digite o numero do departamento para detalha-lo: ");
     scanf("%d", &escolha);
-    getchar();
+    getchar();*/
 
-    if (escolha == 1 || escolha == 2 || escolha == 3 || escolha == 4 || escolha == 5 || escolha == 6 || escolha == 7 || escolha == 8) {
+
+
+
+    
+
+    printf("\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
+    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
+    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
+    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                           - Modulo Produtos -                           ///\n");
+    printf("///                                                                         ///\n");  
+    printf("///            1. Cadastrar Novo departamento                               ///\n");
+    printf("///            2. lista de  departamentos                                   ///\n");
+    printf("///            0. Voltar para Tela Principal                                ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n               # Deseja executar qual acao? ");
+    scanf("%d", &escolha);
+    getchar();
+    
+    switch (escolha){
+        case 1:
+            system("clear||cls");
+            telaCadastrarDepartamento();
+            break;
+        case 2:
+            system("clear||cls");
+            telaListarDepartamento();
+            break;
+        case 0:
+            system("clear||cls");
+            telaPrincipal();
+            break;
+
+        default:
+            system("clear||cls");
+            printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
+            telaProdutos();
+    }
+
+
+    /*if (escolha == 1 || escolha == 2 || escolha == 3 || escolha == 4 || escolha == 5 || escolha == 6 || escolha == 7 || escolha == 8) {
         system("clear||cls");
         telaDetalharDepartamento();
 
@@ -368,7 +426,7 @@ void telaDepartamentos(void) {
         system("clear||cls");
         printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
         telaDepartamentos();    
-    }
+    }*/
 }
 
 
@@ -501,7 +559,7 @@ void telaListagens(void) {
 
     case 2:
         system("clear||cls");
-        telaDepartamentos();
+        telaListarDepartamento();
         break;
         
     case 3:
@@ -814,13 +872,13 @@ void telaCadastrarDepartamento(void) {
 
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n               # Aperte s para sair  dessa tela ... ");
+    printf("\n               # Aperte v para voltar  para a tela departamentos ... ");
     sair = getchar();
 
     
-    if (sair == 's'){
+    if (sair == 'v'){
         system("clear||cls");
-        telaPrincipal();
+        telaDepartamentos();
     }else{
         getchar();
         telaCadastrarDepartamento();
@@ -1009,6 +1067,55 @@ void telaEditarDepartamento(void) {
             break;
     }
 }
+
+void telaListarDepartamento(void) {
+    int escolha;
+    printf("\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
+    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
+    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
+    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                       - Lista de Departamentos -                        ///\n");
+    printf("///                                                                         ///\n");    
+    printf("///            1. Frios e Laticineos                                        ///\n");
+    printf("///            2. Produtos de Limpeza                                       ///\n");
+    printf("///            3. Produtos Higienicos                                       ///\n");
+    printf("///            4. Padaria e Confeitaria                                     ///\n");
+    printf("///            5. Condimentos                                               ///\n");    
+    printf("///            6. Enlatados                                                 ///\n");  
+    printf("///            7. Bebidas                                                   ///\n");
+    printf("///            8. Vestuario                                                 ///\n"); 
+    printf("///            0. Voltar para Tela Principal                                ///\n");    
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n               # Digite o numero do departamento para detalha-lo: ");
+    scanf("%d", &escolha);
+    getchar();
+
+    if (escolha == 1 || escolha == 2 || escolha == 3 || escolha == 4 || escolha == 5 || escolha == 6 || escolha == 7 || escolha == 8) {
+        system("clear||cls");
+        telaDetalharDepartamento();
+
+    }else if (escolha == 0){
+        system("clear||cls");
+        telaPrincipal();
+
+    }else{
+        system("clear||cls");
+        printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
+        telaListarDepartamento();
+    }
+}
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////         FORNECEDORES         //////////////////////////////////
