@@ -25,6 +25,7 @@ void telaListarFornecedores(void);
 void telaListagens(void);
 
 void telaProdutos(void);
+void telaPesquisarProdutos(void);
 void telaCadastrarProduto(void);
 void telaEditarProduto(void);
 
@@ -108,12 +109,11 @@ void telaPrincipal(void) {
     printf("///                                                                         ///\n");
     printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
     printf("///                                                                         ///\n");
-    printf("///            1. Obter um Relatorio                                        ///\n");
-    printf("///            2. Fazer um Cadastro                                         ///\n");
-    printf("///            3. Fazer uma Listagem                                        ///\n");
-    printf("///            4. Cadastrar Fluxo de Produtos                               ///\n");
-    printf("///            5. Ler Sobre o Projeto                                       ///\n");
-    printf("///            6. Ver Participantes do Projeto                              ///\n");
+    printf("///            1. Modulo Produtos                                           ///\n");
+    printf("///            2. Fazer uma Listagem                                        ///\n");
+    printf("///            3. Cadastrar Fluxo de Produtos                               ///\n");
+    printf("///            4. Ler Sobre o Projeto                                       ///\n");
+    printf("///            5. Ver Participantes do Projeto                              ///\n");
     printf("///            0. Sair                                                      ///\n");
     printf("///                                                                         ///\n");                                                                       ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -123,28 +123,24 @@ void telaPrincipal(void) {
     
     switch(escolha){
         case 1:
-            telaRelatorios();
+            system("clear||cls");
+            telaProdutos();
             break;
 
         case 2:
             system("clear||cls");
-            telaCadastros();
-            break;
-            
-        case 3:
-            system("clear||cls");
             telaListagens();
             break;
             
-        case 4:
+        case 3:
             telaFluxoProdutos();
             break;
 
-        case 5:
+        case 4:
             telaSobre();
             break;
 
-        case 6:
+        case 5:
             telaEquipe();
             break;
         
@@ -207,6 +203,60 @@ void telaEquipe(void) {
 
 void telaProdutos(void) {  
     int escolha;
+
+    printf("\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
+    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
+    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
+    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                           - Modulo Produtos -                           ///\n");
+    printf("///                                                                         ///\n");  
+    printf("///            1. Cadastrar Novo Produto                                    ///\n");
+    printf("///            2. Pesquisar Produto                                         ///\n");
+    printf("///            3. Obter um Relatorio                                        ///\n");
+    printf("///            0. Voltar para Tela Principal                                ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n               # Deseja executar qual acao? ");
+    scanf("%d", &escolha);
+    getchar();
+    
+    switch (escolha){
+        case 1:
+            system("clear||cls");
+            telaCadastrarProduto();
+            break;
+        case 2:
+            system("clear||cls");
+            telaPesquisarProdutos();
+            break;
+        case 3:
+            telaRelatorios();
+            break;
+        case 0:
+            system("clear||cls");
+            telaPrincipal();
+            break;
+
+        default:
+            system("clear||cls");
+            printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
+            telaProdutos();
+    }
+
+}
+
+void telaPesquisarProdutos(void) {  
+    int escolha;
     int codigo;
 
     printf("\n");
@@ -242,8 +292,7 @@ void telaProdutos(void) {
     printf("///                                                                         ///\n");
     printf("///            1. Alterar Dados de Produto                                  ///\n");
     printf("///            2. Excluir Produto                                           ///\n");
-    printf("///            3. Voltar para Tela de Cadastros                             ///\n");
-    printf("///            0. Voltar para Tela Principal                                ///\n");
+    printf("///            0. Voltar para Tela Produtos                                 ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Deseja executar qual acao? ");
@@ -259,20 +308,16 @@ void telaProdutos(void) {
     case 2:
         system("clear||cls");
         printf("\n///           = = = = = AINDA NAO E POSSIVEL EXCLUIR = = = = =            ///\n");
-        telaProdutos();
-        break;
-    case 3:
-        system("clear||cls");
-        telaCadastros();
+        telaPesquisarProdutos();
         break;
     case 0:
         system("clear||cls");
-        telaPrincipal();
+        telaProdutos();
         break;
     default:
         system("clear||cls");
         printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
-        telaProdutos();
+        telaPesquisarProdutos();
     }
 
 }
@@ -354,13 +399,13 @@ void telaRelatorios(void) {
     printf("///            | 1343490657878     |     20     | Excesso  |                ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n               # Aperte v para voltar para tela principal ... ");
+    printf("\n               # Aperte v para voltar para tela produtos ... ");
     
     sair = getchar();
     
     if (sair == 'v'){
         system("clear||cls");
-        telaPrincipal();
+        telaProdutos();
     }else{
         telaRelatorios();
     }
@@ -647,7 +692,7 @@ void telaCadastrarProduto(void) {
     
     if (sair == 's'){
         system("clear||cls");
-        telaPrincipal();
+        telaProdutos();
     }else{
         getchar();
         telaCadastrarProduto();
@@ -703,7 +748,7 @@ void telaEditarProduto(void) {
     printf("///            -> Acoes                                                     ///\n");
     printf("///                                                                         ///\n");
     printf("///            1. Excluir Produto                                           ///\n");
-    printf("///            0. Voltar par tela principal                                 ///\n");
+    printf("///            0. Voltar para Tela Produtos                                 ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Por fim, deseja executar qual acao (1/0)?  ");
@@ -717,7 +762,7 @@ void telaEditarProduto(void) {
 
     }else if (escolha == 0){
         system("clear||cls");
-        telaPrincipal();
+        telaProdutos();
 
     }else{
         system("clear||cls");
