@@ -16,4 +16,4 @@ void telaFornecedores(void);
 void telaListarFornecedores(void);
 void telaCadastrarFornecedor(void);
 void telaEditarFornecedor(void);
-void telaPrincipal(void);
+//void telaPrincipal(void);

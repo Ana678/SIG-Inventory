@@ -13,6 +13,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "fornecedores.h"
+#include "main.h"
+
 /////
 // Funcoes Relacionadas ao Modulo Fornecedores
 

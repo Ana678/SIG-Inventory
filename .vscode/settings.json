@@ -2,6 +2,11 @@
     "C_Cpp.errorSquiggles": "Enabled",
     "files.associations": {
         "produtos.h": "c",
-        "sig-inventory.h": "c"
+        "sig-inventory.h": "c",
+        "main.h": "c",
+        "fornecedores.h": "c",
+        "stdio.h": "c",
+        "stdlib.h": "c",
+        "departamentos.h": "c"
     }
 }

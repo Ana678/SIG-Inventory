@@ -12,10 +12,9 @@
 /////
 // Assinatura das funções
 
-void telaFluxoProdutos(void);
-void telaProdutos(void);
-void telaRelatoriosProdutos(void);
-void telaCadastrarProduto(void);
-void telaPesquisarProdutos(void);
-void telaEditarProduto(void);
-//void telaPrincipal(void);
+void telaDepartamentos(void);
+void telaCadastrarDepartamento(void);
+void telaDetalharDepartamento(void);
+void telaEditarDepartamento(void);
+void telaVerProdutosDepartamento(void);
+void telaListarDepartamento(void);
