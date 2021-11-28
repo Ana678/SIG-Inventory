@@ -12,7 +12,8 @@
 /////
 // Assinatura das funções
 
-void telaDepartamentos(void);
+void moduloDepartamentos(void);
+char telaDepartamentos(void);
 void telaCadastrarDepartamento(void);
 void telaDetalharDepartamento(void);
 void telaEditarDepartamento(void);

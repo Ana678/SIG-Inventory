@@ -13,13 +13,31 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "fornecedores.h"
-#include "main.h"
+
+
+void moduloFornecedores(void) {
+    char opcao;
+    do {
+        opcao = telaFornecedores();
+        switch(opcao) {
+            case 1:
+                system("clear||cls");
+                telaCadastrarFornecedor();
+                break;
+            case 2:
+                system("clear||cls");
+                telaListarFornecedores();
+                break;
+            
+        } 		
+    } while (opcao != '0');
+}
 
 /////
 // Funcoes Relacionadas ao Modulo Fornecedores
 
-void telaFornecedores(void) {
-    int escolha;
+char telaFornecedores(void) {
+    char escolha;
 
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -43,10 +61,10 @@ void telaFornecedores(void) {
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Deseja executar qual acao? ");
-    scanf("%d", &escolha);
+    scanf("%c", &escolha);
     getchar();
     
-    switch (escolha){
+    /*switch (escolha){
         case 1:
             system("clear||cls");
             telaCadastrarFornecedor();
@@ -64,8 +82,8 @@ void telaFornecedores(void) {
             system("clear||cls");
             printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
             telaFornecedores();
-    }
-
+    }*/
+    return escolha;
 }
 
 void telaCadastrarFornecedor(void) {  

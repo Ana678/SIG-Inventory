@@ -12,7 +12,8 @@
 /////
 // Assinatura das funções
 
-void telaFornecedores(void);
+void moduloFornecedores(void);
+char telaFornecedores(void);
 void telaListarFornecedores(void);
 void telaCadastrarFornecedor(void);
 void telaEditarFornecedor(void);

@@ -12,24 +12,56 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include "main.h"
 #include "departamentos.h"
 #include "produtos.h"
 #include "fornecedores.h"
 
+
+// Assinatura das funções
+void telaSobre(void);
+char telaPrincipal(void);
+void telaEquipe(void);
+
+
+
 int main(void) {
-    system("clear||cls");
-    telaPrincipal();
-    
-    return 0;
+    char opcao;
+
+    do {
+        opcao = telaPrincipal();
+        switch(opcao) {
+            case '1':   
+                    moduloProdutos();
+                    break;
+
+            case '2':   
+                    moduloDepartamentos();
+                    break;
+
+            case '3':   
+                    moduloFornecedores();
+                    break;
+
+            case '4':
+                    telaSobre();
+                    break;
+
+            case '5':   
+                    telaEquipe();
+                    break;
+        } 	
+    } while (opcao != '0');
+
+return 0;
 }
+
 
 /////
 // Funções
 
-void telaPrincipal(void) {
-    int escolha;
-
+char telaPrincipal(void) {
+    char escolha;
+    // era int, botei char pq n sei se funciona com int, mas vamos testar dps pra deixar com nossa cara
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -53,10 +85,10 @@ void telaPrincipal(void) {
     printf("///                                                                         ///\n");                                                                       ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Deseja executar qual acao? ");
-    scanf("%d", &escolha);
+    scanf("%c", &escolha);
     getchar();
     
-    switch(escolha){
+    /*switch(escolha){
         case 1:
             system("clear||cls");
             telaProdutos();
@@ -89,8 +121,8 @@ void telaPrincipal(void) {
             printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
             telaPrincipal();
             
-    }
-
+    }*/
+    return escolha;
 }
 
 void telaSobre(void) {
@@ -168,8 +200,8 @@ void telaEquipe(void) {
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Aperte v para voltar para tela principal ... ");
-    
-    sair = getchar();
+    scanf("%c", &sair); 
+    getchar();
 
     if (sair == 'v'){
         system("clear||cls");

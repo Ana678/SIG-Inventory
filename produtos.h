@@ -11,9 +11,9 @@
 
 /////
 // Assinatura das funções
-
+void moduloProdutos(void);
 void telaFluxoProdutos(void);
-void telaProdutos(void);
+char telaProdutos(void);
 void telaRelatoriosProdutos(void);
 void telaCadastrarProduto(void);
 void telaPesquisarProdutos(void);

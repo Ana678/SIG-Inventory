@@ -3,10 +3,26 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "departamentos.h"
-#include "main.h"
 
-void telaDepartamentos(void) {
-    int escolha;
+void moduloDepartamentos(void) {
+    char opcao;
+    do {
+        opcao = telaDepartamentos();
+        switch (opcao){
+            case '1':
+                system("clear||cls");
+                telaCadastrarDepartamento();
+                break;
+            case '2':
+                system("clear||cls");
+                telaListarDepartamento();
+                break;
+        }		
+    } while (opcao != '0');
+}
+
+char telaDepartamentos(void) {
+    char escolha;
 
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -30,10 +46,10 @@ void telaDepartamentos(void) {
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Deseja executar qual acao? ");
-    scanf("%d", &escolha);
+    scanf("%c", &escolha);
     getchar();
     
-    switch (escolha){
+    /*switch (escolha){
         case 1:
             system("clear||cls");
             telaCadastrarDepartamento();
@@ -51,7 +67,8 @@ void telaDepartamentos(void) {
             system("clear||cls");
             printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
             telaDepartamentos();
-    }
+    }*/
+    return escolha;
 
 }
 
@@ -141,7 +158,7 @@ void telaDetalharDepartamento(void){
     printf("///            1. Alterar Dados do Departamento                             ///\n");
     printf("///            2. Excluir Departamento                                      ///\n");
     printf("///            3. Ver Produtos Departamento                                 ///\n");
-    printf("///            0. Voltar para  tela principal                               ///\n");
+    /*printf("///            0. Voltar para  tela principal                               ///\n");*/
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Deseja executar qual acao?   ");
@@ -165,10 +182,10 @@ void telaDetalharDepartamento(void){
         telaVerProdutosDepartamento();
         break;
 
-    case 0:
+    /*case 0:
         system("clear||cls");
         telaPrincipal();
-        break;
+        break;*/
         
     default:
         system("clear||cls");
@@ -205,12 +222,12 @@ void telaVerProdutosDepartamento(void) {
     printf("///            | 1343494863725     |   Camisas   |     20     |             ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n               # Aperte v para voltar para tela principal ... ");
+    printf("\n               # Aperte v para voltar para tela departamenos ... ");
     sair = getchar();
 
     if (sair == 'v'){
         system("clear||cls");
-        telaPrincipal();
+        telaDepartamentos();
     }else{
         telaVerProdutosDepartamento();
     }
@@ -261,7 +278,7 @@ void telaEditarDepartamento(void) {
     printf("///                                                                         ///\n");
     printf("///            1. Excluir Departamento                                      ///\n");
     printf("///            2. Voltar aos Detalhes do Departamento                       ///\n");
-    printf("///            0. Voltar para tela principal                                ///\n");
+    /*printf("///            0. Voltar para tela principal                                ///\n");*/
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Por fim, deseja executar qual acao (1/0)?  ");
@@ -280,11 +297,11 @@ void telaEditarDepartamento(void) {
             telaDetalharDepartamento();
             break;
 
-        case 0:
+        /*case 0:
             system("clear||cls");
             telaPrincipal();
             break;
-        
+        */
         default:
             system("clear||cls");
             printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
@@ -319,7 +336,7 @@ void telaListarDepartamento(void) {
     printf("///            6. Enlatados                                                 ///\n");  
     printf("///            7. Bebidas                                                   ///\n");
     printf("///            8. Vestuario                                                 ///\n"); 
-    printf("///            0. Voltar para Tela Principal                                ///\n");    
+    printf("///            0. Voltar para Tela departamentos                            ///\n");    
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Digite o numero do departamento para detalha-lo: ");
@@ -332,7 +349,7 @@ void telaListarDepartamento(void) {
 
     }else if (escolha == 0){
         system("clear||cls");
-        telaPrincipal();
+        telaDepartamentos();
 
     }else{
         system("clear||cls");
