@@ -26,7 +26,7 @@ void moduloProdutos(void) {
             case '2': 	
                 system("clear||cls");
                 telaFluxoProdutos();
-                break;;
+                break;
             case '3': 	
                 system("clear||cls");
                 telaPesquisarProdutos();
@@ -167,7 +167,8 @@ void telaCadastrarProduto(void) {
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Aperte s para sair dessa tela ... ");
-    sair = getchar();
+    scanf("%c",&sair);
+    getchar();
     
     if (sair == 's'){
         system("clear||cls");
@@ -273,8 +274,8 @@ void telaRelatoriosProdutos(void) {
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Aperte v para voltar para tela produtos ... ");
-    
-    sair = getchar();
+    scanf("%c",&sair);
+    getchar();
     
     if (sair == 'v'){
         system("clear||cls");
@@ -397,7 +398,8 @@ void telaFluxoProdutos(void) {
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Aperte s para sair dessa tela ... ");
-    sair = getchar();
+    scanf("%c",&sair);
+    getchar();
 
     if (sair == 's'){
         system("clear||cls");

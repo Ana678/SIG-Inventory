@@ -22,8 +22,6 @@ void telaSobre(void);
 char telaPrincipal(void);
 void telaEquipe(void);
 
-
-
 int main(void) {
     char opcao;
 
@@ -31,37 +29,35 @@ int main(void) {
         opcao = telaPrincipal();
         switch(opcao) {
             case '1':   
-                    moduloProdutos();
-                    break;
+                moduloProdutos();
+                break;
 
-            case '2':   
-                    moduloDepartamentos();
-                    break;
+            case '2': 
+                moduloDepartamentos();
+                break;
 
             case '3':   
-                    moduloFornecedores();
-                    break;
+                moduloFornecedores();
+                break;
 
             case '4':
-                    telaSobre();
-                    break;
+                telaSobre();
+                break;
 
             case '5':   
-                    telaEquipe();
-                    break;
+                telaEquipe();
+                break;
         } 	
     } while (opcao != '0');
 
-return 0;
+    return 0;
 }
-
 
 /////
 // Funções
 
 char telaPrincipal(void) {
     char escolha;
-    // era int, botei char pq n sei se funciona com int, mas vamos testar dps pra deixar com nossa cara
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -87,41 +83,7 @@ char telaPrincipal(void) {
     printf("\n               # Deseja executar qual acao? ");
     scanf("%c", &escolha);
     getchar();
-    
-    /*switch(escolha){
-        case 1:
-            system("clear||cls");
-            telaProdutos();
-            break;
-
-        case 2:
-            system("clear||cls");
-            telaDepartamentos();
-            break;
-            
-        case 3:
-            system("clear||cls");   
-            telaFornecedores();
-            break;
-
-        case 4:
-            telaSobre();
-            break;
-    
-        case 5:
-            telaEquipe();
-            break;
-
-        case 0:
-            system("clear||cls");
-            break;
-        
-        default:
-            system("clear||cls");
-            printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
-            telaPrincipal();
-            
-    }*/
+ 
     return escolha;
 }
 

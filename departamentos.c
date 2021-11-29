@@ -1,3 +1,13 @@
+///////////////////////////////////////////////////////////////////////////////
+///                                                                         ///
+///               Universidade Federal do Rio Grande do Norte               ///
+///                   Centro de Ensino Superior do Seridó                   ///
+///                 Departamento de Computação e Tecnologia                 ///
+///                    Disciplina DCT1106 -- Programação                    ///
+///                  Projeto Sistema de Controle de Estoque                 ///
+///            Developed by @ana678 and @daviddevolin - Out, 2021           ///
+///                                                                         ///
+///////////////////////////////////////////////////////////////////////////////
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -21,7 +31,12 @@ void moduloDepartamentos(void) {
     } while (opcao != '0');
 }
 
+
+/////
+// Funcoes Relacionadas ao Modulo Fornecedores
+
 char telaDepartamentos(void) {
+    system("clear||cls");
     char escolha;
 
     printf("\n");
@@ -49,25 +64,6 @@ char telaDepartamentos(void) {
     scanf("%c", &escolha);
     getchar();
     
-    /*switch (escolha){
-        case 1:
-            system("clear||cls");
-            telaCadastrarDepartamento();
-            break;
-        case 2:
-            system("clear||cls");
-            telaListarDepartamento();
-            break;
-        case 0:
-            system("clear||cls");
-            telaPrincipal();
-            break;
-
-        default:
-            system("clear||cls");
-            printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
-            telaDepartamentos();
-    }*/
     return escolha;
 
 }
@@ -114,14 +110,13 @@ void telaCadastrarDepartamento(void) {
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Aperte v para voltar  para a tela departamentos ... ");
-    sair = getchar();
-
+    scanf("%c",&sair);
+    getchar();
     
     if (sair == 'v'){
         system("clear||cls");
         telaDepartamentos();
     }else{
-        getchar();
         telaCadastrarDepartamento();
     }
 }
@@ -223,7 +218,8 @@ void telaVerProdutosDepartamento(void) {
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Aperte v para voltar para tela departamenos ... ");
-    sair = getchar();
+    scanf("%c",&sair);
+    getchar();
 
     if (sair == 'v'){
         system("clear||cls");

@@ -20,15 +20,13 @@ void moduloFornecedores(void) {
     do {
         opcao = telaFornecedores();
         switch(opcao) {
-            case 1:
-                system("clear||cls");
+            case '1':
                 telaCadastrarFornecedor();
                 break;
-            case 2:
+            case '2':
                 system("clear||cls");
                 telaListarFornecedores();
-                break;
-            
+                break;         
         } 		
     } while (opcao != '0');
 }
@@ -37,6 +35,7 @@ void moduloFornecedores(void) {
 // Funcoes Relacionadas ao Modulo Fornecedores
 
 char telaFornecedores(void) {
+    system("clear||cls");
     char escolha;
 
     printf("\n");
@@ -64,25 +63,6 @@ char telaFornecedores(void) {
     scanf("%c", &escolha);
     getchar();
     
-    /*switch (escolha){
-        case 1:
-            system("clear||cls");
-            telaCadastrarFornecedor();
-            break;
-        case 2:
-            system("clear||cls");
-            telaListarFornecedores();
-            break;
-        case 0:
-            system("clear||cls");
-            telaPrincipal();
-            break;
-
-        default:
-            system("clear||cls");
-            printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
-            telaFornecedores();
-    }*/
     return escolha;
 }
 
@@ -134,19 +114,18 @@ void telaCadastrarFornecedor(void) {
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n              # Aperte s para sair dessa tela  ... ");
-    sair = getchar();
+    scanf("%c", &sair);
+    getchar();
 
     if (sair == 's'){
-        system("clear||cls");
         telaFornecedores();
     }else{
-        getchar();
         telaCadastrarFornecedor();
     }
     
 }
 
-void telaListarFornecedores(void) {  
+void telaListarFornecedores(void) { 
     int escolha;
     
     printf("\n");
