@@ -143,7 +143,6 @@ void telaCadastrarProduto(void) {
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n              # Pressione ENTER para voltar para Menu de Produtos ... ");
     getchar();
-
 }
 
 void telaPesquisarProdutos(void) {  

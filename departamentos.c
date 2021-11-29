@@ -70,7 +70,6 @@ char telaDepartamentos(void) {
     getchar();
     
     return escolha;
-
 }
 
 void telaCadastrarDepartamento(void) {  

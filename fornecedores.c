@@ -199,7 +199,6 @@ void telaModificarFornecedor(void) {
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n              # Pressione ENTER para voltar para Menu de Fornecedores ... ");
     getchar();
-     
 }
 
 void telaExcluirFornecedores(void) {

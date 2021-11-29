@@ -19,6 +19,5 @@ void telaDetalharDepartamento(void);
 void telaEditarDepartamento(void);
 void telaVerProdutosDepartamento(void);
 void telaListarDepartamento(void);
-
 void telaExcluirDepartamentos(void);
 void telaModificarDepartamento(void);
