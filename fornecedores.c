@@ -24,9 +24,14 @@ void moduloFornecedores(void) {
                 telaCadastrarFornecedor();
                 break;
             case '2':
-                system("clear||cls");
                 telaListarFornecedores();
-                break;         
+                break;   
+            case '3':
+                telaExcluirFornecedores();
+                break;  
+            case '4':
+                telaEditarFornecedores();
+                break;      
         } 		
     } while (opcao != '0');
 }
@@ -56,6 +61,8 @@ char telaFornecedores(void) {
     printf("///                                                                         ///\n");  
     printf("///            1. Cadastrar Novo Fornecedor                                 ///\n");
     printf("///            2. Listar Fornecedores                                       ///\n");
+    printf("///            3. Excluir Fornecedor                                        ///\n");
+    printf("///            4. Editar Fornecedor                                         ///\n");
     printf("///            0. Voltar para Tela Principal                                ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -73,8 +80,6 @@ void telaCadastrarFornecedor(void) {
     char razao_social[30];
     char cnpj[14];
     char sede[60];
-
-    char sair;
 
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -113,20 +118,12 @@ void telaCadastrarFornecedor(void) {
     
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n              # Aperte s para sair dessa tela  ... ");
-    scanf("%c", &sair);
-    getchar();
-
-    if (sair == 's'){
-        telaFornecedores();
-    }else{
-        telaCadastrarFornecedor();
-    }
-    
+    printf("\n              . Cadastro Realizado com Sucesso ... ");
+    sleep(2);
 }
 
 void telaListarFornecedores(void) { 
-    int escolha;
+    system("clear||cls");
     
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -152,25 +149,15 @@ void telaListarFornecedores(void) {
     printf("///        |   4   | 23.643.315/0110-06  |          Danone         |        ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n               # Digite o numero do fornecedor para edita-lo: ");
-    scanf("%d", &escolha);
+    printf("\n              # Pressione ENTER para sair ... ");
     getchar();
-
-    if (escolha == 1 || escolha == 2 || escolha == 3 || escolha == 4) {
-        system("clear||cls");
-        telaEditarFornecedor();
-
-    }else{
-        system("clear||cls");
-        printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
-        telaListarFornecedores();
-    }
+    
 }
 
-void telaEditarFornecedor(void) {  
+void telaModificarFornecedor(void) { 
+    system("clear||cls"); 
     char editar;
     int escolha_editar;
-    int escolha;
 
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -186,7 +173,7 @@ void telaEditarFornecedor(void) {
     printf("///                                                                         ///\n");
     printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
     printf("///                                                                         ///\n");
-    printf("///                         - Editar de Fornecedor -                        ///\n");
+    printf("///                         - Editando Fornecedor -                         ///\n");
     printf("///                                                                         ///\n");  
     printf("///            1. Nome do Fornecedor: Nestle                                ///\n");
     printf("///            2. Razao Social: NESTLE BRASIL LTDA.                         ///\n");
@@ -205,42 +192,73 @@ void telaEditarFornecedor(void) {
     printf("\n///              . Nome do Fornecedor: Nestle Brasil                        ///\n");
     printf("///                                                                         ///\n");
     printf("///            # Deseja editar algum parametro(s/n)? ");
-    scanf("%c", &editar);
+    scanf("%c", &editar); 
     getchar();
 
-    printf("///                                                                         ///\n");
-    printf("///            -> Acoes                                                     ///\n");
-    printf("///                                                                         ///\n");
-    printf("///            1. Excluir Fornecedor                                        ///\n");
-    printf("///            2. Voltar a Listar Fornecedores                              ///\n");
-    printf("///            0. Voltar para Tela Fornecedores                             ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n               # Por fim, deseja executar qual acao (1/0)?  ");
-    scanf("%d", &escolha);
+    printf("\n              . Fornecedor Editado com Sucesso ... ");
+    sleep(2);
+     
+}
+
+void telaExcluirFornecedores(void) {
+    system("clear||cls");
+    char cnpj[14];
+    
+    printf("\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
+    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
+    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
+    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                         - Excluir Fornecedor -                          ///\n");
+    printf("///                                                                         ///\n");  
+    printf("///            # Qual o CNPJ do fornecedor que voce deseja excluir ?? ");
+    scanf("%[0-9.]",cnpj);
     getchar();
 
-    switch (escolha){
-    case 1:
-        system("clear||cls");
-        printf("\n///           = = = = = AINDA NAO E POSSIVEL EXCLUIR = = = = =            ///\n");
-        telaEditarFornecedor();
-        break;
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n              . Fornecedor Excluido com Sucesso ... ");
+    sleep(2);
+}
 
-    case 2:
-        system("clear||cls");
-        telaListarFornecedores();
-        break;
+void telaEditarFornecedores(void) {
+    system("clear||cls");
+    char cnpj[14];
+    
+    printf("\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
+    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
+    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
+    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                          - Editar Fornecedor -                          ///\n");
+    printf("///                                                                         ///\n");  
+    printf("///            # Qual o CNPJ do fornecedor que voce deseja editar ?? ");
+    scanf("%[0-9.]",cnpj);
+    getchar();
 
-    case 0:
-        system("clear||cls");
-        telaFornecedores();
-        break;
-        
-    default:
-        system("clear||cls");
-        printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
-        telaEditarFornecedor();
-    }
-     
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n              . Voce sera redirecionado para tela de edicao ... ");
+    sleep(1);
+    telaModificarFornecedor();
 }

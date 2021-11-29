@@ -16,5 +16,7 @@ void moduloFornecedores(void);
 char telaFornecedores(void);
 void telaListarFornecedores(void);
 void telaCadastrarFornecedor(void);
-void telaEditarFornecedor(void);
-//void telaPrincipal(void);
+void telaExcluirFornecedores(void);
+
+void telaEditarFornecedores(void);
+void telaModificarFornecedor(void);

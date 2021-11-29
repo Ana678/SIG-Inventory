@@ -71,32 +71,6 @@ char telaProdutos(void) {
     scanf("%c", &escolha);
     getchar();
     
-    /*switch (escolha){
-        case 1:
-            system("clear||cls");
-            telaCadastrarProduto();
-            break;
-        case 2:
-            system("clear||cls");
-            telaFluxoProdutos();
-            break;
-        case 3:
-            system("clear||cls");
-            telaPesquisarProdutos();
-            break;
-        case 4:
-            telaRelatoriosProdutos();
-            break;
-        case 0:
-            system("clear||cls");
-            telaPrincipal();
-            break;
-
-        default:
-            system("clear||cls");
-            printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
-            telaProdutos();
-    }*/
     return escolha;
 }
 

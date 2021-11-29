@@ -57,7 +57,9 @@ int main(void) {
 // Funções
 
 char telaPrincipal(void) {
+    system("clear||cls");
     char escolha;
+
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -89,7 +91,6 @@ char telaPrincipal(void) {
 
 void telaSobre(void) {
     system("clear||cls");
-    char sair;
     
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -118,21 +119,13 @@ void telaSobre(void) {
     printf("/// envolvidos.                                                             ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n               # Aperte v para voltar para tela principal ... ");
-    sair = getchar();
-
-    if (sair == 'v'){
-        system("clear||cls");
-        telaPrincipal();
-    }else{
-        telaSobre();
-    }
+    printf("\n              # Pressione ENTER para sair ... ");
+    getchar();
     
 }
 
 void telaEquipe(void) {
     system("clear||cls");
-    char sair;
 
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -161,15 +154,8 @@ void telaEquipe(void) {
     printf("///            Repositorio: https://github.com/Ana678/SIG-Inventory.git     ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n               # Aperte v para voltar para tela principal ... ");
-    scanf("%c", &sair); 
+    printf("\n              # Pressione ENTER para sair ... ");
     getchar();
-
-    if (sair == 'v'){
-        system("clear||cls");
-        telaPrincipal();
-    }else{
-        telaEquipe();
-    }
+    
 
 }
