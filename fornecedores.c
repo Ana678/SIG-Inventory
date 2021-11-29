@@ -118,8 +118,8 @@ void telaCadastrarFornecedor(void) {
     
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n              . Cadastro Realizado com Sucesso ... ");
-    sleep(2);
+    printf("\n              # Pressione ENTER para voltar para Menu de Fornecedores ... ");
+    getchar();
 }
 
 void telaListarFornecedores(void) { 
@@ -149,7 +149,7 @@ void telaListarFornecedores(void) {
     printf("///        |   4   | 23.643.315/0110-06  |          Danone         |        ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n              # Pressione ENTER para sair ... ");
+    printf("\n              # Pressione ENTER para voltar para Menu de Fornecedores ... ");
     getchar();
     
 }
@@ -197,8 +197,8 @@ void telaModificarFornecedor(void) {
 
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n              . Fornecedor Editado com Sucesso ... ");
-    sleep(2);
+    printf("\n              # Pressione ENTER para voltar para Menu de Fornecedores ... ");
+    getchar();
      
 }
 
@@ -228,8 +228,8 @@ void telaExcluirFornecedores(void) {
 
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n              . Fornecedor Excluido com Sucesso ... ");
-    sleep(2);
+    printf("\n              # Pressione ENTER para voltar para Menu de Fornecedores ... ");
+    getchar();
 }
 
 void telaEditarFornecedores(void) {

@@ -26,6 +26,9 @@ void moduloDepartamentos(void) {
                 telaListarDepartamento();
                 break;
             case '3':
+                telaEditarDepartamento();
+                break;
+            case '4':
                 telaExcluirDepartamentos();
                 break;
         }		
@@ -57,7 +60,8 @@ char telaDepartamentos(void) {
     printf("///                                                                         ///\n");  
     printf("///            1. Cadastrar Novo Departamento                               ///\n");
     printf("///            2. Listar Departamentos                                      ///\n");
-    printf("///            3. Excluir Departamento                                      ///\n");
+    printf("///            3. Editar Departamento                                      ///\n");
+    printf("///            4. Excluir Departamento                                      ///\n");
     printf("///            0. Voltar para Tela Principal                                ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -113,53 +117,6 @@ void telaCadastrarDepartamento(void) {
    
 }
 
-void telaDetalharDepartamento(void){  
-    system("clear||cls");
-
-    int escolha;
-    printf("\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                         ///\n");
-    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
-    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
-    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
-    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
-    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
-    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
-    printf("///                                                                         ///\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                         ///\n");
-    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
-    printf("///                                                                         ///\n");
-    printf("///                       - Detalhes do Departamento -                      ///\n");
-    printf("///                                                                         ///\n");
-    printf("///                                                                         ///\n");
-    printf("///            -> Informacoes do Departamento                               ///\n");
-    printf("///                                                                         ///\n");
-    printf("///            . Nome Do Departamento: Vestuario                            ///\n");
-    printf("///            . Quantidade de produtos: 300                                ///\n");
-    printf("///            . Nome Do Responsavel: Julio                                 ///\n");
-    printf("///            . Cpf do Responsavel: 111.111.111-11                         ///\n");
-    printf("///                                                                         ///\n");
-    printf("///            -> Acoes                                                     ///\n");
-    printf("///                                                                         ///\n");
-    printf("///            1. Alterar Dados do Departamento                             ///\n");
-    printf("///            2. Ver Produtos Departamento                                 ///\n");
-    printf("///                                                                         ///\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n               # Escolha uma acao: ");
-    scanf("%d", &escolha);
-    getchar();
-    
-    if (escolha == 1){
-        telaEditarDepartamento();
-    }
-    else if(escolha == 2){
-        telaVerProdutosDepartamento();
-    }
-    
-}
-
 void telaVerProdutosDepartamento(void) {  
     system("clear||cls");
     
@@ -192,7 +149,7 @@ void telaVerProdutosDepartamento(void) {
 
 }
 
-void telaEditarDepartamento(void) {  
+void telaModificarDepartamento(void) {  
     system("clear||cls");
     char editar;
     int escolha_editar;
@@ -268,13 +225,8 @@ void telaListarDepartamento(void) {
     printf("///            8. Vestuario                                                 ///\n"); 
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n               # Digite o numero do departamento para detalha-lo: ");
-    scanf("%d", &escolha);
+    printf("\n              # Pressione ENTER para voltar para Menu de Departamentos ... ");
     getchar();
-
-    if (escolha >= 1 && escolha <= 8) {
-        telaDetalharDepartamento();
-    }
 
 }
 
@@ -306,4 +258,35 @@ void telaExcluirDepartamentos(void) {
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n              # Pressione ENTER para voltar para Menu de Departamentos ... ");
     getchar();
+}
+
+void telaEditarDepartamento(void) {
+    system("clear||cls");
+    char cnpj[14];
+    
+    printf("\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
+    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
+    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
+    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                         - Editar Departamento -                         ///\n");
+    printf("///                                                                         ///\n");  
+    printf("///            # Insira o CPF do responsavel pelo departamento:  ");
+    scanf("%[0-9.]",cnpj);
+    getchar();
+
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n              . Voce sera redirecionado para tela de edicao ... ");
+    sleep(1);
+    telaModificarDepartamento();
 }

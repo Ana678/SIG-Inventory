@@ -181,16 +181,9 @@ void telaPesquisarProdutos(void) {
     printf("///            . Quantidade: 14                                             ///\n");
     printf("///            . Departamento: Vestuario                                    ///\n");
     printf("///                                                                         ///\n");
-    printf("///            1. Alterar Dados de Produto                                  ///\n");
-    printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n               # Deseja executar qual acao? ");
-    scanf("%d", &escolha);
+    printf("\n              # Pressione ENTER para voltar para Menu de Produtos ... ");
     getchar();
-
-    if (escolha == 1){
-        telaEditarProduto();
-    }
 
 }
 
@@ -226,7 +219,7 @@ void telaRelatoriosProdutos(void) {
 
 }
 
-void telaEditarProduto(void) {  
+void telaModificarProduto(void) {  
     system("clear||cls");
 
     char editar;
@@ -350,4 +343,36 @@ void telaExcluirProdutos(void) {
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n              # Pressione ENTER para voltar para Menu de Produtos ... ");
     getchar();
+}
+
+
+void telaEditarProduto(void) {
+    system("clear||cls");
+    char cod[12];
+    
+    printf("\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
+    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
+    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
+    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                            - Editar Produto -                           ///\n");
+    printf("///                                                                         ///\n");  
+    printf("///            # Insira o codigo do produto:  ");
+    scanf("%[0-9.]",cod);
+    getchar();
+
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n              . Voce sera redirecionado para tela de edicao ... ");
+    sleep(1);
+    telaModificarProduto();
 }

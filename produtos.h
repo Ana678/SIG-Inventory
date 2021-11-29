@@ -19,4 +19,4 @@ void telaCadastrarProduto(void);
 void telaPesquisarProdutos(void);
 void telaEditarProduto(void);
 void telaExcluirProdutos(void);
-//void telaPrincipal(void);
+void telaModificarProduto(void);
