@@ -20,17 +20,17 @@ void moduloDepartamentos(void) {
         opcao = telaDepartamentos();
         switch (opcao){
             case '1':
-                system("clear||cls");
                 telaCadastrarDepartamento();
                 break;
             case '2':
-                system("clear||cls");
                 telaListarDepartamento();
+                break;
+            case '3':
+                telaExcluirDepartamentos();
                 break;
         }		
     } while (opcao != '0');
 }
-
 
 /////
 // Funcoes Relacionadas ao Modulo Fornecedores
@@ -57,6 +57,7 @@ char telaDepartamentos(void) {
     printf("///                                                                         ///\n");  
     printf("///            1. Cadastrar Novo Departamento                               ///\n");
     printf("///            2. Listar Departamentos                                      ///\n");
+    printf("///            3. Excluir Departamento                                      ///\n");
     printf("///            0. Voltar para Tela Principal                                ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -68,14 +69,12 @@ char telaDepartamentos(void) {
 
 }
 
-
 void telaCadastrarDepartamento(void) {  
     system("clear||cls");
 
     char nome[20];
-    char cpf[11];
+    char cpf[12];
     char nome_responsavel[15];
-    char sair;
 
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -109,19 +108,13 @@ void telaCadastrarDepartamento(void) {
 
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n               # Aperte v para voltar  para a tela departamentos ... ");
-    scanf("%c",&sair);
+    printf("\n              # Pressione ENTER para voltar para Menu de Departamentos ... ");
     getchar();
-    
-    if (sair == 'v'){
-        system("clear||cls");
-        telaDepartamentos();
-    }else{
-        telaCadastrarDepartamento();
-    }
+   
 }
 
 void telaDetalharDepartamento(void){  
+    system("clear||cls");
 
     int escolha;
     printf("\n");
@@ -151,47 +144,24 @@ void telaDetalharDepartamento(void){
     printf("///            -> Acoes                                                     ///\n");
     printf("///                                                                         ///\n");
     printf("///            1. Alterar Dados do Departamento                             ///\n");
-    printf("///            2. Excluir Departamento                                      ///\n");
-    printf("///            3. Ver Produtos Departamento                                 ///\n");
-    /*printf("///            0. Voltar para  tela principal                               ///\n");*/
+    printf("///            2. Ver Produtos Departamento                                 ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n               # Deseja executar qual acao?   ");
+    printf("\n               # Escolha uma acao: ");
     scanf("%d", &escolha);
     getchar();
-
-    switch (escolha)
-    {
-    case 1:
-        system("clear||cls");
+    
+    if (escolha == 1){
         telaEditarDepartamento();
-        break;
-
-    case 2:
-        system("clear||cls");
-        printf("\n///           = = = = = AINDA NAO E POSSIVEL EXCLUIR = = = = =            ///\n");
-        telaDetalharDepartamento();
-        break;
-        
-    case 3:
-        telaVerProdutosDepartamento();
-        break;
-
-    /*case 0:
-        system("clear||cls");
-        telaPrincipal();
-        break;*/
-        
-    default:
-        system("clear||cls");
-        printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
-        telaDetalharDepartamento();
     }
+    else if(escolha == 2){
+        telaVerProdutosDepartamento();
+    }
+    
 }
 
 void telaVerProdutosDepartamento(void) {  
     system("clear||cls");
-    char sair;
     
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -217,22 +187,15 @@ void telaVerProdutosDepartamento(void) {
     printf("///            | 1343494863725     |   Camisas   |     20     |             ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n               # Aperte v para voltar para tela departamenos ... ");
-    scanf("%c",&sair);
+    printf("\n              # Pressione ENTER para voltar para Menu de Departamentos ... ");
     getchar();
 
-    if (sair == 'v'){
-        system("clear||cls");
-        telaDepartamentos();
-    }else{
-        telaVerProdutosDepartamento();
-    }
 }
 
 void telaEditarDepartamento(void) {  
+    system("clear||cls");
     char editar;
     int escolha_editar;
-    int escolha;
     
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -270,44 +233,15 @@ void telaEditarDepartamento(void) {
     getchar();
 
     printf("///                                                                         ///\n");
-    printf("///            -> Acoes                                                     ///\n");
-    printf("///                                                                         ///\n");
-    printf("///            1. Excluir Departamento                                      ///\n");
-    printf("///            2. Voltar aos Detalhes do Departamento                       ///\n");
-    /*printf("///            0. Voltar para tela principal                                ///\n");*/
-    printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n               # Por fim, deseja executar qual acao (1/0)?  ");
-    scanf("%d", &escolha);
+    printf("\n              # Pressione ENTER para voltar para Menu de Departamentos ... ");
     getchar();
-
-    switch (escolha){
-        case 1:
-            system("clear||cls");
-            printf("\n///           = = = = = AINDA NAO E POSSIVEL EXCLUIR = = = = =            ///\n");
-            telaEditarDepartamento();
-            break;
-
-        case 2:
-            system("clear||cls");
-            telaDetalharDepartamento();
-            break;
-
-        /*case 0:
-            system("clear||cls");
-            telaPrincipal();
-            break;
-        */
-        default:
-            system("clear||cls");
-            printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
-            telaEditarDepartamento();
-            break;
-    }
 }
 
 void telaListarDepartamento(void) {
+    system("clear||cls");
     int escolha;
+
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -332,24 +266,44 @@ void telaListarDepartamento(void) {
     printf("///            6. Enlatados                                                 ///\n");  
     printf("///            7. Bebidas                                                   ///\n");
     printf("///            8. Vestuario                                                 ///\n"); 
-    printf("///            0. Voltar para Tela departamentos                            ///\n");    
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n               # Digite o numero do departamento para detalha-lo: ");
     scanf("%d", &escolha);
     getchar();
 
-    if (escolha == 1 || escolha == 2 || escolha == 3 || escolha == 4 || escolha == 5 || escolha == 6 || escolha == 7 || escolha == 8) {
-        system("clear||cls");
+    if (escolha >= 1 && escolha <= 8) {
         telaDetalharDepartamento();
-
-    }else if (escolha == 0){
-        system("clear||cls");
-        telaDepartamentos();
-
-    }else{
-        system("clear||cls");
-        printf("\n///              = = = = = INSIRA UMA OPCAO VALIDA! = = = = =               ///\n");
-        telaListarDepartamento();
     }
+
+}
+
+void telaExcluirDepartamentos(void) {
+    system("clear||cls");
+    char cpf[12];
+    
+    printf("\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
+    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
+    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
+    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                        - Excluir Departamento -                         ///\n");
+    printf("///                                                                         ///\n");  
+    printf("///            # Insira o CPF do responsavel pelo departamento:  ");
+    scanf("%[0-9.]",cpf);
+    getchar();
+
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n              # Pressione ENTER para voltar para Menu de Departamentos ... ");
+    getchar();
 }
