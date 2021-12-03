@@ -13,10 +13,8 @@
 
 // Valida CNPJ
 
-char validaCnpj(char cnpj){
-    
-    
-}
+
+
 
 // Valida Codigo de Barras
 
