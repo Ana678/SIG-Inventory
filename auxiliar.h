@@ -12,5 +12,4 @@
 /////
 // Assinatura das funções
 
-int cpftoi(char str[15]);
-int tamanhoString(char nome[]);
+int validaNome(char nome[21]);
