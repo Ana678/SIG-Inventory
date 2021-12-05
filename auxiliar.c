@@ -26,88 +26,18 @@ int validaCpf(int *cpf) {
 
   if (valido != 0){
     //soma digito 1
+    int multiplicador = 10;
     for(int i =0; i<9;i++){
-      switch (i){
-        case 0:
-          soma += (cpf[i]*10);
-          break;
-
-        case 1:
-          soma += (cpf[i]*9);
-          break;
-
-        case 2:
-          soma += (cpf[i]*8);
-          break;
-          
-        case 3:
-          soma += (cpf[i]*7);
-          break;
-
-        case 4:
-          soma += (cpf[i]*6);
-          break;
-
-        case 5:
-          soma += (cpf[i]*5);
-          break;
-
-        case 6:
-          soma += (cpf[i]*4);
-          break;
-
-        case 7:
-          soma += (cpf[i]*3);
-          break;
-
-        case 8:
-          soma += (cpf[i]*2);
-          break;
-      }
+      soma += (cpf[i]*multiplicador);
+      multiplicador--;
     }
 
     // soma digito 2
+    int multiplicador2 = 11;
     for(int i = 0; i<10;i++){
-      switch (i){
-        case 0:
-          soma2 += (cpf[i]*11);
-          break;
-
-        case 1:
-          soma2 += (cpf[i]*10);
-          break;
-
-        case 2:
-          soma2 += (cpf[i]*9);
-          break;
-        
-        case 3:
-          soma2 += (cpf[i]*8);
-          break;
-
-        case 4:
-          soma2 += (cpf[i]*7);
-          break;
-
-        case 5:
-          soma2 += (cpf[i]*6);
-          break;
-
-        case 6:
-          soma2 += (cpf[i]*5);
-          break;
-
-        case 7:
-          soma2 += (cpf[i]*4);
-          break;
-
-        case 8:
-          soma2 += (cpf[i]*3);
-          break;
-        case 9:
-          soma2 += (cpf[i]*2);
-          break;
-      }
+        soma2 += (cpf[i]*multiplicador2);
+        multiplicador2--;
+      
     }
 
     //digito 1
@@ -156,7 +86,7 @@ int validaCpf(int *cpf) {
 // Valida Codigo de Barras
 
 // Valida Nome
-// 0 -> n encontrou erros       1 -> encontrou erros
+// 1 -> n encontrou erros       0 -> encontrou erros
 
 int validaNome(char nome[21]){
     
@@ -173,6 +103,12 @@ int validaNome(char nome[21]){
     return validado;
 }
 
-
 // Valida Quantidade
 
+int validaQuantidade(int qtd){
+  int valido = 0;
+  
+  if(qtd >= 0){
+    valido = 1;
+  }
+}

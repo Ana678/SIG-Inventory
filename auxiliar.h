@@ -14,3 +14,4 @@
 
 int validaNome(char nome[21]);
 int validaCpf(int *cpf);
+int validaQuantidade(int qtd);
