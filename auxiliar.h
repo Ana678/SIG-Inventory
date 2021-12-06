@@ -15,3 +15,4 @@
 int validaNome(char nome[21]);
 int validaCpf(int *cpf);
 int validaQuantidade(int qtd);
+int validaCDB(char cdb[13]);

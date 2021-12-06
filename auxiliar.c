@@ -112,3 +112,40 @@ int validaQuantidade(int qtd){
     valido = 1;
   }
 }
+
+// validacodigo de barras
+
+int validaCDB(char cdb[13]) {
+  int somaPar=0;
+  int somaImpar=0;
+  
+  if(strlen(cdb) == 13){
+    for(int i =0; i < strlen(cdb) -1; i++){
+      if(i%2 == 0){
+        char cnum = cdb[i];
+        somaPar += atoi(&cnum);
+        
+      }else{     
+        int numConvertido = 0;  
+        if(cdb[i] == '0'){
+          numConvertido = 0;
+        }else{
+          char cnum = cdb[i];
+          numConvertido = atoi(&cnum);
+
+        }
+        somaImpar += numConvertido*3;
+      }
+    }
+
+    int restoTotal = (somaPar+somaImpar)%10;
+    char n = cdb[12];
+    int numConvertido = atoi(&n);
+
+    if((10 - restoTotal) == (numConvertido)){
+      return 1;
+    }
+  }
+  return 0;
+}
+
