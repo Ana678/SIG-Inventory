@@ -110,10 +110,11 @@ void telaCadastrarProduto(void) {
         printf("///            # Insira o nome do novo produto: ");
         scanf("%[^\n]", prod);
         getchar();
-    }while (!validaNome(prod));
 
+    }while (!validaNome(prod));
+    
+    printf("///                                                                         ///\n");  
     do{
-        printf("///                                                                         ///\n");  
         printf("///            # Insira o codigo desse produto: ");
         scanf("%[^\n]", cod);
         getchar();
@@ -126,30 +127,31 @@ void telaCadastrarProduto(void) {
     scanf("%[0-9]", forn);
     getchar();
     
+    printf("///                                                                         ///\n"); 
     do{
-
-        printf("///                                                                         ///\n");  
         printf("///            # Insira o nome do departamento: ");
         scanf("%[^\n]", depar);
         getchar();
     }while(!validaNome(depar));
+    
+    printf("///                                                                         ///\n");
 
     do{
-        printf("///                                                                         ///\n");  
         printf("///            # Quantidade inicial do produto: ");
         scanf("%d", &qtd);
         getchar();
     }while(!validaQuantidade(qtd));
     
+    printf("///                                                                         ///\n");    
     do{
-        printf("///                                                                         ///\n");
+
         printf("///            # Qual a quantidade minima ideal desse produto? ");
         scanf("%d", &qtd_minima);
         getchar();
     }while(!validaQuantidade(qtd_minima));
     
+    printf("///                                                                         ///\n");
     do{
-        printf("///                                                                         ///\n");
         printf("///            # Qual a quantidade maxima ideal desse produto? ");
         scanf("%d", &qtd_maxima);
         getchar();

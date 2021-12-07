@@ -112,9 +112,10 @@ void telaCadastrarFornecedor(void) {
     scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]",razao_social);
     getchar();
 
-    vet = (int*) malloc(14*sizeof(int));
+    vet = (int*) malloc(14*sizeof(int));        
+    printf("///                                                                         ///\n");
+    
     do{
-        printf("///                                                                         ///\n");
         printf("///            # Qual o CNPJ desse fornecedor? ");
         scanf("%[^\n]",cnpj);
         getchar(); 

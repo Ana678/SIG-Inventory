@@ -105,8 +105,9 @@ void telaCadastrarDepartamento(void) {
     }while(!validaNome(nome));
 
     vet = (int*) malloc(11*sizeof(int));
+    
+    printf("///                                                                         ///\n");
     do{
-        printf("///                                                                         ///\n");
         printf("///            # Qual o CPF do responsavel pelo departamento? ");
         scanf("%[^\n]", cpf);
         getchar();
@@ -115,9 +116,9 @@ void telaCadastrarDepartamento(void) {
 
     }while(!validaCpf(vet));
     free(vet);
-
+    
+    printf("///                                                                         ///\n");
     do{
-        printf("///                                                                         ///\n");
         printf("///            # Qual o nome do responsavel pelo departamento? ");
         scanf("%[^\n]", nome_responsavel);
         getchar();
