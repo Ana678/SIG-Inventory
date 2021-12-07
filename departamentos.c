@@ -102,6 +102,7 @@ void telaCadastrarDepartamento(void) {
         printf("///            # Insira o nome do novo departamento: ");
         scanf("%[^\n]", nome);
         getchar();
+        
     }while(!validaNome(nome));
 
     vet = (int*) malloc(11*sizeof(int));

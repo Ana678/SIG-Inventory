@@ -164,7 +164,6 @@ int validaCDB(char cdb[14]) {
 
 ////////////////////////////////////////////////////
 //                  Valida Nome                   //
-
 // 1 -> n encontrou erros       0 -> encontrou erros
 
 int validaNome(char nome[21]){

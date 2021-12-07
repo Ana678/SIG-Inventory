@@ -10,6 +10,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 /////
-// Assinatura das funções
+// Assinatura das funções util.c
 
 void cpftoi(char str[],int *v, int tamArray);

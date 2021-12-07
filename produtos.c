@@ -135,7 +135,6 @@ void telaCadastrarProduto(void) {
     }while(!validaNome(depar));
     
     printf("///                                                                         ///\n");
-
     do{
         printf("///            # Quantidade inicial do produto: ");
         scanf("%d", &qtd);

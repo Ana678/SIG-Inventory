@@ -10,7 +10,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 /////
-// Assinatura das funções
+// Assinatura das funções auxilixar.c
 
 int validaCpf(int *cpf);
 int validaCnpj(int *cnpj);
