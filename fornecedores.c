@@ -81,6 +81,7 @@ void telaCadastrarFornecedor(void) {
     char nome[21];
     char razao_social[30];
     char cnpj[19];
+    int *vet;
     char sede[60];
 
     printf("\n");
@@ -106,16 +107,22 @@ void telaCadastrarFornecedor(void) {
        
     }while (!validaNome(nome));
     
-
     printf("///                                                                         ///\n");  
     printf("///            # Insira a razao social desse fornecedor: ");
     scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]",razao_social);
     getchar();
-    
-    printf("///                                                                         ///\n");
-    printf("///            # Qual o CNPJ desse fornecedor? ");
-    scanf("%[0-9]",cnpj);
-    getchar();
+
+    vet = (int*) malloc(14*sizeof(int));
+    do{
+        printf("///                                                                         ///\n");
+        printf("///            # Qual o CNPJ desse fornecedor? ");
+        scanf("%[^\n]",cnpj);
+        getchar(); 
+        int tamArray = 14;
+        cpftoi(cnpj,vet,tamArray);
+        
+    }while (!validaCnpj(vet));
+    free(vet);
 
     printf("///                                                                         ///\n");
     printf("///            # Onde e a sede desse fornecedor? ");

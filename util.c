@@ -5,7 +5,7 @@
 #include "util.h"
 
 /// cpf char para inteiro
-void cpftoi(char str[],int *v){
+void cpftoi(char str[],int *v, int tamArray){
   int tam,cont,num;
   char cnum;
 
@@ -24,6 +24,14 @@ void cpftoi(char str[],int *v){
         v[cont] = num;           
         cont +=1;
       }
+    }
+  }
+
+  // se ainda sobrar espacos, porque a pessoa digitou qtd insuficiente de numeros, ele preenche com -1
+  if((cont+1) != tamArray){
+    while((cont+1) <= tamArray){
+      v[cont] = -1;  
+      cont++;
     }
   }
 }

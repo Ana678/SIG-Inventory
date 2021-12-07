@@ -12,8 +12,8 @@
 /////
 // Assinatura das funções
 
-//int validaCpf(int *cpf);
-//int validaCnpj(int *cnpj);
+int validaCpf(int *cpf);
+int validaCnpj(int *cnpj);
 int validaCDB(char cdb[14]);
 int validaNome(char nome[21]);
 int validaQuantidade(int qtd);

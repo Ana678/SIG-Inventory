@@ -12,4 +12,4 @@
 /////
 // Assinatura das funções
 
-void cpftoi(char str[],int *v);
+void cpftoi(char str[],int *v, int tamArray);

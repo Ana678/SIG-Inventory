@@ -13,6 +13,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "departamentos.h"
+#include "util.h"
 #include "auxiliar.h"
 
 void moduloDepartamentos(void) {
@@ -75,9 +76,9 @@ char telaDepartamentos(void) {
 
 void telaCadastrarDepartamento(void) {  
     system("clear||cls");
-
+    int *vet;
     char nome[20];
-    char cpf[12];
+    char cpf[14];
     char nome_responsavel[15];
 
     printf("\n");
@@ -99,19 +100,26 @@ void telaCadastrarDepartamento(void) {
 
     do{ 
         printf("///            # Insira o nome do novo departamento: ");
-        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+        scanf("%[^\n]", nome);
         getchar();
     }while(!validaNome(nome));
 
-    printf("///                                                                         ///\n");
-    printf("///            # Qual o CPF do responsavel pelo departamento? ");
-    scanf("%[0-9.]", cpf);
-    getchar();
+    vet = (int*) malloc(11*sizeof(int));
+    do{
+        printf("///                                                                         ///\n");
+        printf("///            # Qual o CPF do responsavel pelo departamento? ");
+        scanf("%[^\n]", cpf);
+        getchar();
+        int tamArray = 11;
+        cpftoi(cpf,vet,tamArray);
+
+    }while(!validaCpf(vet));
+    free(vet);
 
     do{
         printf("///                                                                         ///\n");
         printf("///            # Qual o nome do responsavel pelo departamento? ");
-        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome_responsavel);
+        scanf("%[^\n]", nome_responsavel);
         getchar();
 
     }while(!validaNome(nome_responsavel));

@@ -115,8 +115,9 @@ void telaCadastrarProduto(void) {
     do{
         printf("///                                                                         ///\n");  
         printf("///            # Insira o codigo desse produto: ");
-        scanf("%s", cod);
+        scanf("%[^\n]", cod);
         getchar();
+
     }while (!validaCDB(cod));   
     
     
@@ -152,7 +153,9 @@ void telaCadastrarProduto(void) {
         printf("///            # Qual a quantidade maxima ideal desse produto? ");
         scanf("%d", &qtd_maxima);
         getchar();
+
     }while(!validaQuantidade(qtd_maxima));
+    
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n              # Pressione ENTER para voltar para Menu de Produtos ... ");
