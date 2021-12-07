@@ -13,6 +13,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "departamentos.h"
+#include "auxiliar.h"
 
 void moduloDepartamentos(void) {
     char opcao;
@@ -94,21 +95,27 @@ void telaCadastrarDepartamento(void) {
     printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
     printf("///                                                                         ///\n");
     printf("///                      - Cadastro de Departamentos -                      ///\n");
-    printf("///                                                                         ///\n");  
-    printf("///            # Insira o nome do novo departamento: ");
-    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
-    getchar();
+    printf("///                                                                         ///\n"); 
+
+    do{ 
+        printf("///            # Insira o nome do novo departamento: ");
+        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+        getchar();
+    }while(!validaNome(nome));
 
     printf("///                                                                         ///\n");
     printf("///            # Qual o CPF do responsavel pelo departamento? ");
-    scanf("%[0-9]", cpf);
+    scanf("%[0-9.]", cpf);
     getchar();
 
-    printf("///                                                                         ///\n");
-    printf("///            # Qual o nome do responsavel pelo departamento? ");
-    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome_responsavel);
-    getchar();
+    do{
+        printf("///                                                                         ///\n");
+        printf("///            # Qual o nome do responsavel pelo departamento? ");
+        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome_responsavel);
+        getchar();
 
+    }while(!validaNome(nome_responsavel));
+    
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n              # Pressione ENTER para voltar para Menu de Departamentos ... ");

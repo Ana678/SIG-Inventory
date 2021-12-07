@@ -12,8 +12,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <string.h>
 #include "fornecedores.h"
-
+#include "util.h"
+#include "auxiliar.h"
 
 void moduloFornecedores(void) {
     char opcao;
@@ -75,10 +77,10 @@ char telaFornecedores(void) {
 
 void telaCadastrarFornecedor(void) {  
     system("clear||cls");
-    
-    char nome[20];
+
+    char nome[21];
     char razao_social[30];
-    char cnpj[14];
+    char cnpj[19];
     char sede[60];
 
     printf("\n");
@@ -97,10 +99,14 @@ void telaCadastrarFornecedor(void) {
     printf("///                                                                         ///\n");
     printf("///                        - Cadastro de Fornecedor -                       ///\n");
     printf("///                                                                         ///\n");  
-    printf("///            # Insira o nome do novo fornecedor: ");
-    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]",nome);
-    getchar();
+    do{
+        printf("///            # Insira o nome do novo fornecedor: ");
+        scanf("%[^\n]",nome);
+        getchar();
+       
+    }while (!validaNome(nome));
     
+
     printf("///                                                                         ///\n");  
     printf("///            # Insira a razao social desse fornecedor: ");
     scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]",razao_social);
@@ -108,9 +114,9 @@ void telaCadastrarFornecedor(void) {
     
     printf("///                                                                         ///\n");
     printf("///            # Qual o CNPJ desse fornecedor? ");
-    scanf("%[0-9.]",cnpj);
+    scanf("%[0-9]",cnpj);
     getchar();
-    
+
     printf("///                                                                         ///\n");
     printf("///            # Onde e a sede desse fornecedor? ");
     scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ,:-.0-9]",sede);
@@ -120,6 +126,7 @@ void telaCadastrarFornecedor(void) {
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n              # Pressione ENTER para voltar para Menu de Fornecedores ... ");
     getchar();
+    
 }
 
 void telaListarFornecedores(void) { 

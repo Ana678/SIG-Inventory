@@ -13,6 +13,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "produtos.h"
+#include "auxiliar.h"
 
 void moduloProdutos(void) {
     char opcao;
@@ -81,7 +82,7 @@ void telaCadastrarProduto(void) {
     system("clear||cls");
 
     char prod[20];
-    char cod[12];
+    char cod[14];
     char forn[14];
     char depar[10];
 
@@ -105,40 +106,53 @@ void telaCadastrarProduto(void) {
     printf("///                                                                         ///\n");
     printf("///                         - Cadastro de Produto -                         ///\n");
     printf("///                                                                         ///\n");  
-    printf("///            # Insira o nome do novo produto: ");
-    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", prod);
-    getchar();
+    do{
+        printf("///            # Insira o nome do novo produto: ");
+        scanf("%[^\n]", prod);
+        getchar();
+    }while (!validaNome(prod));
 
-    printf("///                                                                         ///\n");  
-    printf("///            # Insira o codigo desse produto: ");
-    scanf("%[0-9]", cod);
-    getchar(); 
-
+    do{
+        printf("///                                                                         ///\n");  
+        printf("///            # Insira o codigo desse produto: ");
+        scanf("%[^\n]", cod);
+        getchar();
+        
+    }while (!validaCDB(cod));
+    
     printf("///                                                                         ///\n");      		
     printf("///            # Insira o CNPJ do fornecedor: ");
     scanf("%[0-9]", forn);
     getchar();
-
-    printf("///                                                                         ///\n");  
-    printf("///            # Insira o nome do departamento: ");
-    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", depar);
-    getchar();
-
-    printf("///                                                                         ///\n");  
-    printf("///            # Quantidade inicial do produto: ");
-    scanf("%d", &qtd);
-    getchar();
-
-    printf("///                                                                         ///\n");
-    printf("///            # Qual a quantidade minima ideal desse produto? ");
-    scanf("%d", &qtd_minima);
-    getchar();
     
-    printf("///                                                                         ///\n");
-    printf("///            # Qual a quantidade maxima ideal desse produto? ");
-    scanf("%d", &qtd_maxima);
-    getchar();
+    do{
 
+        printf("///                                                                         ///\n");  
+        printf("///            # Insira o nome do departamento: ");
+        scanf("%[^\n]", depar);
+        getchar();
+    }while(!validaNome(depar));
+
+    do{
+        printf("///                                                                         ///\n");  
+        printf("///            # Quantidade inicial do produto: ");
+        scanf("%d", &qtd);
+        getchar();
+    }while(!validaQuantidade(qtd));
+    
+    do{
+        printf("///                                                                         ///\n");
+        printf("///            # Qual a quantidade minima ideal desse produto? ");
+        scanf("%d", &qtd_minima);
+        getchar();
+    }while(!validaQuantidade(qtd_minima));
+    
+    do{
+        printf("///                                                                         ///\n");
+        printf("///            # Qual a quantidade maxima ideal desse produto? ");
+        scanf("%d", &qtd_maxima);
+        getchar();
+    }while(!validaQuantidade(qtd_maxima));
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n              # Pressione ENTER para voltar para Menu de Produtos ... ");
