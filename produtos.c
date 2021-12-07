@@ -115,10 +115,10 @@ void telaCadastrarProduto(void) {
     do{
         printf("///                                                                         ///\n");  
         printf("///            # Insira o codigo desse produto: ");
-        scanf("%[^\n]", cod);
+        scanf("%s", cod);
         getchar();
-        
-    }while (!validaCDB(cod));
+    }while (!validaCDB(cod));   
+    
     
     printf("///                                                                         ///\n");      		
     printf("///            # Insira o CNPJ do fornecedor: ");

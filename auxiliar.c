@@ -37,12 +37,9 @@ int validaCDB(char cdb[14]) {
 
     if((10 - restoTotal) == (numConvertido)){
       return 1;
-    }else{
-      return 0;
     }
-  }else{
-    return 0;
   }
+  return 0;
   
 }
 
@@ -69,10 +66,10 @@ int validaNome(char nome[21]){
 //               Valida Quantidade                //
 
 int validaQuantidade(int qtd){
-  int valido = 0;
   
   if(qtd >= 0){
-    valido = 1;
+    return 1;
   }
+  return 0;
 }
 
