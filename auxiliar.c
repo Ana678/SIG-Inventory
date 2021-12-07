@@ -3,7 +3,8 @@
 #include <string.h>
 #include "util.h"
 
-// Valida CPF
+////////////////////////////////////////////////////
+//                   Valida CPF                   //
 
 int validaCpf(int *cpf) {
   
@@ -77,43 +78,69 @@ int validaCpf(int *cpf) {
   return valido;
 }
 
+////////////////////////////////////////////////////
+//                  Valida CNPJ                   //
 
-// Valida CNPJ
+int validaCnpj(int *cnpj){
+  int peso, soma1, soma2, d1Valido, d2Valido;
+  soma1 = 0;
+  soma2 = 0;
+  d1Valido = 0;
+  d2Valido = 0;
 
-
-
-
-// Valida Codigo de Barras
-
-// Valida Nome
-// 1 -> n encontrou erros       0 -> encontrou erros
-
-int validaNome(char nome[21]){
+  // verificando primeiro digito
+  peso = 5;
+  for(int i = 0; i < 12; i++){
+    soma1 += (cnpj[i])*peso;
     
-    char caracteres_excluidos[] = "0123456789,-:;[]{}*#"; //definir caracteres inuteis
-    int validado = 1;
-
-    for(int i = 0; i < tamanhoString(nome); i++){        
-        for(int j = 0; j < tamanhoString(caracteres_excluidos); j++){
-            if(nome[i] == caracteres_excluidos[j]){
-                validado = 0;
-            }
-        }
+    if(peso == 2){
+      peso = 9;
+    }else{
+      peso--;
     }
-    return validado;
-}
-
-// Valida Quantidade
-
-int validaQuantidade(int qtd){
-  int valido = 0;
-  
-  if(qtd >= 0){
-    valido = 1;
   }
+
+  int restod1 = 11 - ((soma1)%11);
+  if (restod1 == 10){
+    restod1 = 0;
+  }
+
+  if(restod1 == cnpj[12]){
+    d1Valido = 1;
+  }
+  
+  // verificando segundo digito
+  peso = 6;
+  for(int i = 0; i < 13; i++){
+    soma2 += (cnpj[i])*peso;
+    
+    if(peso == 2){
+      peso = 9;
+    }else{
+      peso--;
+    }
+  }
+
+  int restod2 = 11-((soma2)%11);
+
+  if (restod2 == 10){
+    restod2 = 0;
+  }
+
+  if(restod2 == cnpj[13]){
+    d2Valido = 1;
+  }
+  
+  // verificando se ambos os digitos sao validos
+
+  if(d1Valido == 1 && d2Valido == 1){
+    return 1;
+  }
+  return 0;
 }
 
-// validacodigo de barras
+////////////////////////////////////////////////////
+//             Valida Codigo de Barras            //
 
 int validaCDB(char cdb[13]) {
   int somaPar=0;
@@ -147,5 +174,35 @@ int validaCDB(char cdb[13]) {
     }
   }
   return 0;
+}
+
+////////////////////////////////////////////////////
+//                  Valida Nome                   //
+
+// 1 -> n encontrou erros       0 -> encontrou erros
+
+int validaNome(char nome[21]){
+    
+  char caracteres_excluidos[] = "0123456789,-:;[]{}*#"; //definir caracteres inuteis
+
+  for(int i = 0; i < strlen(nome); i++){        
+    for(int j = 0; j < strlen(caracteres_excluidos); j++){
+      if(nome[i] == caracteres_excluidos[j]){
+          return 0;
+      }
+    }
+  }
+  return 1;
+}
+
+////////////////////////////////////////////////////
+//               Valida Quantidade                //
+
+int validaQuantidade(int qtd){
+  int valido = 0;
+  
+  if(qtd >= 0){
+    valido = 1;
+  }
 }
 

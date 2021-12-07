@@ -5,15 +5,15 @@
 #include "util.h"
 
 /// cpf char para inteiro
-void cpftoi(char str[15],int *v){
+void cpftoi(char str[],int *v){
   int tam,cont,num;
   char cnum;
 
-  tam = tamanhoString(str);
+  tam = strlen(str);
   cont = 0;
 
   for(int i=0; i < tam; i++){
-    if(str[i] != '.' && str[i] != '-'){
+    if(str[i] != '.' && str[i] != '-' && str[i] != '/'){
       if(str[i]=='0'){
         v[cont]= 0;            
         cont +=1;
@@ -26,17 +26,4 @@ void cpftoi(char str[15],int *v){
       }
     }
   }
-}
-// Funcao serve para calcular o tamanho de uma string que esta sendo usada
-//funcao inspirada: https://wagnergaspar.com/como-descobrir-o-tamanho-de-uma-string-com-a-linguagem-de-programacao-c/
-
-int tamanhoString(char nome[]){
-  int tamanho, i;
-  tamanho = i = 0;
-
-  while(nome[i] != '\0'){
-    i++;
-    tamanho++;
-  }
-  return tamanho;
 }
