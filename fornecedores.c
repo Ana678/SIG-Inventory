@@ -82,7 +82,13 @@ void telaCadastrarFornecedor(void) {
     char razao_social[30];
     char cnpj[19];
     int *vet;
-    char sede[60];
+
+    char pais[2];
+    char numero[5];
+    char bairro[15];
+    char rua[80];
+    char estado[30];
+    char cidade[50];
 
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -125,10 +131,31 @@ void telaCadastrarFornecedor(void) {
     free(vet);
 
     printf("///                                                                         ///\n");
-    printf("///            # Onde e a sede desse fornecedor? ");
-    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ,:-.0-9]",sede);
+    printf("///            # Insira o endereco desse fornecedor: ");
+    printf("///              . Qual o Pais (BR|AR|US)? ");
+    scanf("%[^\n]",pais);
     getchar();
-    
+
+    printf("///              . Qual o Estado? ");
+    scanf("%[^\n]",estado);
+    getchar();
+
+    printf("///              . Qual a cidade? ");
+    scanf("%[^\n]",cidade);
+    getchar();
+
+    printf("///              . Qual o bairro? ");
+    scanf("%[^\n]",bairro);
+    getchar();
+
+    printf("///              . Qual o nome da rua? ");
+    scanf("%[^\n]",rua);
+    getchar();
+
+    printf("///              . Qual o numero? ");
+    scanf("%[^\n]",numero);
+    getchar();
+
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n              # Pressione ENTER para voltar para Menu de Fornecedores ... ");

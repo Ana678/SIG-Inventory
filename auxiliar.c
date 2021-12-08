@@ -3,6 +3,7 @@
 #include <string.h>
 #include "auxiliar.h"
 #include "util.h"
+#include <ctype.h>
 
 ////////////////////////////////////////////////////
 //                   Valida CPF                   //
@@ -184,10 +185,29 @@ int validaNome(char nome[21]){
 //               Valida Quantidade                //
 
 int validaQuantidade(int qtd){
+  printf("%d",isdigit(qtd));
+
   
   if(qtd >= 0){
     return 1;
   }
   return 0;
+
 }
 
+
+////////////////////////////////////////////////////
+//                Valida Endereco                 //
+
+
+////////////////////////////////////////////////////
+//               Valida Opcao (s/n)               //
+
+
+
+////////////////////////////////////////////////////
+//              Valida Parametro (s/n)            //
+
+
+////////////////////////////////////////////////////
+//                Valida Razao Social             //
