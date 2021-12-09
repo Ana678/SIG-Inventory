@@ -184,15 +184,26 @@ int validaNome(char nome[21]){
 ////////////////////////////////////////////////////
 //               Valida Quantidade                //
 
-int validaQuantidade(int qtd){
-  printf("%d",isdigit(qtd));
 
+int validaQuantidade (char qtd[]){
+	int cont = 0;
+	int tam= strlen(qtd);
+
+ 
+	
+	for(int i=0; i<tam ; i++){
+    
+		if(isdigit(qtd[i])){
+      
+			cont++;
+		}
+    
+	}
   
-  if(qtd >= 0){
+  if (tam == cont){
     return 1;
   }
   return 0;
-
 }
 
 
@@ -210,4 +221,4 @@ int validaQuantidade(int qtd){
 
 
 ////////////////////////////////////////////////////
-//                Valida Razao Social             //
+//              Valida Razao Sp            //

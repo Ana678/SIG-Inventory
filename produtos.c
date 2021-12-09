@@ -85,10 +85,9 @@ void telaCadastrarProduto(void) {
     char cod[14];
     char forn[14];
     char depar[10];
-
-    int qtd;
-    int qtd_minima;
-    int qtd_maxima;
+    char qtd[10];
+    char qtd_minima[10];
+    char qtd_maxima[10];
 
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -137,7 +136,7 @@ void telaCadastrarProduto(void) {
     printf("///                                                                         ///\n");
     do{
         printf("///            # Quantidade inicial do produto: ");
-        scanf("%d", &qtd);
+        scanf("%s", &qtd);
         getchar();
     }while(!validaQuantidade(qtd));
     
