@@ -33,6 +33,9 @@ void moduloProdutos(void) {
                 telaRelatoriosProdutos();
                 break;
             case '5': 	
+                telaEditarProduto();
+                break;
+            case '6': 	
                 telaExcluirProdutos();
                 break;
         } 		
@@ -66,7 +69,8 @@ char telaProdutos(void) {
     printf("///            2. Cadastrar Fluxo de Produtos                               ///\n");
     printf("///            3. Pesquisar Produto                                         ///\n");
     printf("///            4. Obter um Relatorio                                        ///\n");
-    printf("///            5. Excluir um Produto                                        ///\n");
+    printf("///            5. Editar um Produto                                         ///\n");
+    printf("///            6. Excluir um Produto                                        ///\n");
     printf("///            0. Voltar para Tela Principal                                ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -136,7 +140,7 @@ void telaCadastrarProduto(void) {
     printf("///                                                                         ///\n");
     do{
         printf("///            # Quantidade inicial do produto: ");
-        scanf("%s", &qtd);
+        scanf("%[^\n]", qtd);
         getchar();
     }while(!validaQuantidade(qtd));
     
@@ -144,14 +148,14 @@ void telaCadastrarProduto(void) {
     do{
 
         printf("///            # Qual a quantidade minima ideal desse produto? ");
-        scanf("%d", &qtd_minima);
+        scanf("%[^\n]", qtd_minima);
         getchar();
     }while(!validaQuantidade(qtd_minima));
     
     printf("///                                                                         ///\n");
     do{
         printf("///            # Qual a quantidade maxima ideal desse produto? ");
-        scanf("%d", &qtd_maxima);
+        scanf("%[^\n]", qtd_maxima);
         getchar();
 
     }while(!validaQuantidade(qtd_maxima));
@@ -239,7 +243,8 @@ void telaModificarProduto(void) {
     system("clear||cls");
 
     char editar;
-    int escolha_editar;
+    char escolha_editar[2];
+    int opMaxima = 7;
 
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -270,9 +275,14 @@ void telaModificarProduto(void) {
     scanf("%c", &editar);
     getchar();
 
-    printf("\n///              . Qual parametro deseja editar? ");
-    scanf("%d", &escolha_editar);
-    getchar();
+    printf("\n");
+    do{
+        printf("///              . Qual parametro deseja editar? ");
+        scanf("%[^\n]", escolha_editar);
+        getchar();
+        
+    }while(!validaParametro(escolha_editar,opMaxima));
+    
 
     printf("\n///              . Novo Nome do Produto: Chinelo Rosa                       ///\n");
     printf("///                                                                         ///\n");

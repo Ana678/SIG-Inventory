@@ -260,8 +260,18 @@ int validaOpcao(char n){
 }
 
 ////////////////////////////////////////////////////
-//              Valida Parametro (s/n)            //
+//           Valida Parametro (1,2,3,4)           //
 
+int validaParametro(char op[2], int max){
+  
+	if (isdigit(op[0]) && strlen(op) == 1 && op[1] == '\0'){
+		int opInt = atoi(&op[0]);
+    if(opInt > 0 && opInt <= max){
+      return 1;
+    }
+	}
+	return 0;
+}
 
 ////////////////////////////////////////////////////
 //              Valida Razao Sp            //

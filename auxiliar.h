@@ -20,3 +20,4 @@ int validaQuantidade(char qtd[]);
 int validaPais(char pais[3]);
 int validaEndereco(char dado[80]);
 int validaOpcao(char n);
+int validaParametro(char op[2], int max);

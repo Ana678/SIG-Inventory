@@ -168,7 +168,8 @@ void telaVerProdutosDepartamento(void) {
 void telaModificarDepartamento(void) {  
     system("clear||cls");
     char editar;
-    int escolha_editar;
+    char escolha_editar[2];
+    int opMaxima = 3;
     
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -195,9 +196,14 @@ void telaModificarDepartamento(void) {
     scanf("%c", &editar);
     getchar();
 
-    printf("\n///              . Qual parametro deseja editar? ");
-    scanf("%d", &escolha_editar);
-    getchar();
+    printf("\n");
+    do{
+        printf("///              . Qual parametro deseja editar? ");
+        scanf("%[^\n]", escolha_editar);
+        getchar();
+
+    }while (!validaParametro(escolha_editar,opMaxima));
+    
 
     printf("\n///              . Nome do Departamento: Roupas                             ///\n");
     printf("///                                                                         ///\n");

@@ -29,10 +29,10 @@ void moduloFornecedores(void) {
                 telaListarFornecedores();
                 break;   
             case '3':
-                telaExcluirFornecedores();
+                telaEditarFornecedores();
                 break;  
             case '4':
-                telaEditarFornecedores();
+                telaExcluirFornecedores();
                 break;      
         } 		
     } while (opcao != '0');
@@ -63,8 +63,8 @@ char telaFornecedores(void) {
     printf("///                                                                         ///\n");  
     printf("///            1. Cadastrar Novo Fornecedor                                 ///\n");
     printf("///            2. Listar Fornecedores                                       ///\n");
-    printf("///            3. Excluir Fornecedor                                        ///\n");
-    printf("///            4. Editar Fornecedor                                         ///\n");
+    printf("///            3. Editar Fornecedor                                         ///\n");
+    printf("///            4. Excluir Fornecedor                                        ///\n");
     printf("///            0. Voltar para Tela Principal                                ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -222,7 +222,8 @@ void telaListarFornecedores(void) {
 void telaModificarFornecedor(void) { 
     system("clear||cls"); 
     char editar;
-    int escolha_editar;
+    char escolha_editar[2];
+    int opMaxima = 4;
 
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -243,16 +244,19 @@ void telaModificarFornecedor(void) {
     printf("///            1. Nome do Fornecedor: Nestle                                ///\n");
     printf("///            2. Razao Social: NESTLE BRASIL LTDA.                         ///\n");
     printf("///            3. CNPJ do Fornecedor: 60.409.075/0001-52                    ///\n");
-    printf("///            3. Sede da Empresa: Sao Paulo, Brasil                        ///\n");
+    printf("///            4. Sede da Empresa: Sao Paulo, Brasil                        ///\n");
     printf("///                                                                         ///\n");
     printf("///                                                                         ///\n");
     printf("///            # Deseja editar algum parametro(s/n)? ");
     scanf("%c", &editar);
     getchar();
 
-    printf("///              . Qual parametro deseja editar? ");
-    scanf("%d", &escolha_editar);
-    getchar();
+    printf("\n");
+    do{
+        printf("///              . Qual parametro deseja editar? ");
+        scanf("%[^\n]", escolha_editar);
+        getchar();
+    }while (!validaParametro(escolha_editar,opMaxima));
 
     printf("\n///              . Nome do Fornecedor: Nestle Brasil                        ///\n");
     printf("///                                                                         ///\n");
