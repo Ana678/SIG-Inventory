@@ -250,6 +250,14 @@ int validaEndereco(char dado[80]){
 //               Valida Opcao (s/n)               //
 
 
+int validaOpcao(char n){
+  
+	if (n == 'S' || n == 's' || n == 'N' || n == 'n'){
+		return 1;
+
+	}
+	return 0;
+}
 
 ////////////////////////////////////////////////////
 //              Valida Parametro (s/n)            //
