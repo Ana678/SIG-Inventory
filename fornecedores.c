@@ -83,12 +83,12 @@ void telaCadastrarFornecedor(void) {
     char cnpj[19];
     int *vet;
 
-    char pais[2];
-    char numero[5];
-    char bairro[15];
+    char pais[3];
+    char numero[10];
+    char bairro[80];
     char rua[80];
-    char estado[30];
-    char cidade[50];
+    char estado[80];
+    char cidade[80];
 
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -132,29 +132,53 @@ void telaCadastrarFornecedor(void) {
 
     printf("///                                                                         ///\n");
     printf("///            # Insira o endereco desse fornecedor: ");
-    printf("///              . Qual o Pais (BR|AR|US)? ");
-    scanf("%[^\n]",pais);
-    getchar();
 
-    printf("///              . Qual o Estado? ");
-    scanf("%[^\n]",estado);
-    getchar();
+    printf("\n");
+    do{
+        printf("///              . Qual o Pais (BR|AR|US)? ");
+        scanf("%[^\n]",pais);
+        getchar();
+    }while(!validaPais(pais));
+        
+    printf("\n");
 
-    printf("///              . Qual a cidade? ");
-    scanf("%[^\n]",cidade);
-    getchar();
+    do{
+        printf("///              . Qual o Estado? ");
+        scanf("%[^\n]",estado);
+        getchar();
+    }while(!validaEndereco(estado));
+        
+    printf("\n");
 
-    printf("///              . Qual o bairro? ");
-    scanf("%[^\n]",bairro);
-    getchar();
+    do{
+        printf("///              . Qual a cidade? ");
+        scanf("%[^\n]",cidade);
+        getchar();
+    }while(!validaEndereco(cidade));
+        
+    printf("\n");
 
-    printf("///              . Qual o nome da rua? ");
-    scanf("%[^\n]",rua);
-    getchar();
+    do{
+        printf("///              . Qual o bairro? ");
+        scanf("%[^\n]",bairro);
+        getchar();
+    }while(!validaEndereco(bairro));
+        
+    printf("\n");
 
-    printf("///              . Qual o numero? ");
-    scanf("%[^\n]",numero);
-    getchar();
+    do{
+        printf("///              . Qual o nome da rua? ");
+        scanf("%[^\n]",rua);
+        getchar();
+    }while(!validaEndereco(rua));
+        
+    printf("\n");
+
+    do{
+        printf("///              . Qual o numero? ");
+        scanf("%[^\n]",numero);
+        getchar();
+    }while(!validaQuantidade(numero));
 
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");

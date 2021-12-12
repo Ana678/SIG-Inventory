@@ -17,3 +17,5 @@ int validaCnpj(int *cnpj);
 int validaCDB(char cdb[14]);
 int validaNome(char nome[21]);
 int validaQuantidade(char qtd[]);
+int validaPais(char pais[3]);
+int validaEndereco(char dado[80]);

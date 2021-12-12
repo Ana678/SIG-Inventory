@@ -210,6 +210,41 @@ int validaQuantidade (char qtd[]){
 ////////////////////////////////////////////////////
 //                Valida Endereco                 //
 
+int validaPais(char pais[3]){
+  
+  int valido = 0;
+  if(strlen(pais) == 2){
+    for(int i = 0; i < strlen(pais); i++){
+      if(!isdigit(pais[i]) && pais[i] == toupper(pais[i])){
+        valido += 1;
+      }
+    }
+
+    if(valido == strlen(pais)){
+      return 1;
+    }
+  }
+  return 0;
+
+}
+
+int validaEndereco(char dado[80]){  
+  
+  int valido = 0;
+  if(strlen(dado) != 0){
+    for(int i = 0; i < strlen(dado); i++){
+      if(!isdigit(dado[i])){
+        valido += 1;
+      }
+    }
+
+    if(valido == strlen(dado)){
+      return 1;
+    }
+  }
+  return 0;
+
+}
 
 ////////////////////////////////////////////////////
 //               Valida Opcao (s/n)               //
