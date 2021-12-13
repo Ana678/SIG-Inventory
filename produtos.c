@@ -14,6 +14,7 @@
 #include <unistd.h>
 #include "produtos.h"
 #include "auxiliar.h"
+#include "util.h"
 
 void moduloProdutos(void) {
     char opcao;
@@ -84,10 +85,13 @@ char telaProdutos(void) {
 
 void telaCadastrarProduto(void) {  
     system("clear||cls");
+    
+    char cnpj[19];
+    int *vet;
 
     char prod[20];
     char cod[14];
-    char forn[14];
+    
     char depar[10];
     char qtd[10];
     char qtd_minima[10];
@@ -124,11 +128,17 @@ void telaCadastrarProduto(void) {
 
     }while (!validaCDB(cod));   
     
-    
+    vet = (int*) malloc(14*sizeof(int));    
     printf("///                                                                         ///\n");      		
-    printf("///            # Insira o CNPJ do fornecedor: ");
-    scanf("%[0-9]", forn);
-    getchar();
+    do{
+        printf("///            # Insira o CNPJ do fornecedor: ");
+        scanf("%[^\n]", cnpj);
+        getchar();
+        int tamArray = 14;
+        cpftoi(cnpj,vet,tamArray);
+        
+    }while (!validaCnpj(vet));
+    free(vet);
     
     printf("///                                                                         ///\n"); 
     do{
@@ -146,10 +156,10 @@ void telaCadastrarProduto(void) {
     
     printf("///                                                                         ///\n");    
     do{
-
         printf("///            # Qual a quantidade minima ideal desse produto? ");
         scanf("%[^\n]", qtd_minima);
         getchar();
+
     }while(!validaQuantidade(qtd_minima));
     
     printf("///                                                                         ///\n");
@@ -170,7 +180,7 @@ void telaPesquisarProdutos(void) {
     system("clear||cls");
 
     int escolha;
-    int codigo;
+    char cod[14];
 
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -188,10 +198,12 @@ void telaPesquisarProdutos(void) {
     printf("///                                                                         ///\n");
     printf("///                               - Produtos -                              ///\n");
     printf("///                                                                         ///\n");
-    printf("///            # Insira o codigo do produto que esta procurando? ");
-    scanf("%d", &codigo);
-    getchar();
-    
+    do{
+        printf("///            # Insira o codigo do produto que esta procurando? ");
+        scanf("%[^\n]", cod);
+        getchar();
+    }while (!validaCDB(cod));  
+        
     printf("///                                                                         ///\n");
     printf("///            -> Informacoes do produto                                    ///\n");
     printf("///                                                                         ///\n");
@@ -300,9 +312,9 @@ void telaModificarProduto(void) {
 void telaFluxoProdutos(void) {  
     system("clear||cls");
     
-    char cod[12];
-    char acao;
-    int qtd;
+    char cod[14];
+    char acao[2];
+    char qtd[10];
     
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -320,19 +332,26 @@ void telaFluxoProdutos(void) {
     printf("///                                                                         ///\n");
     printf("///                          - Fluxo de Produtos -                          ///\n");
     printf("///                                                                         ///\n");  
-    printf("///            # Insira o codigo do produto: ");
-    scanf("%[0-9]",cod);
-    getchar();
-    
-    printf("///                                                                         ///\n");
-    printf("///            # Deseja (a) adicionar ou (r) retirar do estoque? ");
-    scanf("%c", &acao);
-    getchar();
+    do{
+        printf("///            # Insira o codigo do produto: ");
+        scanf("%[^\n]", cod);
+        getchar();
+    }while (!validaCDB(cod));
+
+    printf("///                                                                         ///\n");    
+    do{
+        printf("///            # Deseja (a) adicionar ou (r) retirar do estoque? ");
+        scanf("%[^\n]", acao);
+        getchar();
+    }while (!validaAcao(acao));
 
     printf("///                                                                         ///\n");
-    printf("///            # Qual a quantidade? ");
-    scanf("%d", &qtd);
-    getchar();
+    do{
+        printf("///            # Qual a quantidade? ");
+        scanf("%[^\n]", qtd);
+        getchar();
+        
+    }while(!validaQuantidade(qtd));
 
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -343,7 +362,7 @@ void telaFluxoProdutos(void) {
 
 void telaExcluirProdutos(void) {
     system("clear||cls");
-    char cod[12];   
+    char cod[14];   
 
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -361,9 +380,11 @@ void telaExcluirProdutos(void) {
     printf("///                                                                         ///\n");
     printf("///                           - Excluir Produto -                           ///\n");
     printf("///                                                                         ///\n");  
-    printf("///            # Insira o codigo do produto:  ");
-    scanf("%[0-9.]",cod);
-    getchar();
+    do{    
+        printf("///            # Insira o codigo do produto:  ");
+        scanf("%[^\n]", cod);
+        getchar();
+    }while (!validaCDB(cod));
 
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -374,7 +395,7 @@ void telaExcluirProdutos(void) {
 
 void telaEditarProduto(void) {
     system("clear||cls");
-    char cod[12];
+    char cod[14];
     
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -392,9 +413,11 @@ void telaEditarProduto(void) {
     printf("///                                                                         ///\n");
     printf("///                            - Editar Produto -                           ///\n");
     printf("///                                                                         ///\n");  
-    printf("///            # Insira o codigo do produto:  ");
-    scanf("%[0-9.]",cod);
-    getchar();
+    do{    
+        printf("///            # Insira o codigo do produto:  ");
+        scanf("%[^\n]", cod);
+        getchar();
+    }while (!validaCDB(cod));
 
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");

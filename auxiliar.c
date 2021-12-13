@@ -260,6 +260,23 @@ int validaOpcao(char n){
 }
 
 ////////////////////////////////////////////////////
+//               Valida Acao (a/r)               //
+
+
+int validaAcao(char n[2]){
+
+  if (!isdigit(n[0]) && strlen(n) == 1 && n[1] == '\0'){
+    n[0] = tolower(n[0]);
+    if (n[0] == 'a' || n[0] == 'r'){
+      return 1;
+
+    }
+  }
+  return 0;
+}
+
+////////////////////////////////////////////////////
+
 //           Valida Parametro (1,2,3,4)           //
 
 int validaParametro(char op[2], int max){
