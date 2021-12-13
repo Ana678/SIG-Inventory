@@ -272,7 +272,8 @@ void telaModificarFornecedor(void) {
 
 void telaExcluirFornecedores(void) {
     system("clear||cls");
-    char cnpj[14];
+    char cnpj[19];
+    int *vet;
     
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -290,9 +291,16 @@ void telaExcluirFornecedores(void) {
     printf("///                                                                         ///\n");
     printf("///                         - Excluir Fornecedor -                          ///\n");
     printf("///                                                                         ///\n");  
-    printf("///            # Qual o CNPJ do fornecedor que voce deseja excluir ?? ");
-    scanf("%[0-9.]",cnpj);
-    getchar();
+    vet = (int*) malloc(14*sizeof(int));    
+    do{
+        printf("///            # Qual o CNPJ do fornecedor que voce deseja excluir ?? ");
+        scanf("%[^\n]",cnpj);
+        getchar(); 
+        int tamArray = 14;
+        cpftoi(cnpj,vet,tamArray);
+        
+    }while (!validaCnpj(vet));
+    free(vet);
 
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -302,7 +310,8 @@ void telaExcluirFornecedores(void) {
 
 void telaEditarFornecedores(void) {
     system("clear||cls");
-    char cnpj[14];
+    char cnpj[19];
+    int *vet;
     
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -320,9 +329,16 @@ void telaEditarFornecedores(void) {
     printf("///                                                                         ///\n");
     printf("///                          - Editar Fornecedor -                          ///\n");
     printf("///                                                                         ///\n");  
-    printf("///            # Qual o CNPJ do fornecedor que voce deseja editar ?? ");
-    scanf("%[0-9.]",cnpj);
-    getchar();
+    vet = (int*) malloc(14*sizeof(int));    
+    do{
+        printf("///            # Qual o CNPJ do fornecedor que voce deseja editar ?? ");
+        scanf("%[^\n]",cnpj);
+        getchar(); 
+        int tamArray = 14;
+        cpftoi(cnpj,vet,tamArray);
+        
+    }while (!validaCnpj(vet));
+    free(vet);
 
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
