@@ -254,7 +254,7 @@ void telaRelatoriosProdutos(void) {
 void telaModificarProduto(void) {  
     system("clear||cls");
 
-    char editar;
+    char editar[2];
     char escolha_editar[2];
     int opMaxima = 7;
 
@@ -283,9 +283,12 @@ void telaModificarProduto(void) {
     printf("///            7. Quantidade Maxima Ideal: 40                               ///\n");
     printf("///                                                                         ///\n");
     printf("///                                                                         ///\n");
-    printf("///            # Deseja editar algum parametro(s/n)? ");
-    scanf("%c", &editar);
-    getchar();
+    do{
+        printf("///            # Deseja editar algum parametro(s/n)? ");
+        scanf("%[^\n]", editar);
+        getchar();
+
+    }while(!validaOpcao(editar));
 
     printf("\n");
     do{
@@ -298,9 +301,12 @@ void telaModificarProduto(void) {
 
     printf("\n///              . Novo Nome do Produto: Chinelo Rosa                       ///\n");
     printf("///                                                                         ///\n");
-    printf("///            # Deseja editar algum parametro(s/n)? ");
-    scanf("%c", &editar);
-    getchar();
+    do{
+        printf("///            # Deseja editar algum parametro(s/n)? ");
+        scanf("%[^\n]", editar);
+        getchar();
+
+    }while(!validaOpcao(editar));
 
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");

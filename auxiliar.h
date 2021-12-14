@@ -19,7 +19,10 @@ int validaNome(char nome[21]);
 int validaQuantidade(char qtd[]);
 int validaPais(char pais[3]);
 int validaEndereco(char dado[80]);
-int validaOpcao(char n);
+int validaOpcao(char n[2]);
 int validaAcao(char n[2]);
 int validaParametro(char op[2], int max);
 
+int areaAtuacao(char RS[30]);
+int isUpperName(char RS[30],char tipo[10]);
+int validaTipoEmpresa(char tipo[10]);

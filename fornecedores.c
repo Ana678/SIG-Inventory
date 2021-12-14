@@ -79,7 +79,6 @@ void telaCadastrarFornecedor(void) {
     system("clear||cls");
 
     char nome[21];
-    char razao_social[30];
     char cnpj[19];
     int *vet;
 
@@ -89,6 +88,10 @@ void telaCadastrarFornecedor(void) {
     char rua[80];
     char estado[80];
     char cidade[80];
+
+    char nome_empresa[30];
+    char ramo[30];
+    char tipo[10];
 
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -115,8 +118,26 @@ void telaCadastrarFornecedor(void) {
     
     printf("///                                                                         ///\n");  
     printf("///            # Insira a razao social desse fornecedor: ");
-    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]",razao_social);
-    getchar();
+    printf("\n");
+    do{
+        printf("///              . Qual a natureza juridica da empresa (MEI, EI, LTDA, etc.)? ");
+        scanf("%[^\n]",tipo);
+        getchar();
+    }while(!validaTipoEmpresa(tipo));
+
+    printf("\n");
+    do{
+        printf("///              . Qual o nome de identificao da empresa? ");
+        scanf("%[^\n]",nome_empresa);
+        getchar();
+    }while(!isUpperName(nome_empresa,tipo));
+
+    printf("\n");
+    do{
+        printf("///              . Qual a area de atuacao da empresa? ");
+        scanf("%[^\n]",ramo);
+        getchar();
+    }while(!areaAtuacao(ramo));
 
     vet = (int*) malloc(14*sizeof(int));    
     printf("///                                                                         ///\n");
@@ -221,7 +242,7 @@ void telaListarFornecedores(void) {
 
 void telaModificarFornecedor(void) { 
     system("clear||cls"); 
-    char editar;
+    char editar[2];
     char escolha_editar[2];
     int opMaxima = 4;
 
@@ -247,9 +268,12 @@ void telaModificarFornecedor(void) {
     printf("///            4. Sede da Empresa: Sao Paulo, Brasil                        ///\n");
     printf("///                                                                         ///\n");
     printf("///                                                                         ///\n");
-    printf("///            # Deseja editar algum parametro(s/n)? ");
-    scanf("%c", &editar);
-    getchar();
+    do{
+        printf("///            # Deseja editar algum parametro(s/n)? ");
+        scanf("%[^\n]", editar);
+        getchar();
+
+    }while(!validaOpcao(editar));
 
     printf("\n");
     do{
@@ -260,9 +284,12 @@ void telaModificarFornecedor(void) {
 
     printf("\n///              . Nome do Fornecedor: Nestle Brasil                        ///\n");
     printf("///                                                                         ///\n");
-    printf("///            # Deseja editar algum parametro(s/n)? ");
-    scanf("%c", &editar); 
-    getchar();
+    do{
+        printf("///            # Deseja editar algum parametro(s/n)? ");
+        scanf("%[^\n]", editar);
+        getchar();
+
+    }while(!validaOpcao(editar));
 
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");

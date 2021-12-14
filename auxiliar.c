@@ -250,12 +250,15 @@ int validaEndereco(char dado[80]){
 //               Valida Opcao (s/n)               //
 
 
-int validaOpcao(char n){
+int validaOpcao(char n[2]){
   
-	if (n == 'S' || n == 's' || n == 'N' || n == 'n'){
-		return 1;
+  if (!isdigit(n[0]) && strlen(n) == 1 && n[1] == '\0'){
+    n[0] = tolower(n[0]);
+    if (n[0] == 's' || n[0] == 'n'){
+      return 1;
 
-	}
+    }
+  }
 	return 0;
 }
 
@@ -291,4 +294,173 @@ int validaParametro(char op[2], int max){
 }
 
 ////////////////////////////////////////////////////
-//              Valida Razao Sp            //
+//                  Valida Razao Sp               //
+
+int areaAtuacao(char RS[30]){
+  int valido = 0;
+  int vn;
+
+  for(int i = 0; i < strlen(RS); i++){
+    if(!isdigit(RS[i]) && RS[i] == toupper(RS[i])){
+      valido += 1;
+    }
+  }
+  
+  vn = validaNome(RS);
+  if(valido == strlen(RS) && vn == 1){
+    return 1;
+  }
+  return 0; 
+}
+
+int isUpperName(char RS[30], char tipo[10]){
+  int valido = 0;
+  int len = 0;
+
+  int valMei= 0;
+  int valEi= 0;
+
+  if(strlen(tipo) == 3){
+    int iguais = 0;
+    char arrayMei[3] = "MEI";
+    for(int i = 0; i < 3; i++){
+      if(tipo[i] == arrayMei[i]){
+        iguais++;
+      }
+    }
+    if(iguais == 3){
+      valMei= 1;
+    }
+  }
+
+  if(strlen(tipo) == 2){
+    int iguais = 0;
+    char arrayMei[2] = "EI";
+    for(int i = 0; i < 2; i++){
+      if(tipo[i] == arrayMei[i]){
+        iguais++;
+      }
+    }
+    if(iguais == 2){
+      valEi= 1;
+    }
+  }
+  
+  for(int i = 0; i < strlen(RS); i++){
+    if(RS[i] != ' '){
+      len++;
+    }else if(valEi == 0 && valMei == 0){
+      return 0;
+    }else{
+      len++;
+    }
+  }
+  
+  for(int i = 0; i < len; i++){
+
+    if(valMei == 1 && ((!isdigit(RS[i]) && RS[i] == toupper(RS[i])) || isdigit(RS[i]))){
+      valido += 1;
+    } 
+    else if(!isdigit(RS[i]) && RS[i] == toupper(RS[i])){
+      valido += 1;
+    }
+  }
+  
+  if(valido == len){
+    return 1;
+  }
+  return 0; 
+}
+
+
+int validaTipoEmpresa(char tipo[10]){
+
+
+  char tipo1[3] = "MEI";
+  char tipo2[6] = "EIRELI";
+  char tipo3[2] = "EI";
+  char tipo4[3] = "S.A";
+  char tipo5[3] = "S.S";
+  char tipo6[4] = "LTDA";
+  char tipo7[3] = "SLU";
+   
+  int n ;
+  int valido = 0;
+  int cont_iguais = 0;
+
+  for(int i=0; i<7;i++){
+    cont_iguais = 0;
+
+    if(i == 0){
+      if(strlen(tipo) == 3){
+        for (int j =0; j< strlen(tipo);j++){
+          if(tipo1[j] == tipo[j]){
+            cont_iguais +=1;
+          }
+        }
+      }
+    }
+    else if(i==1){ //EIRELI
+      if(strlen(tipo) == 6){
+        for (int j =0; j< strlen(tipo);j++){
+          if(tipo2[j] == tipo[j]){
+            cont_iguais +=1;
+          }
+        }
+      }
+    }
+    else if(i==2){ //EI
+      if(strlen(tipo) == 2){
+        for (int j =0; j< strlen(tipo);j++){
+          if(tipo3[j] == tipo[j]){
+            cont_iguais +=1;
+          }
+        }
+      }
+    }
+    else if(i==3){ //S.A
+      if(strlen(tipo) == 3){
+        for (int j =0; j< strlen(tipo);j++){
+          if(tipo4[j] == tipo[j]){
+            cont_iguais +=1;
+          }
+        }
+      }
+    }
+    else if(i==4){ //S.S
+      if(strlen(tipo) == 3){
+        for (int j =0; j< strlen(tipo);j++){
+          if(tipo5[j] == tipo[j]){
+            cont_iguais +=1;
+          }
+        }
+      }
+    }
+    else if(i==5){ //LTDA
+      if(strlen(tipo) == 4){
+        for (int j =0; j< strlen(tipo);j++){
+          if(tipo6[j] == tipo[j]){
+            cont_iguais +=1;
+          }
+        }
+      }
+    }
+    else { //SLU
+      if(strlen(tipo) == 3){
+        for (int j =0; j< strlen(tipo);j++){
+          if(tipo7[j] == tipo[j]){
+            cont_iguais +=1;
+          }
+        }
+      }
+    }
+
+    if(cont_iguais == strlen(tipo)){
+      return 1;
+    }
+  }
+
+  return 0;
+  
+  
+}

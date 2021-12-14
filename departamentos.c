@@ -62,7 +62,7 @@ char telaDepartamentos(void) {
     printf("///                                                                         ///\n");  
     printf("///            1. Cadastrar Novo Departamento                               ///\n");
     printf("///            2. Listar Departamentos                                      ///\n");
-    printf("///            3. Editar Departamento                                      ///\n");
+    printf("///            3. Editar Departamento                                       ///\n");
     printf("///            4. Excluir Departamento                                      ///\n");
     printf("///            0. Voltar para Tela Principal                                ///\n");
     printf("///                                                                         ///\n");
@@ -167,7 +167,7 @@ void telaVerProdutosDepartamento(void) {
 
 void telaModificarDepartamento(void) {  
     system("clear||cls");
-    char editar;
+    char editar[2];
     char escolha_editar[2];
     int opMaxima = 3;
     
@@ -192,9 +192,13 @@ void telaModificarDepartamento(void) {
     printf("///            3. Cpf do Responsavel: 111.111.111-11                        ///\n");
     printf("///                                                                         ///\n");
     printf("///                                                                         ///\n");
-    printf("///            # Deseja editar algum parametro(s/n)? ");
-    scanf("%c", &editar);
-    getchar();
+
+    do{
+        printf("///            # Deseja editar algum parametro(s/n)? ");
+        scanf("%[^\n]", editar);
+        getchar();
+
+    }while(!validaOpcao(editar));
 
     printf("\n");
     do{
@@ -207,9 +211,13 @@ void telaModificarDepartamento(void) {
 
     printf("\n///              . Nome do Departamento: Roupas                             ///\n");
     printf("///                                                                         ///\n");
-    printf("///            # Deseja editar algum parametro(s/n)? ");
-    scanf("%c", &editar);
-    getchar();
+
+    do{
+        printf("///            # Deseja editar algum parametro(s/n)? ");
+        scanf("%[^\n]", editar);
+        getchar();
+
+    }while(!validaOpcao(editar));
 
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -254,7 +262,8 @@ void telaListarDepartamento(void) {
 
 void telaExcluirDepartamentos(void) {
     system("clear||cls");
-    char cpf[12];
+    char cpf[14];
+    int *vet;
     
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -271,11 +280,21 @@ void telaExcluirDepartamentos(void) {
     printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
     printf("///                                                                         ///\n");
     printf("///                        - Excluir Departamento -                         ///\n");
-    printf("///                                                                         ///\n");  
-    printf("///            # Insira o CPF do responsavel pelo departamento:  ");
-    scanf("%[0-9.]",cpf);
-    getchar();
+    printf("///                                                                         ///\n");
+      
+    vet = (int*) malloc(11*sizeof(int));
+    
+    printf("///                                                                         ///\n");
+    do{
+        printf("///            # Insira o CPF do responsavel pelo departamento:  ");
+        scanf("%[^\n]", cpf);
+        getchar();
+        int tamArray = 11;
+        cpftoi(cpf,vet,tamArray);
 
+    }while(!validaCpf(vet));
+    free(vet);
+    
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n              # Pressione ENTER para voltar para Menu de Departamentos ... ");
@@ -284,7 +303,8 @@ void telaExcluirDepartamentos(void) {
 
 void telaEditarDepartamento(void) {
     system("clear||cls");
-    char cnpj[14];
+    char cpf[14];
+    int *vet;
     
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -302,9 +322,18 @@ void telaEditarDepartamento(void) {
     printf("///                                                                         ///\n");
     printf("///                         - Editar Departamento -                         ///\n");
     printf("///                                                                         ///\n");  
-    printf("///            # Insira o CPF do responsavel pelo departamento:  ");
-    scanf("%[0-9.]",cnpj);
-    getchar();
+
+    vet = (int*) malloc(11*sizeof(int));
+    printf("///                                                                         ///\n");
+    do{
+         printf("///            # Insira o CPF do responsavel pelo departamento:  ");
+        scanf("%[^\n]", cpf);
+        getchar();
+        int tamArray = 11;
+        cpftoi(cpf,vet,tamArray);
+
+    }while(!validaCpf(vet));
+    free(vet);
 
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
