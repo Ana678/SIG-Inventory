@@ -200,7 +200,7 @@ void telaModificarDepartamento(void) {
 
     }while(!validaOpcao(editar));
 
-    printf("\n");
+    printf("///                                                                         ///\n");  
     do{
         printf("///              . Qual parametro deseja editar? ");
         scanf("%[^\n]", escolha_editar);
