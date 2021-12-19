@@ -9,6 +9,16 @@
 ///                                                                         ///
 ///////////////////////////////////////////////////////////////////////////////
 
+
+typedef struct razaoSocial RazaoSocial;
+
+struct razaoSocial { //somente criei, ainda vou aplica-la
+    char nome_empresa[30];
+    char ramo[30];
+    char tipo[10];
+};
+
+
 /////
 // Assinatura das funções
 
