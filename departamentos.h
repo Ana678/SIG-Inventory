@@ -10,14 +10,40 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 /////
+// Structs
+
+typedef struct departamento Departamento;
+
+struct departamento
+{
+    char nome[20];
+    char cpf[14];
+    char nome_responsavel[15];
+    char status;
+
+};
+
+
+/////
 // Assinatura das funções
 
 void moduloDepartamentos(void);
 char telaDepartamentos(void);
-void telaCadastrarDepartamento(void);
+
+//cadastrar departamento
+Departamento* telaCadastrarDepartamento(void);
+
 void telaDetalharDepartamento(void);
 void telaEditarDepartamento(void);
 void telaVerProdutosDepartamento(void);
 void telaListarDepartamento(void);
 void telaExcluirDepartamentos(void);
 void telaModificarDepartamento(void);
+
+void cadastrarDepartamento(void);
+void pesquisarDepartamento(void);
+void atualizarDepartamento(void);
+void excluirDepartamento(void);
+
+void telaPesquisarDepartamento(void);
+void telaExibirDepartamento(void);
