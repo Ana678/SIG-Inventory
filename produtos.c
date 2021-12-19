@@ -46,6 +46,15 @@ void moduloProdutos(void) {
 /////
 // Funcoes Relacionadas ao Modulo Produtos
 
+void cadastrarProduto(void) {
+	Produto* prod;
+
+	prod = telaCadastrarProduto();
+	free(prod);
+}
+
+
+
 char telaProdutos(void) {  
     system("clear||cls");
     char escolha;
@@ -83,20 +92,16 @@ char telaProdutos(void) {
 }
 
 
-void telaCadastrarProduto(void) {  
+Produto* telaCadastrarProduto(void) {  
     system("clear||cls");
+
+    Produto* prod;
+	prod = (Produto*) malloc(sizeof(Produto));
     
-    char cnpj[19];
+    
     int *vet;
 
-    char prod[20];
-    char cod[14];
     
-    char depar[10];
-    char qtd[10];
-    char qtd_minima[10];
-    char qtd_maxima[10];
-
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -115,27 +120,27 @@ void telaCadastrarProduto(void) {
     printf("///                                                                         ///\n");  
     do{
         printf("///            # Insira o nome do novo produto: ");
-        scanf("%[^\n]", prod);
+        scanf("%[^\n]", prod->nome);
         getchar();
 
-    }while (!validaNome(prod));
+    }while (!validaNome(prod->nome));
     
     printf("///                                                                         ///\n");  
     do{
         printf("///            # Insira o codigo desse produto: ");
-        scanf("%[^\n]", cod);
+        scanf("%[^\n]", prod->cod);
         getchar();
 
-    }while (!validaCDB(cod));   
+    }while (!validaCDB(prod->cod));   
     
     vet = (int*) malloc(14*sizeof(int));    
     printf("///                                                                         ///\n");      		
     do{
         printf("///            # Insira o CNPJ do fornecedor: ");
-        scanf("%[^\n]", cnpj);
+        scanf("%[^\n]", prod->cnpj);
         getchar();
         int tamArray = 14;
-        cpftoi(cnpj,vet,tamArray);
+        cpftoi(prod->cnpj,vet,tamArray);
         
     }while (!validaCnpj(vet));
     free(vet);
@@ -143,32 +148,32 @@ void telaCadastrarProduto(void) {
     printf("///                                                                         ///\n"); 
     do{
         printf("///            # Insira o nome do departamento: ");
-        scanf("%[^\n]", depar);
+        scanf("%[^\n]", prod->depar);
         getchar();
-    }while(!validaNome(depar));
+    }while(!validaNome(prod->depar));
     
     printf("///                                                                         ///\n");
     do{
         printf("///            # Quantidade inicial do produto: ");
-        scanf("%[^\n]", qtd);
+        scanf("%[^\n]", prod->qtd);
         getchar();
-    }while(!validaQuantidade(qtd));
+    }while(!validaQuantidade(prod->qtd));
     
     printf("///                                                                         ///\n");    
     do{
         printf("///            # Qual a quantidade minima ideal desse produto? ");
-        scanf("%[^\n]", qtd_minima);
+        scanf("%[^\n]", prod->qtd_minima);
         getchar();
 
-    }while(!validaQuantidade(qtd_minima));
+    }while(!validaQuantidade(prod->qtd_minima));
     
     printf("///                                                                         ///\n");
     do{
         printf("///            # Qual a quantidade maxima ideal desse produto? ");
-        scanf("%[^\n]", qtd_maxima);
+        scanf("%[^\n]", prod->qtd_maxima);
         getchar();
 
-    }while(!validaQuantidade(qtd_maxima));
+    }while(!validaQuantidade(prod->qtd_maxima));
     
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");

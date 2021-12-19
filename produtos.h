@@ -10,14 +10,31 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 /////
+
+typedef struct produto Produto;
+struct produto {
+  char nome [30];
+  char cnpj[19];
+  char cod[14];
+  char depar[10];
+  char qtd[10];
+  char qtd_minima[10];
+  char qtd_maxima[10];
+  int status;
+};
+
+
+
+
 // Assinatura das funções
 
 void moduloProdutos(void);
 void telaFluxoProdutos(void);
 char telaProdutos(void);
 void telaRelatoriosProdutos(void);
-void telaCadastrarProduto(void);
+Produto* telaCadastrarProduto(void);
 void telaPesquisarProdutos(void);
 void telaEditarProduto(void);
 void telaExcluirProdutos(void);
 void telaModificarProduto(void);
+void cadastrarProduto(void);
