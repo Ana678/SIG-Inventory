@@ -18,6 +18,19 @@ struct razaoSocial { //somente criei, ainda vou aplica-la
     char tipo[10];
 };
 
+typedef struct endereco Endereco;
+
+struct endereco{
+  char pais[3];
+  char numero[10];
+  char bairro[80];
+  char rua[80];
+  char estado[80];
+  char cidade[80];
+  int status;
+
+};
+
 
 /////
 // Assinatura das funções
