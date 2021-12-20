@@ -23,7 +23,7 @@ void moduloFornecedores(void) {
         opcao = telaFornecedores();
         switch(opcao) {
             case '1':
-                telaCadastrarFornecedor();
+                cadastrarFornecedor();
                 break;
             case '2':
                 telaListarFornecedores();
@@ -39,6 +39,13 @@ void moduloFornecedores(void) {
                 break;      
         } 		
     } while (opcao != '0');
+}
+
+void cadastrarFornecedor(void) {
+	Fornecedor* forn;
+
+	forn = telaCadastrarFornecedor();
+	free(forn);
 }
 
 /////
@@ -79,23 +86,12 @@ char telaFornecedores(void) {
     return escolha;
 }
 
-void telaCadastrarFornecedor(void) {  
+Fornecedor* telaCadastrarFornecedor(void) {  
     system("clear||cls");
 
-    char nome[21];
-    char cnpj[19];
+    Fornecedor* forn;
+	forn = (Fornecedor*) malloc(sizeof(Fornecedor));
     int *vet;
-
-    char pais[3];
-    char numero[10];
-    char bairro[80];
-    char rua[80];
-    char estado[80];
-    char cidade[80];
-
-    char nome_empresa[30];
-    char ramo[30];
-    char tipo[10];
 
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -115,42 +111,42 @@ void telaCadastrarFornecedor(void) {
     printf("///                                                                         ///\n");  
     do{
         printf("///            # Insira o nome do novo fornecedor: ");
-        scanf("%[^\n]",nome);
+        scanf("%[^\n]",forn->nome);
         getchar();
        
-    }while (!validaNome(nome));
+    }while (!validaNome(forn->nome));
     
     printf("///                                                                         ///\n");  
     printf("///            # Insira a razao social desse fornecedor: ");
     printf("\n");
     do{
         printf("///              . Qual a natureza juridica da empresa (MEI, EI, LTDA, etc.)? ");
-        scanf("%[^\n]",tipo);
+        scanf("%[^\n]",forn->razao_fornecedor->tipo);
         getchar();
-    }while(!validaTipoEmpresa(tipo));
+    }while(!validaTipoEmpresa(forn->razao_fornecedor->tipo));
 
     printf("\n");
     do{
         printf("///              . Qual o nome de identificao da empresa? ");
-        scanf("%[^\n]",nome_empresa);
+        scanf("%[^\n]",forn->razao_fornecedor->nome_empresa);
         getchar();
-    }while(!isUpperName(nome_empresa,tipo));
+    }while(!isUpperName(forn->razao_fornecedor->nome_empresa, forn->razao_fornecedor->tipo));
 
     printf("\n");
     do{
         printf("///              . Qual a area de atuacao da empresa? ");
-        scanf("%[^\n]",ramo);
+        scanf("%[^\n]",forn->razao_fornecedor->ramo);
         getchar();
-    }while(!areaAtuacao(ramo));
+    }while(!areaAtuacao(forn->razao_fornecedor->ramo));
 
     vet = (int*) malloc(14*sizeof(int));    
     printf("///                                                                         ///\n");
     do{
         printf("///            # Qual o CNPJ desse fornecedor? ");
-        scanf("%[^\n]",cnpj);
+        scanf("%[^\n]",forn->cnpj);
         getchar(); 
         int tamArray = 14;
-        cpftoi(cnpj,vet,tamArray);
+        cpftoi(forn->cnpj,vet,tamArray);
         
     }while (!validaCnpj(vet));
     free(vet);
@@ -161,55 +157,56 @@ void telaCadastrarFornecedor(void) {
     printf("\n");
     do{
         printf("///              . Qual o Pais (BR|AR|US)? ");
-        scanf("%[^\n]",pais);
+        scanf("%[^\n]",forn->endereco_fornecedor->pais);
         getchar();
-    }while(!validaPais(pais));
+    }while(!validaPais(forn->endereco_fornecedor->pais));
         
     printf("\n");
 
     do{
         printf("///              . Qual o Estado? ");
-        scanf("%[^\n]",estado);
+        scanf("%[^\n]",forn->endereco_fornecedor->estado);
         getchar();
-    }while(!validaEndereco(estado));
+    }while(!validaEndereco(forn->endereco_fornecedor->estado));
         
     printf("\n");
 
     do{
         printf("///              . Qual a cidade? ");
-        scanf("%[^\n]",cidade);
+        scanf("%[^\n]",forn->endereco_fornecedor->cidade);
         getchar();
-    }while(!validaEndereco(cidade));
+    }while(!validaEndereco(forn->endereco_fornecedor->cidade));
         
     printf("\n");
 
     do{
         printf("///              . Qual o bairro? ");
-        scanf("%[^\n]",bairro);
+        scanf("%[^\n]",forn->endereco_fornecedor->bairro);
         getchar();
-    }while(!validaEndereco(bairro));
+    }while(!validaEndereco(forn->endereco_fornecedor->bairro));
         
     printf("\n");
 
     do{
         printf("///              . Qual o nome da rua? ");
-        scanf("%[^\n]",rua);
+        scanf("%[^\n]",forn->endereco_fornecedor->rua);
         getchar();
-    }while(!validaEndereco(rua));
+    }while(!validaEndereco(forn->endereco_fornecedor->rua));
         
     printf("\n");
 
     do{
         printf("///              . Qual o numero? ");
-        scanf("%[^\n]",numero);
+        scanf("%[^\n]",forn->endereco_fornecedor->numero);
         getchar();
-    }while(!validaQuantidade(numero));
+    }while(!validaQuantidade(forn->endereco_fornecedor->numero));
 
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n              # Pressione ENTER para voltar para Menu de Fornecedores ... ");
     getchar();
     
+    return forn;
 }
 
 void telaListarFornecedores(void) { 

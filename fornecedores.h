@@ -37,20 +37,25 @@ struct fornecedor{
 
     char nome[21];
     char cnpj[19];
-    Endereco endereco_fornecedor;
-    RazaoSocial razao_fornecedor;
+    Endereco* endereco_fornecedor;
+    RazaoSocial* razao_fornecedor;
 
 };
+
 /////
 // Assinatura das funções
 
 void moduloFornecedores(void);
 char telaFornecedores(void);
 void telaListarFornecedores(void);
-void telaCadastrarFornecedor(void);
+
+Fornecedor* telaCadastrarFornecedor(void);
+
 void telaExcluirFornecedores(void);
 void telaEditarFornecedores(void);
 void telaModificarFornecedor(void);
 
 void telaExibirFornecedor(void);
 void telaPesquisarFornecedor(void);
+
+void cadastrarFornecedor(void);
