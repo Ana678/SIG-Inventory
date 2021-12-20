@@ -51,7 +51,6 @@ void cadastrarDepartamento(void) {
 	free(dep);
 }
 
-
 void pesquisarDepartamento(void) {
 	/* funcao em desenvolvimento
     
@@ -62,13 +61,11 @@ void pesquisarDepartamento(void) {
     telaPesquisarDepartamento();
 }
 
-
 void atualizarDepartamento(void) {
 	// função ainda em desenvolvimento
 	// exibe a tela apenas para testes
     telaEditarDepartamento();
 }
-
 
 void excluirDepartamento(void) {
 	// função ainda em desenvolvimento

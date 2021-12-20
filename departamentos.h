@@ -23,7 +23,6 @@ struct departamento
 
 };
 
-
 /////
 // Assinatura das funções
 

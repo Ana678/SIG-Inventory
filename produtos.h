@@ -9,7 +9,7 @@
 ///                                                                         ///
 ///////////////////////////////////////////////////////////////////////////////
 
-/////
+///// Structs
 
 typedef struct produto Produto;
 struct produto {
@@ -23,7 +23,7 @@ struct produto {
   int status;
 };
 
-
+//////
 
 
 // Assinatura das funções

@@ -41,15 +41,15 @@ void moduloFornecedores(void) {
     } while (opcao != '0');
 }
 
+/////
+// Funcoes Relacionadas ao Modulo Fornecedores
+
 void cadastrarFornecedor(void) {
 	Fornecedor* forn;
 
 	forn = telaCadastrarFornecedor();
 	free(forn);
 }
-
-/////
-// Funcoes Relacionadas ao Modulo Fornecedores
 
 char telaFornecedores(void) {
     system("clear||cls");

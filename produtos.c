@@ -54,7 +54,6 @@ void cadastrarProduto(void) {
 }
 
 
-
 char telaProdutos(void) {  
     system("clear||cls");
     char escolha;
