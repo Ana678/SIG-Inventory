@@ -29,9 +29,12 @@ void moduloFornecedores(void) {
                 telaListarFornecedores();
                 break;   
             case '3':
+                telaPesquisarFornecedor();
+                break;
+            case '4':
                 telaEditarFornecedores();
                 break;  
-            case '4':
+            case '5':
                 telaExcluirFornecedores();
                 break;      
         } 		
@@ -63,8 +66,9 @@ char telaFornecedores(void) {
     printf("///                                                                         ///\n");  
     printf("///            1. Cadastrar Novo Fornecedor                                 ///\n");
     printf("///            2. Listar Fornecedores                                       ///\n");
-    printf("///            3. Editar Fornecedor                                         ///\n");
-    printf("///            4. Excluir Fornecedor                                        ///\n");
+    printf("///            3. Pesquisar Fornecedor                                      ///\n");
+    printf("///            4. Editar Fornecedor                                         ///\n");
+    printf("///            5. Excluir Fornecedor                                        ///\n");
     printf("///            0. Voltar para Tela Principal                                ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -372,4 +376,77 @@ void telaEditarFornecedores(void) {
     printf("\n              . Voce sera redirecionado para tela de edicao ... ");
     sleep(1);
     telaModificarFornecedor();
+}
+
+void telaPesquisarFornecedor(void) {
+    system("clear||cls");
+    char cnpj[19];
+    int *vet;
+    
+    printf("\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
+    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
+    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
+    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                         - Pesquisar Fornecedor -                        ///\n");
+    printf("///                                                                         ///\n");  
+
+    vet = (int*) malloc(14*sizeof(int));
+    printf("///                                                                         ///\n");
+    do{
+         printf("///            # Insira o CNPJ do fornecedor:  ");
+        scanf("%[^\n]", cnpj);
+        getchar();
+        int tamArray = 14;
+        cpftoi(cnpj,vet,tamArray);
+
+    }while(!validaCnpj(vet));
+    free(vet);
+
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n              . Voce sera redirecionado para os detalhes desse fornecedor ... ");
+    sleep(1);
+    telaExibirFornecedor();
+}
+
+void telaExibirFornecedor(void) {  
+    system("clear||cls");
+
+    printf("\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
+    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
+    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
+    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                              - Fornecedor -                             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///            -> Informacoes do Fornecedor                                 ///\n");
+    printf("///                                                                         ///\n");
+    printf("///            . Nome do Fornecedor: Nestle                                ///\n");
+    printf("///            . Razao Social: NESTLE BRASIL LTDA.                         ///\n");
+    printf("///            . CNPJ do Fornecedor: 60.409.075/0001-52                    ///\n");
+    printf("///            . Sede da Empresa: Sao Paulo, Brasil                        ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n              # Pressione ENTER para voltar para Menu de Fornecedores ... ");
+    getchar();
+
 }

@@ -28,7 +28,7 @@ void moduloProdutos(void) {
                 telaFluxoProdutos();
                 break;
             case '3': 	
-                telaPesquisarProdutos();
+                telaPesquisarProduto();
                 break;
             case '4': 	
                 telaRelatoriosProdutos();
@@ -181,10 +181,9 @@ Produto* telaCadastrarProduto(void) {
     getchar();
 }
 
-void telaPesquisarProdutos(void) {  
-    system("clear||cls");
 
-    int escolha;
+void telaPesquisarProduto(void) {
+    system("clear||cls");
     char cod[14];
 
     printf("\n");
@@ -201,14 +200,41 @@ void telaPesquisarProdutos(void) {
     printf("///                                                                         ///\n");
     printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
     printf("///                                                                         ///\n");
-    printf("///                               - Produtos -                              ///\n");
-    printf("///                                                                         ///\n");
-    do{
-        printf("///            # Insira o codigo do produto que esta procurando? ");
+    printf("///                          - Pesquisar Produto -                         ///\n");
+    printf("///                                                                         ///\n");  
+
+    do{    
+        printf("///            # Insira o codigo do produto:  ");
         scanf("%[^\n]", cod);
         getchar();
-    }while (!validaCDB(cod));  
-        
+    }while (!validaCDB(cod));
+
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n              . Voce sera redirecionado para os detalhes desse departamento ... ");
+    sleep(1);
+    telaExibirProduto();
+}
+
+
+void telaExibirProduto(void) {  
+    system("clear||cls");
+
+    printf("\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
+    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
+    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
+    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                               - Produto -                               ///\n");
     printf("///                                                                         ///\n");
     printf("///            -> Informacoes do produto                                    ///\n");
     printf("///                                                                         ///\n");
@@ -221,8 +247,9 @@ void telaPesquisarProdutos(void) {
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n              # Pressione ENTER para voltar para Menu de Produtos ... ");
     getchar();
-
+    
 }
+
 
 void telaRelatoriosProdutos(void) {  
     system("clear||cls");

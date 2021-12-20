@@ -10,14 +10,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 
-typedef struct razaoSocial RazaoSocial;
-
-struct razaoSocial { //somente criei, ainda vou aplica-la
-    char nome_empresa[30];
-    char ramo[30];
-    char tipo[10];
-};
-
 typedef struct endereco Endereco;
 
 struct endereco{
@@ -31,7 +23,24 @@ struct endereco{
 
 };
 
+typedef struct razaoSocial RazaoSocial;
 
+struct razaoSocial { //somente criei, ainda vou aplica-la
+    char nome_empresa[30];
+    char ramo[30];
+    char tipo[10];
+};
+
+typedef struct fornecedor Fornecedor;
+
+struct fornecedor{
+
+    char nome[21];
+    char cnpj[19];
+    Endereco endereco_fornecedor;
+    RazaoSocial razao_fornecedor;
+
+};
 /////
 // Assinatura das funções
 
@@ -42,3 +51,6 @@ void telaCadastrarFornecedor(void);
 void telaExcluirFornecedores(void);
 void telaEditarFornecedores(void);
 void telaModificarFornecedor(void);
+
+void telaExibirFornecedor(void);
+void telaPesquisarFornecedor(void);

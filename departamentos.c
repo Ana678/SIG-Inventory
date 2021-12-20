@@ -447,9 +447,9 @@ void telaExibirDepartamento(void) {
     printf("///                                                                         ///\n");
     printf("///            -> Informacoes do Departamento                               ///\n");
     printf("///                                                                         ///\n");
-    printf("///            1. Nome do Departamento: Vestuario                           ///\n");
-    printf("///            2. Nome Do Responsavel: Julio                                ///\n");
-    printf("///            3. Cpf do Responsavel: 111.111.111-11                        ///\n");
+    printf("///            . Nome do Departamento: Vestuario                           ///\n");
+    printf("///            . Nome Do Responsavel: Julio                                ///\n");
+    printf("///            . Cpf do Responsavel: 111.111.111-11                        ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n              # Pressione ENTER para voltar para Menu de Departamentos ... ");
