@@ -48,17 +48,21 @@ void cadastrarDepartamento(void) {
 	Departamento* dep;
 
 	dep = telaCadastrarDepartamento();
+    
+    gravarDepartamento(dep);
 	free(dep);
 }
 
 void pesquisarDepartamento(void) {
-	/* funcao em desenvolvimento
     
     Departamento* dep;
 	char* cpf;
 
-	cpf = telaPesquisarDepartamento();*/
-    telaPesquisarDepartamento();
+	cpf = telaPesquisarDepartamento();
+    dep = buscarDepartamento(cpf);
+    exibirDepartamento(dep);
+    free(dep); 
+	free(cpf);
 }
 
 void atualizarDepartamento(void) {
@@ -162,7 +166,7 @@ Departamento* telaCadastrarDepartamento(void) {
         getchar();
 
     }while(!validaNome(dep->nome_responsavel));
-    dep->status = 'a';
+    dep->status = '1';
 
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -382,9 +386,10 @@ void telaEditarDepartamento(void) {
 }
 
 
-void telaPesquisarDepartamento(void) {
+char* telaPesquisarDepartamento(void) {
     system("clear||cls");
-    char cpf[14];
+    char *cpf;
+    cpf = (char*) malloc(14*sizeof(char));
     int *vet;
     
     printf("\n");
@@ -419,8 +424,10 @@ void telaPesquisarDepartamento(void) {
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n              . Voce sera redirecionado para os detalhes desse departamento ... ");
+    getchar();
     sleep(1);
-    telaExibirDepartamento();
+
+    return cpf;
 }
 
 void telaExibirDepartamento(void) {  
@@ -452,4 +459,107 @@ void telaExibirDepartamento(void) {
     printf("\n              # Pressione ENTER para voltar para Menu de Departamentos ... ");
     getchar();
 
+}
+
+void telaErroArquivoDepartamento(void) {  
+    system("clear||cls");
+
+    printf("\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
+    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
+    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
+    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                             - Departamento -                            ///\n");
+    printf("///                                                                         ///\n");
+    printf("///             ###############################################             ///\n");
+    printf("///             ####                                       ####             ///\n");
+    printf("///             ####      ERRO NA GRAVACAO DO ARQUIVO      ####             ///\n");
+    printf("///             ####                                       ####             ///\n");
+    printf("///             ###############################################             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n              # Pressione ENTER para voltar para Menu de Departamento ... ");
+    getchar();
+
+}
+
+
+
+void gravarDepartamento(Departamento * dep) {
+	FILE* fp;
+
+	fp = fopen("departamentos.txt", "at");
+	if (fp == NULL) {
+		telaErroArquivoDepartamento();
+	}
+	fwrite(dep, sizeof(Departamento), 1, fp);
+	fclose(fp);
+}
+
+Departamento* buscarDepartamento(char* cpf) {
+	FILE* fp;
+	Departamento* dep;
+
+	dep = (Departamento*) malloc(sizeof(Departamento));
+	fp = fopen("departamentos.txt", "rt");
+	if (fp == NULL) {
+		telaErroArquivoDepartamento();
+	}
+	while(fread(dep, sizeof(Departamento), 1, fp)) {
+		if ((strcmp(dep->cpf, cpf) == 0) && (dep->status == '1')) {
+			fclose(fp);
+			return dep;
+		}
+	}
+	fclose(fp);
+	return NULL;
+}
+
+void exibirDepartamento(Departamento* dep) {
+    system("clear||cls");
+    printf("\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
+    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
+    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
+    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                             - Departamento -                            ///\n");
+    printf("///                                                                         ///\n");
+
+	if (dep == NULL) {
+        printf("///             ###############################################             ///\n");
+        printf("///             ####                                       ####             ///\n");
+        printf("///             ####       DEPARTAMENTO INEXISTENTE!       ####             ///\n");
+        printf("///             ####                                       ####             ///\n");
+        printf("///             ###############################################             ///\n");
+
+	} else {
+
+        printf("///            -> Informacoes do Departamento                               ///\n");
+        printf("///                                                                         ///\n");
+        printf("///            . Nome do Departamento: %s\n",dep->nome);
+        printf("///            . Nome Do Responsavel: %s\n",dep->nome_responsavel);
+        printf("///            . Cpf do Responsavel: %s\n", dep->cpf);
+	}
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n              # Pressione ENTER para voltar para Menu de Departamentos ... ");
+    getchar();
 }

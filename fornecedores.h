@@ -37,7 +37,8 @@ typedef struct fornecedor Fornecedor;
 struct fornecedor{
 
     char nome[21];
-    char cnpj[19];
+    char cnpj[19];    
+    char status;
     Endereco* endereco_fornecedor;
     RazaoSocial* razao_fornecedor;
 
@@ -57,6 +58,12 @@ void telaEditarFornecedores(void);
 void telaModificarFornecedor(void);
 
 void telaExibirFornecedor(void);
-void telaPesquisarFornecedor(void);
+char* telaPesquisarFornecedor(void);
 
 void cadastrarFornecedor(void);
+void telaErroArquivoFornecedor(void);
+void pesquisarFornecedor(void);
+
+void gravarFornecedor(Fornecedor* forn);
+Fornecedor* buscarFornecedor(char* cnpj);
+void exibirAluno(Fornecedor* forn);

@@ -44,5 +44,10 @@ void pesquisarDepartamento(void);
 void atualizarDepartamento(void);
 void excluirDepartamento(void);
 
-void telaPesquisarDepartamento(void);
+char* telaPesquisarDepartamento(void);
 void telaExibirDepartamento(void);
+void telaErroArquivoDepartamento(void);
+
+void gravarDepartamento(Departamento * dep);
+Departamento* buscarDepartamento(char* cpf);
+void exibirDepartamento(Departamento* dep);
