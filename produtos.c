@@ -545,7 +545,6 @@ Produto* buscarProduto(char* cod) {
 }
 
 void exibirProduto(Produto* prod) {
-    
     system("clear||cls");
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
