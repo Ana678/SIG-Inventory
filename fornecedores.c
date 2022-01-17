@@ -29,7 +29,7 @@ void moduloFornecedores(void) {
                 telaListarFornecedores();
                 break;   
             case '3':
-                telaPesquisarFornecedor();
+                pesquisarFornecedor();
                 break;
             case '4':
                 telaEditarFornecedores();
@@ -48,8 +48,44 @@ void cadastrarFornecedor(void) {
 	Fornecedor* forn;
 
 	forn = telaCadastrarFornecedor();
+    gravarFornecedor(forn);
 	free(forn);
 }
+
+void pesquisarFornecedor(void) {
+	Fornecedor* forn;
+	char* cnpj;
+
+	cnpj = telaPesquisarFornecedor();
+	forn = buscarFornecedor(cnpj);
+	exibirAluno(forn);
+	free(forn); 
+	free(cnpj);
+}
+
+/*
+
+void cadastrarAluno(void) {
+	Aluno *aln;
+
+	aln = telaCadastrarAluno();
+	gravarAluno(aln);
+	free(aln);
+}
+
+
+void pesquisarAluno(void) {
+	Aluno* aln;
+	char* matr;
+
+	matr = telaPesquisarAluno();
+	aln = buscarAluno(matr);
+	exibirAluno(aln);
+	free(aln); 
+	free(matr);
+}
+
+*/
 
 char telaFornecedores(void) {
     system("clear||cls");
@@ -200,6 +236,8 @@ Fornecedor* telaCadastrarFornecedor(void) {
         scanf("%[^\n]",forn->endereco_fornecedor->numero);
         getchar();
     }while(!validaQuantidade(forn->endereco_fornecedor->numero));
+
+    forn->status = '1';
 
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -375,9 +413,10 @@ void telaEditarFornecedores(void) {
     telaModificarFornecedor();
 }
 
-void telaPesquisarFornecedor(void) {
+char* telaPesquisarFornecedor(void) {
     system("clear||cls");
-    char cnpj[19];
+    char* cnpj;
+    cnpj = (char*) malloc(19*sizeof(char));
     int *vet;
     
     printf("\n");
@@ -413,7 +452,8 @@ void telaPesquisarFornecedor(void) {
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n              . Voce sera redirecionado para os detalhes desse fornecedor ... ");
     sleep(1);
-    telaExibirFornecedor();
+    
+    return cnpj;
 }
 
 void telaExibirFornecedor(void) {  
@@ -437,13 +477,116 @@ void telaExibirFornecedor(void) {
     printf("///                                                                         ///\n");
     printf("///            -> Informacoes do Fornecedor                                 ///\n");
     printf("///                                                                         ///\n");
-    printf("///            . Nome do Fornecedor: Nestle                                ///\n");
-    printf("///            . Razao Social: NESTLE BRASIL LTDA.                         ///\n");
-    printf("///            . CNPJ do Fornecedor: 60.409.075/0001-52                    ///\n");
-    printf("///            . Sede da Empresa: Sao Paulo, Brasil                        ///\n");
+    printf("///            . Nome do Fornecedor: Nestle                                 ///\n");
+    printf("///            . Razao Social: NESTLE BRASIL LTDA.                          ///\n");
+    printf("///            . CNPJ do Fornecedor: 60.409.075/0001-52                     ///\n");
+    printf("///            . Sede da Empresa: Sao Paulo, Brasil                         ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n              # Pressione ENTER para voltar para Menu de Fornecedores ... ");
     getchar();
 
+}
+
+void telaErroArquivoFornecedor(void) {  
+    system("clear||cls");
+
+    printf("\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
+    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
+    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
+    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                              - Fornecedor -                             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///             ###############################################             ///\n");
+    printf("///             ####                                       ####             ///\n");
+    printf("///             ####      ERRO NA GRAVACAO DO ARQUIVO      ####             ///\n");
+    printf("///             ####                                       ####             ///\n");
+    printf("///             ###############################################             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n              # Pressione ENTER para voltar para Menu de Fornecedores ... ");
+    getchar();
+
+}
+
+/* Comecei aqui */
+void gravarFornecedor(Fornecedor* forn) {
+	FILE* fp;
+
+	fp = fopen("fornecedores.txt", "at");
+	if (fp == NULL) {
+		telaErroArquivoFornecedor();
+	}
+	fwrite(forn, sizeof(Fornecedor), 1, fp);
+	fclose(fp);
+}
+
+Fornecedor* buscarFornecedor(char* cnpj) {
+	FILE* fp;
+	Fornecedor* forn;
+
+	forn = (Fornecedor*) malloc(sizeof(Fornecedor));
+	fp = fopen("fornecedores.txt", "rt");
+	if (fp == NULL) {
+		telaErroArquivoFornecedor();
+	}
+	while(fread(forn, sizeof(Fornecedor), 1, fp)) {
+		if ((strcmp(forn->cnpj, cnpj) == 0) && (forn->status == '1')) {
+			fclose(fp);
+			return forn;
+		}
+	}
+	fclose(fp);
+	return NULL;
+}
+
+void exibirAluno(Fornecedor* forn) {
+    system("clear||cls");
+    printf("\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
+    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
+    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
+    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                              - Fornecedor -                             ///\n");
+    printf("///                                                                         ///\n");
+
+	if (forn == NULL) {
+        printf("///             ###############################################             ///\n");
+        printf("///             ####                                       ####             ///\n");
+        printf("///             ####        FORNECEDOR INEXISTENTE!        ####             ///\n");
+        printf("///             ####                                       ####             ///\n");
+        printf("///             ###############################################             ///\n");
+
+	} else {
+
+        printf("///            -> Informacoes do Fornecedor                                 ///\n");
+        printf("///                                                                         ///\n");
+        printf("///            . Nome do Fornecedor: %s\n", forn->nome);
+        printf("///            . Razao Social: NESTLE BRASIL LTDA.                          ///\n");
+        printf("///            . CNPJ do Fornecedor: %s\n", forn->cnpj);
+        printf("///            . Sede da Empresa: Sao Paulo, Brasil                         ///\n");
+	}
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n              # Pressione ENTER para voltar para Menu de Fornecedores ... ");
+    getchar();
 }
