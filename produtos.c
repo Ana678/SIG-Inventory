@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <string.h>
 #include "produtos.h"
 #include "auxiliar.h"
 #include "util.h"
@@ -22,13 +23,13 @@ void moduloProdutos(void) {
         opcao = telaProdutos();
         switch(opcao) {
             case '1': 	
-                telaCadastrarProduto();
+                cadastrarProduto();
                 break;
             case '2': 	
                 telaFluxoProdutos();
                 break;
             case '3': 	
-                telaPesquisarProduto();
+                pesquisarProduto();
                 break;
             case '4': 	
                 telaRelatoriosProdutos();
@@ -50,7 +51,21 @@ void cadastrarProduto(void) {
 	Produto* prod;
 
 	prod = telaCadastrarProduto();
+    gravarProduto(prod);
+	
 	free(prod);
+}
+
+void pesquisarProduto(void) {
+    
+    Produto* prod;
+	char* cod;
+
+	cod = telaPesquisarProduto();
+    prod = buscarProduto(cod);
+    exibirProduto(prod);
+    free(prod); 
+	free(cod);
 }
 
 
@@ -97,9 +112,7 @@ Produto* telaCadastrarProduto(void) {
     Produto* prod;
 	prod = (Produto*) malloc(sizeof(Produto));
     
-    
     int *vet;
-
     
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -174,16 +187,21 @@ Produto* telaCadastrarProduto(void) {
 
     }while(!validaQuantidade(prod->qtd_maxima));
     
+    prod->status = '1';
+
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n              # Pressione ENTER para voltar para Menu de Produtos ... ");
     getchar();
+
+    return prod;
 }
 
 
-void telaPesquisarProduto(void) {
+char* telaPesquisarProduto(void) {
     system("clear||cls");
-    char cod[14];
+    char* cod;
+    cod = (char*) malloc(14*sizeof(char));
 
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -212,7 +230,8 @@ void telaPesquisarProduto(void) {
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n              . Voce sera redirecionado para os detalhes desse departamento ... ");
     sleep(1);
-    telaExibirProduto();
+    
+    return cod;
 }
 
 
@@ -461,4 +480,111 @@ void telaEditarProduto(void) {
     printf("\n              . Voce sera redirecionado para tela de edicao ... ");
     sleep(1);
     telaModificarProduto();
+}
+
+void telaErroArquivoProduto(void) {  
+    system("clear||cls");
+
+    printf("\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
+    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
+    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
+    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                                - Produto -                              ///\n");
+    printf("///                                                                         ///\n");
+    printf("///             ###############################################             ///\n");
+    printf("///             ####                                       ####             ///\n");
+    printf("///             ####      ERRO NA GRAVACAO DO ARQUIVO      ####             ///\n");
+    printf("///             ####                                       ####             ///\n");
+    printf("///             ###############################################             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n              # Pressione ENTER para voltar para Menu de Produtos ... ");
+    getchar();
+
+}
+
+void gravarProduto(Produto* prod) {
+	FILE* fp;
+
+	fp = fopen("produtos.txt", "at");
+	if (fp == NULL) {
+		telaErroArquivoProduto();
+	}
+	fwrite(prod, sizeof(Produto), 1, fp);
+	fclose(fp);
+}
+
+
+Produto* buscarProduto(char* cod) {
+	FILE* fp;
+	Produto* prod;
+
+	prod = (Produto*) malloc(sizeof(Produto));
+	fp = fopen("produtos.txt", "rt");
+	if (fp == NULL) {
+		telaErroArquivoProduto();
+	}
+	while(fread(prod, sizeof(Produto), 1, fp)) {
+		if ((strcmp(prod->cod, cod) == 0) && (prod->status == '1')) {
+			fclose(fp);
+			return prod;
+		}
+	}
+	fclose(fp);
+	return NULL;
+}
+
+void exibirProduto(Produto* prod) {
+    
+    system("clear||cls");
+    printf("\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
+    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
+    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
+    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                                - Produto -                              ///\n");
+    printf("///                                                                         ///\n");
+
+	if (prod == NULL) {
+        printf("///             ###############################################             ///\n");
+        printf("///             ####                                       ####             ///\n");
+        printf("///             ####          PRODUTO INEXISTENTE!         ####             ///\n");
+        printf("///             ####                                       ####             ///\n");
+        printf("///             ###############################################             ///\n");
+
+	} else {
+
+        printf("///            -> Informacoes do Produto                                    ///\n");
+        printf("///                                                                         ///\n");
+        printf("///            1. Codigo do Produto: %s\n",prod->cod);
+        printf("///            2. Nome do Produto: %s\n",prod->nome);
+        printf("///            3. Marca Fornecedora: %s\n",prod->cnpj);
+        printf("///            4. Departamento: %s\n",prod->depar);
+        printf("///            5. Quantidade Atual: %s\n",prod->qtd);
+        printf("///            6. Quantidade Minima Ideal: %s\n",prod->qtd_minima);
+        printf("///            7. Quantidade Maxima Ideal: %s\n",prod->qtd_maxima);
+	}
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n              # Pressione ENTER para voltar para Menu de Produtos ... ");
+    getchar();
 }
