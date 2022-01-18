@@ -462,5 +462,139 @@ int validaTipoEmpresa(char tipo[10]){
 
   return 0;
   
+}
+
+void preencheRazaoSocial(char *razao){
+
+  char nome_empresa[30];
+  char ramo[30];
+  char tipo[10];
+  char vazio = ' ';
+
+  char tipo1[3] = "MEI";
+  char tipo2[6] = "EIRELI";
+  char tipo3[2] = "EI";
+    
+  do{
+    printf("///              . Qual a natureza juridica da empresa (MEI, EI, LTDA, etc.)? ");
+    scanf("%[^\n]",tipo);
+    getchar();
+  }while(!validaTipoEmpresa(tipo));
+
+  printf("\n");
+  do{
+      printf("///              . Qual o nome de identificao da empresa? ");
+      scanf("%[^\n]",nome_empresa);
+      getchar();
+  }while(!isUpperName(nome_empresa, tipo));
+
+  printf("\n");
+  do{
+      printf("///              . Qual a area de atuacao da empresa? ");
+      scanf("%[^\n]",ramo);
+      getchar();
+  }while(!areaAtuacao(ramo));
+
+  ////////////////////////////
+  int isMei = 0;
+  int isEir = 0;
+  int isEi = 0;
+
+  for (int j =0; j< strlen(tipo);j++){
+    if(tipo1[j] == tipo[j]){
+      isMei +=1;
+    }
+
+    if(tipo2[j] == tipo[j]){
+      isEir +=1;
+    }
+
+    if(tipo3[j] == tipo[j]){
+      isEi +=1;
+    }
+  }
+  ////////////////////////////////
+  if(isMei == strlen(tipo) || isEi == strlen(tipo)){
+    strcpy(razao,nome_empresa);
+
+  }else if(isEir == strlen(tipo)){
+
+    strcpy(razao,nome_empresa);
+    strncat(razao,&vazio,1);
+    strcat(razao,tipo);
+
+  }else{
+
+    strcpy(razao,nome_empresa);
+    strncat(razao,&vazio,1);
+    strcat(razao,ramo);
+    strncat(razao,&vazio,1);
+    strcat(razao,tipo);
+    strncat(razao,&vazio,1);
+  }
+
+}
+
+void preencheEndereco(char *endereco){
   
+  char pais[3];
+  char numero[10];
+  char rua[80];
+  char estado[30];
+  char cidade[80];
+
+  char virgula = ',';
+  char espaco= ' ';
+  char t = '-';
+
+  do{
+      printf("///              . Qual o Pais (BR|AR|US)? ");
+      scanf("%[^\n]",pais);
+      getchar();
+  }while(!validaPais(pais));
+      
+  printf("\n");
+
+  do{
+      printf("///              . Qual o Estado? ");
+      scanf("%[^\n]",estado);
+      getchar();
+  }while(!validaEndereco(estado));
+      
+  printf("\n");
+
+  do{
+      printf("///              . Qual a cidade? ");
+      scanf("%[^\n]",cidade);
+      getchar();
+  }while(!validaEndereco(cidade));
+      
+  printf("\n");
+
+  do{
+      printf("///              . Qual o nome da rua? ");
+      scanf("%[^\n]",rua);
+      getchar();
+  }while(!validaEndereco(rua));
+      
+  printf("\n");
+
+  do{
+      printf("///              . Qual o numero? ");
+      scanf("%[^\n]",numero);
+      getchar();
+  }while(!validaQuantidade(numero));
+
+  strcpy(endereco,rua);
+  strncat(endereco,&virgula,1);
+  strncat(endereco,&espaco,1);
+  strcat(endereco,numero);
+  strncat(endereco,&virgula,1);
+  strncat(endereco,&espaco,1);
+  strcat(endereco,cidade);
+  strncat(endereco,&t,1);
+  strcat(endereco,estado);
+  strncat(endereco,&virgula,1);
+  strncat(endereco,&espaco,1);
+  strcat(endereco,pais);
 }

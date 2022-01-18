@@ -154,26 +154,13 @@ Fornecedor* telaCadastrarFornecedor(void) {
     
     printf("///                                                                         ///\n");  
     printf("///            # Insira a razao social desse fornecedor: ");
-    printf("\n");
-    do{
-        printf("///              . Qual a natureza juridica da empresa (MEI, EI, LTDA, etc.)? ");
-        scanf("%[^\n]",forn->razao_fornecedor->tipo);
-        getchar();
-    }while(!validaTipoEmpresa(forn->razao_fornecedor->tipo));
-
-    printf("\n");
-    do{
-        printf("///              . Qual o nome de identificao da empresa? ");
-        scanf("%[^\n]",forn->razao_fornecedor->nome_empresa);
-        getchar();
-    }while(!isUpperName(forn->razao_fornecedor->nome_empresa, forn->razao_fornecedor->tipo));
-
-    printf("\n");
-    do{
-        printf("///              . Qual a area de atuacao da empresa? ");
-        scanf("%[^\n]",forn->razao_fornecedor->ramo);
-        getchar();
-    }while(!areaAtuacao(forn->razao_fornecedor->ramo));
+    printf("\n"); 
+    //NESTLE BRASIL LTDA. 
+    char *razao;
+    razao = (char*) malloc(73*sizeof(char));  
+    preencheRazaoSocial(razao);
+    strcpy(forn->razao_social,razao);
+    free(razao);
 
     vet = (int*) malloc(14*sizeof(int));    
     printf("///                                                                         ///\n");
@@ -189,53 +176,12 @@ Fornecedor* telaCadastrarFornecedor(void) {
 
     printf("///                                                                         ///\n");
     printf("///            # Insira o endereco desse fornecedor: ");
-
     printf("\n");
-    do{
-        printf("///              . Qual o Pais (BR|AR|US)? ");
-        scanf("%[^\n]",forn->endereco_fornecedor->pais);
-        getchar();
-    }while(!validaPais(forn->endereco_fornecedor->pais));
-        
-    printf("\n");
-
-    do{
-        printf("///              . Qual o Estado? ");
-        scanf("%[^\n]",forn->endereco_fornecedor->estado);
-        getchar();
-    }while(!validaEndereco(forn->endereco_fornecedor->estado));
-        
-    printf("\n");
-
-    do{
-        printf("///              . Qual a cidade? ");
-        scanf("%[^\n]",forn->endereco_fornecedor->cidade);
-        getchar();
-    }while(!validaEndereco(forn->endereco_fornecedor->cidade));
-        
-    printf("\n");
-
-    do{
-        printf("///              . Qual o bairro? ");
-        scanf("%[^\n]",forn->endereco_fornecedor->bairro);
-        getchar();
-    }while(!validaEndereco(forn->endereco_fornecedor->bairro));
-        
-    printf("\n");
-
-    do{
-        printf("///              . Qual o nome da rua? ");
-        scanf("%[^\n]",forn->endereco_fornecedor->rua);
-        getchar();
-    }while(!validaEndereco(forn->endereco_fornecedor->rua));
-        
-    printf("\n");
-
-    do{
-        printf("///              . Qual o numero? ");
-        scanf("%[^\n]",forn->endereco_fornecedor->numero);
-        getchar();
-    }while(!validaQuantidade(forn->endereco_fornecedor->numero));
+    char *endereco;
+    endereco = (char*) malloc(220*sizeof(char));  
+    preencheEndereco(endereco);
+    strcpy(forn->endereco,endereco);
+    free(endereco);
 
     forn->status = '1';
 
@@ -581,9 +527,9 @@ void exibirAluno(Fornecedor* forn) {
         printf("///            -> Informacoes do Fornecedor                                 ///\n");
         printf("///                                                                         ///\n");
         printf("///            . Nome do Fornecedor: %s\n", forn->nome);
-        printf("///            . Razao Social: NESTLE BRASIL LTDA.                          ///\n");
+        printf("///            . Razao Social: %s\n", forn->razao_social);
         printf("///            . CNPJ do Fornecedor: %s\n", forn->cnpj);
-        printf("///            . Sede da Empresa: Sao Paulo, Brasil                         ///\n");
+        printf("///            . Sede da Empresa: %s\n",forn->endereco);
 	}
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");

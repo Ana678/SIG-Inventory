@@ -11,36 +11,15 @@
 
 ///// Structs
 
-typedef struct endereco Endereco;
-
-struct endereco{
-  char pais[3];
-  char numero[10];
-  char bairro[80];
-  char rua[80];
-  char estado[80];
-  char cidade[80];
-  int status;
-
-};
-
-typedef struct razaoSocial RazaoSocial;
-
-struct razaoSocial { //somente criei, ainda vou aplica-la
-    char nome_empresa[30];
-    char ramo[30];
-    char tipo[10];
-};
-
 typedef struct fornecedor Fornecedor;
 
 struct fornecedor{
 
     char nome[21];
     char cnpj[19];    
+    char razao_social[73];
+    char endereco[220];
     char status;
-    Endereco* endereco_fornecedor;
-    RazaoSocial* razao_fornecedor;
 
 };
 
