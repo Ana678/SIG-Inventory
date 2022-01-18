@@ -430,37 +430,6 @@ char* telaPesquisarDepartamento(void) {
     return cpf;
 }
 
-void telaExibirDepartamento(void) {  
-    system("clear||cls");
-
-    printf("\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                         ///\n");
-    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
-    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
-    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
-    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
-    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
-    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
-    printf("///                                                                         ///\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                         ///\n");
-    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
-    printf("///                                                                         ///\n");
-    printf("///                             - Departamento -                            ///\n");
-    printf("///                                                                         ///\n");
-    printf("///            -> Informacoes do Departamento                               ///\n");
-    printf("///                                                                         ///\n");
-    printf("///            . Nome do Departamento: Vestuario                           ///\n");
-    printf("///            . Nome Do Responsavel: Julio                                ///\n");
-    printf("///            . Cpf do Responsavel: 111.111.111-11                        ///\n");
-    printf("///                                                                         ///\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n              # Pressione ENTER para voltar para Menu de Departamentos ... ");
-    getchar();
-
-}
-
 void telaErroArquivoDepartamento(void) {  
     system("clear||cls");
 

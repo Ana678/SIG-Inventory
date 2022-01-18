@@ -36,7 +36,6 @@ void telaExcluirFornecedores(void);
 void telaEditarFornecedores(void);
 void telaModificarFornecedor(void);
 
-void telaExibirFornecedor(void);
 char* telaPesquisarFornecedor(void);
 
 void cadastrarFornecedor(void);

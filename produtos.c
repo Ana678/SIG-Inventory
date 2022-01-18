@@ -234,41 +234,6 @@ char* telaPesquisarProduto(void) {
     return cod;
 }
 
-
-void telaExibirProduto(void) {  
-    system("clear||cls");
-
-    printf("\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                         ///\n");
-    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
-    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
-    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
-    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
-    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
-    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
-    printf("///                                                                         ///\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                         ///\n");
-    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
-    printf("///                                                                         ///\n");
-    printf("///                               - Produto -                               ///\n");
-    printf("///                                                                         ///\n");
-    printf("///            -> Informacoes do produto                                    ///\n");
-    printf("///                                                                         ///\n");
-    printf("///            . Codigo: 0012343566778                                      ///\n");
-    printf("///            . Nome: Chinelo Preto                                        ///\n");
-    printf("///            . Marca: Havaianas                                           ///\n");
-    printf("///            . Quantidade: 14                                             ///\n");
-    printf("///            . Departamento: Vestuario                                    ///\n");
-    printf("///                                                                         ///\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n              # Pressione ENTER para voltar para Menu de Produtos ... ");
-    getchar();
-    
-}
-
-
 void telaRelatoriosProdutos(void) {  
     system("clear||cls");
 

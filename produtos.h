@@ -40,7 +40,6 @@ void telaModificarProduto(void);
 
 void cadastrarProduto(void);
 void pesquisarProduto(void);
-void telaExibirProduto(void);
 
 void telaErroArquivoProduto(void);
 void gravarProduto(Produto* prod);

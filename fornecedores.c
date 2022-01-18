@@ -402,38 +402,6 @@ char* telaPesquisarFornecedor(void) {
     return cnpj;
 }
 
-void telaExibirFornecedor(void) {  
-    system("clear||cls");
-
-    printf("\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                         ///\n");
-    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
-    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
-    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
-    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
-    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
-    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
-    printf("///                                                                         ///\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                         ///\n");
-    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
-    printf("///                                                                         ///\n");
-    printf("///                              - Fornecedor -                             ///\n");
-    printf("///                                                                         ///\n");
-    printf("///            -> Informacoes do Fornecedor                                 ///\n");
-    printf("///                                                                         ///\n");
-    printf("///            . Nome do Fornecedor: Nestle                                 ///\n");
-    printf("///            . Razao Social: NESTLE BRASIL LTDA.                          ///\n");
-    printf("///            . CNPJ do Fornecedor: 60.409.075/0001-52                     ///\n");
-    printf("///            . Sede da Empresa: Sao Paulo, Brasil                         ///\n");
-    printf("///                                                                         ///\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n              # Pressione ENTER para voltar para Menu de Fornecedores ... ");
-    getchar();
-
-}
-
 void telaErroArquivoFornecedor(void) {  
     system("clear||cls");
 
@@ -465,7 +433,7 @@ void telaErroArquivoFornecedor(void) {
 
 }
 
-/* Comecei aqui */
+
 void gravarFornecedor(Fornecedor* forn) {
 	FILE* fp;
 
