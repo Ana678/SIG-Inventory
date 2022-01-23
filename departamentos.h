@@ -17,7 +17,7 @@ typedef struct departamento Departamento;
 struct departamento
 {
     char nome[20];
-    char cpf[14];
+    char cpf[15];
     char nome_responsavel[15];
     char status;
 

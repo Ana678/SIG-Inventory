@@ -49,7 +49,36 @@ void cadastrarDepartamento(void) {
 
 	dep = telaCadastrarDepartamento();
     
-    gravarDepartamento(dep);
+    if(buscarDepartamento(dep->cpf) == NULL){
+        gravarDepartamento(dep);
+    }else{
+        system("clear||cls");
+        printf("\n");
+        printf("///////////////////////////////////////////////////////////////////////////////\n");
+        printf("///                                                                         ///\n");
+        printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+        printf("///                   Centro de Ensino Superior do Serido                   ///\n");
+        printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
+        printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
+        printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+        printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+        printf("///                                                                         ///\n");
+        printf("///////////////////////////////////////////////////////////////////////////////\n");
+        printf("///                                                                         ///\n");
+        printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+        printf("///                                                                         ///\n");
+        printf("///                             - Departamento -                            ///\n");
+        printf("///                                                                         ///\n");
+        printf("///             ###############################################             ///\n");
+        printf("///             ####                                       ####             ///\n");
+        printf("///             ####        DEPARTAMENTO JA EXISTE!        ####             ///\n");
+        printf("///             ####                                       ####             ///\n");
+        printf("///             ###############################################             ///\n");
+        printf("///                                                                         ///\n");
+        printf("///////////////////////////////////////////////////////////////////////////////\n");
+        printf("\n              # Pressione ENTER para voltar para Menu de Fornecedores ... ");
+        getchar();
+    }
 	free(dep);
 }
 
@@ -424,7 +453,6 @@ char* telaPesquisarDepartamento(void) {
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n              . Voce sera redirecionado para os detalhes desse departamento ... ");
-    getchar();
     sleep(1);
 
     return cpf;

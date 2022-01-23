@@ -47,8 +47,40 @@ void moduloFornecedores(void) {
 void cadastrarFornecedor(void) {
 	Fornecedor* forn;
 
-	forn = telaCadastrarFornecedor();
-    gravarFornecedor(forn);
+    forn = telaCadastrarFornecedor();
+
+    if(buscarFornecedor(forn->cnpj) == NULL){
+        gravarFornecedor(forn);
+    }else{
+        system("clear||cls");
+        printf("\n");
+        printf("///////////////////////////////////////////////////////////////////////////////\n");
+        printf("///                                                                         ///\n");
+        printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+        printf("///                   Centro de Ensino Superior do Serido                   ///\n");
+        printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
+        printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
+        printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+        printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+        printf("///                                                                         ///\n");
+        printf("///////////////////////////////////////////////////////////////////////////////\n");
+        printf("///                                                                         ///\n");
+        printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+        printf("///                                                                         ///\n");
+        printf("///                              - Fornecedor -                             ///\n");
+        printf("///                                                                         ///\n");
+        printf("///             ###############################################             ///\n");
+        printf("///             ####                                       ####             ///\n");
+        printf("///             ####         FORNECEDOR JA EXISTE!         ####             ///\n");
+        printf("///             ####                                       ####             ///\n");
+        printf("///             ###############################################             ///\n");
+        printf("///                                                                         ///\n");
+        printf("///////////////////////////////////////////////////////////////////////////////\n");
+        printf("\n              # Pressione ENTER para voltar para Menu de Fornecedores ... ");
+        getchar();
+    
+    }
+    
 	free(forn);
 }
 
@@ -62,30 +94,6 @@ void pesquisarFornecedor(void) {
 	free(forn); 
 	free(cnpj);
 }
-
-/*
-
-void cadastrarAluno(void) {
-	Aluno *aln;
-
-	aln = telaCadastrarAluno();
-	gravarAluno(aln);
-	free(aln);
-}
-
-
-void pesquisarAluno(void) {
-	Aluno* aln;
-	char* matr;
-
-	matr = telaPesquisarAluno();
-	aln = buscarAluno(matr);
-	exibirAluno(aln);
-	free(aln); 
-	free(matr);
-}
-
-*/
 
 char telaFornecedores(void) {
     system("clear||cls");
