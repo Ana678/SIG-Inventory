@@ -52,7 +52,7 @@ void cadastrarProduto(void) {
 
 	prod = telaCadastrarProduto();
     gravarProduto(prod);
-	
+
 	free(prod);
 }
 
@@ -481,7 +481,7 @@ void telaErroArquivoProduto(void) {
 void gravarProduto(Produto* prod) {
 	FILE* fp;
 
-	fp = fopen("produtos.txt", "at");
+	fp = fopen("produtos.dat", "ab");
 	if (fp == NULL) {
 		telaErroArquivoProduto();
 	}
@@ -495,7 +495,7 @@ Produto* buscarProduto(char* cod) {
 	Produto* prod;
 
 	prod = (Produto*) malloc(sizeof(Produto));
-	fp = fopen("produtos.txt", "rt");
+	fp = fopen("produtos.dat", "rb");
 	if (fp == NULL) {
 		telaErroArquivoProduto();
 	}

@@ -466,7 +466,7 @@ void telaErroArquivoDepartamento(void) {
 void gravarDepartamento(Departamento * dep) {
 	FILE* fp;
 
-	fp = fopen("departamentos.txt", "at");
+	fp = fopen("departamentos.dat", "ab");
 	if (fp == NULL) {
 		telaErroArquivoDepartamento();
 	}
@@ -479,7 +479,7 @@ Departamento* buscarDepartamento(char* cpf) {
 	Departamento* dep;
 
 	dep = (Departamento*) malloc(sizeof(Departamento));
-	fp = fopen("departamentos.txt", "rt");
+	fp = fopen("departamentos.dat", "rb");
 	if (fp == NULL) {
 		telaErroArquivoDepartamento();
 	}

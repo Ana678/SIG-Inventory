@@ -437,7 +437,7 @@ void telaErroArquivoFornecedor(void) {
 void gravarFornecedor(Fornecedor* forn) {
 	FILE* fp;
 
-	fp = fopen("fornecedores.txt", "at");
+	fp = fopen("fornecedores.dat", "ab");
 	if (fp == NULL) {
 		telaErroArquivoFornecedor();
 	}
@@ -450,7 +450,7 @@ Fornecedor* buscarFornecedor(char* cnpj) {
 	Fornecedor* forn;
 
 	forn = (Fornecedor*) malloc(sizeof(Fornecedor));
-	fp = fopen("fornecedores.txt", "rt");
+	fp = fopen("fornecedores.dat", "rb");
 	if (fp == NULL) {
 		telaErroArquivoFornecedor();
 	}
