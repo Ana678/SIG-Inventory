@@ -52,3 +52,5 @@ Departamento* buscarDepartamento(char* cpf);
 void exibirDepartamento(Departamento* dep);
 
 void excluirDepartamentoExistente(Departamento* dep);
+int certezaExclusaoDepartamento(Departamento* dep);
+void sucessoExclusaoDepartamento(void);

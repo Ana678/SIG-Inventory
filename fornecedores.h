@@ -48,3 +48,6 @@ void exibirAluno(Fornecedor* forn);
 
 void excluirFornecedorExistente(Fornecedor* fornLido);
 void excluirFornecedor(void);
+
+int certezaExclusaoFornecedor(Fornecedor* forn);
+void sucessoExclusaoFornecedor(void);

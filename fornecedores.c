@@ -13,6 +13,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <ctype.h>
+
 #include "fornecedores.h"
 #include "util.h"
 #include "auxiliar.h"
@@ -328,7 +330,7 @@ char* telaExcluirFornecedores(void) {
     printf("///                                                                         ///\n");  
     vet = (int*) malloc(14*sizeof(int));    
     do{
-        printf("///            # Qual o CNPJ do fornecedor que voce deseja excluir ?? ");
+        printf("///            # Insira o CNPJ do fornecedor: ");
         scanf("%[^\n]",cnpj);
         getchar(); 
         int tamArray = 14;
@@ -339,8 +341,9 @@ char* telaExcluirFornecedores(void) {
 
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n              # Pressione ENTER para voltar para Menu de Fornecedores ... ");
-    getchar();
+    printf("\n              . O fornecedor esta sendo excluido ... ");
+    sleep(1);
+
 
     return cnpj;
 }
@@ -368,7 +371,7 @@ void telaEditarFornecedores(void) {
     printf("///                                                                         ///\n");  
     vet = (int*) malloc(14*sizeof(int));    
     do{
-        printf("///            # Qual o CNPJ do fornecedor que voce deseja editar ?? ");
+        printf("///            # Insira o CNPJ do fornecedor: ");
         scanf("%[^\n]",cnpj);
         getchar(); 
         int tamArray = 14;
@@ -410,7 +413,7 @@ char* telaPesquisarFornecedor(void) {
     vet = (int*) malloc(14*sizeof(int));
     printf("///                                                                         ///\n");
     do{
-         printf("///            # Insira o CNPJ do fornecedor:  ");
+        printf("///            # Insira o CNPJ do fornecedor:  ");
         scanf("%[^\n]", cnpj);
         getchar();
         int tamArray = 14;
@@ -550,7 +553,7 @@ void excluirFornecedorExistente(Fornecedor* fornLido){
         printf("///                                                                         ///\n");
         printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
         printf("///                                                                         ///\n");
-        printf("///                             - Departamento -                            ///\n");
+        printf("///                              - Fornecedor -                             ///\n");
         printf("///                                                                         ///\n");
         printf("///             ###############################################             ///\n");
         printf("///             ####                                       ####             ///\n");
@@ -559,26 +562,96 @@ void excluirFornecedorExistente(Fornecedor* fornLido){
         printf("///             ###############################################             ///\n");
         printf("///                                                                         ///\n");
         printf("///////////////////////////////////////////////////////////////////////////////\n");
-        printf("\n              # Pressione ENTER para voltar para Menu de Departamentos ... ");
+        printf("\n              # Pressione ENTER para voltar para Menu de Fornecedores ... ");
         getchar();
     }
     else {
-        fornArq = (Fornecedor*) malloc(sizeof(Fornecedor));
-        fp = fopen("fornecedores.dat", "r+b");
-        if (fp == NULL) {
-            telaErroArquivoFornecedor();
-            exit(1);
-        }
-        
-        while(fread(fornArq, sizeof(Fornecedor), 1, fp)) {
-            if ((strcmp(fornArq->cnpj, fornLido->cnpj) == 0) && (fornArq->status == '1')) {
-                fornArq->status = '0';
-                fseek(fp, -1*sizeof(Fornecedor), SEEK_CUR);
-                fwrite(fornArq, sizeof(Fornecedor), 1, fp);
-                fclose(fp);
+        if(certezaExclusaoFornecedor(fornLido)){
+            fornArq = (Fornecedor*) malloc(sizeof(Fornecedor));
+            fp = fopen("fornecedores.dat", "r+b");
+            if (fp == NULL) {
+                telaErroArquivoFornecedor();
+                exit(1);
             }
-	    }
-        fclose(fp);
+            
+            while(fread(fornArq, sizeof(Fornecedor), 1, fp)) {
+                if ((strcmp(fornArq->cnpj, fornLido->cnpj) == 0) && (fornArq->status == '1')) {
+                    fornArq->status = '0';
+                    fseek(fp, -1*sizeof(Fornecedor), SEEK_CUR);
+                    fwrite(fornArq, sizeof(Fornecedor), 1, fp);
+                    fclose(fp);
+                    sucessoExclusaoFornecedor();
+                }
+            }
+            fclose(fp);
+        }
     }
     free(fornArq);
+}
+
+int certezaExclusaoFornecedor(Fornecedor* forn){
+
+    char resp;
+    system("clear||cls");
+    printf("\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
+    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
+    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
+    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                              - Fornecedor -                             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///            -> Informacoes do Fornecedor                                 ///\n");
+    printf("///                                                                         ///\n");
+    printf("///            . Nome do Fornecedor: %s\n", forn->nome);
+    printf("///            . Razao Social: %s\n", forn->razao_social);
+    printf("///            . CNPJ do Fornecedor: %s\n", forn->cnpj);
+    printf("///            . Sede da Empresa: %s\n",forn->endereco);
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n              # Tem CERTEZA que deseja excluir esse fornecedor (s/n)?  ");
+    scanf("%c",&resp);
+    getchar();
+
+    if(tolower(resp) == 's'){
+        return 1;
+    }
+    return 0;
+}
+
+void sucessoExclusaoFornecedor(void){
+    system("clear||cls");
+    printf("\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
+    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
+    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
+    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                              - Fornecedor -                             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///             ###############################################             ///\n");
+    printf("///             ####                                       ####             ///\n");
+    printf("///             ####          SUCESSO NA EXCLUSAO!         ####             ///\n");
+    printf("///             ####                                       ####             ///\n");
+    printf("///             ###############################################             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n              # Pressione ENTER para voltar para Menu de Fornecedores ... ");
+    getchar();
 }

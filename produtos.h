@@ -35,7 +35,7 @@ char telaProdutos(void);
 void telaRelatoriosProdutos(void);
 Produto* telaCadastrarProduto(void);
 void telaEditarProduto(void);
-void telaExcluirProdutos(void);
+char* telaExcluirProdutos(void);
 void telaModificarProduto(void);
 
 void cadastrarProduto(void);
@@ -46,3 +46,8 @@ void gravarProduto(Produto* prod);
 char* telaPesquisarProduto(void);
 Produto* buscarProduto(char* cod);
 void exibirProduto(Produto* prod);
+
+void excluirProduto(void);
+int certezaExclusaoProduto(Produto* prod);
+void sucessoExclusaoProduto(void);
+void excluirProdutoExistente(Produto* prodLido);
