@@ -32,7 +32,7 @@ void telaListarFornecedores(void);
 
 Fornecedor* telaCadastrarFornecedor(void);
 
-void telaExcluirFornecedores(void);
+char* telaExcluirFornecedores(void);
 void telaEditarFornecedores(void);
 void telaModificarFornecedor(void);
 
@@ -45,3 +45,6 @@ void pesquisarFornecedor(void);
 void gravarFornecedor(Fornecedor* forn);
 Fornecedor* buscarFornecedor(char* cnpj);
 void exibirAluno(Fornecedor* forn);
+
+void excluirFornecedorExistente(Fornecedor* fornLido);
+void excluirFornecedor(void);

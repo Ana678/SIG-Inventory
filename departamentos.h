@@ -36,7 +36,7 @@ void telaDetalharDepartamento(void);
 void telaEditarDepartamento(void);
 void telaVerProdutosDepartamento(void);
 void telaListarDepartamento(void);
-void telaExcluirDepartamentos(void);
+char* telaExcluirDepartamentos(void);
 void telaModificarDepartamento(void);
 
 void cadastrarDepartamento(void);
@@ -50,3 +50,5 @@ void telaErroArquivoDepartamento(void);
 void gravarDepartamento(Departamento * dep);
 Departamento* buscarDepartamento(char* cpf);
 void exibirDepartamento(Departamento* dep);
+
+void excluirDepartamentoExistente(Departamento* dep);

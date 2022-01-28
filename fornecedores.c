@@ -35,7 +35,7 @@ void moduloFornecedores(void) {
                 telaEditarFornecedores();
                 break;  
             case '5':
-                telaExcluirFornecedores();
+                excluirFornecedor();
                 break;      
         } 		
     } while (opcao != '0');
@@ -94,6 +94,19 @@ void pesquisarFornecedor(void) {
 	free(forn); 
 	free(cnpj);
 }
+
+
+void excluirFornecedor(void) {
+    Fornecedor* forn;
+	char* cnpj;
+
+	cnpj = telaExcluirFornecedores();
+    forn = buscarFornecedor(cnpj);
+    excluirFornecedorExistente(forn);
+    free(forn); 
+	free(cnpj);
+}
+
 
 char telaFornecedores(void) {
     system("clear||cls");
@@ -290,11 +303,13 @@ void telaModificarFornecedor(void) {
     getchar();
 }
 
-void telaExcluirFornecedores(void) {
+char* telaExcluirFornecedores(void) {
     system("clear||cls");
-    char cnpj[19];
+    char* cnpj;
+    cnpj = (char*) malloc(19*sizeof(char));
     int *vet;
     
+    printf("\n");
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -326,6 +341,8 @@ void telaExcluirFornecedores(void) {
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n              # Pressione ENTER para voltar para Menu de Fornecedores ... ");
     getchar();
+
+    return cnpj;
 }
 
 void telaEditarFornecedores(void) {
@@ -511,4 +528,57 @@ void exibirAluno(Fornecedor* forn) {
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n              # Pressione ENTER para voltar para Menu de Fornecedores ... ");
     getchar();
+}
+
+void excluirFornecedorExistente(Fornecedor* fornLido){
+    FILE* fp;
+    Fornecedor* fornArq;
+
+    if (fornLido == NULL) {
+        system("clear||cls");
+        printf("\n");
+        printf("///////////////////////////////////////////////////////////////////////////////\n");
+        printf("///                                                                         ///\n");
+        printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+        printf("///                   Centro de Ensino Superior do Serido                   ///\n");
+        printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
+        printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
+        printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+        printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+        printf("///                                                                         ///\n");
+        printf("///////////////////////////////////////////////////////////////////////////////\n");
+        printf("///                                                                         ///\n");
+        printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+        printf("///                                                                         ///\n");
+        printf("///                             - Departamento -                            ///\n");
+        printf("///                                                                         ///\n");
+        printf("///             ###############################################             ///\n");
+        printf("///             ####                                       ####             ///\n");
+        printf("///             ####       FORNECEDOR INEXISTENTE!         ####             ///\n");
+        printf("///             ####                                       ####             ///\n");
+        printf("///             ###############################################             ///\n");
+        printf("///                                                                         ///\n");
+        printf("///////////////////////////////////////////////////////////////////////////////\n");
+        printf("\n              # Pressione ENTER para voltar para Menu de Departamentos ... ");
+        getchar();
+    }
+    else {
+        fornArq = (Fornecedor*) malloc(sizeof(Fornecedor));
+        fp = fopen("fornecedores.dat", "r+b");
+        if (fp == NULL) {
+            telaErroArquivoFornecedor();
+            exit(1);
+        }
+        
+        while(fread(fornArq, sizeof(Fornecedor), 1, fp)) {
+            if ((strcmp(fornArq->cnpj, fornLido->cnpj) == 0) && (fornArq->status == '1')) {
+                fornArq->status = '0';
+                fseek(fp, -1*sizeof(Fornecedor), SEEK_CUR);
+                fwrite(fornArq, sizeof(Fornecedor), 1, fp);
+                fclose(fp);
+            }
+	    }
+        fclose(fp);
+    }
+    free(fornArq);
 }

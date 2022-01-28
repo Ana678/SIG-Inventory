@@ -76,7 +76,7 @@ void cadastrarDepartamento(void) {
         printf("///             ###############################################             ///\n");
         printf("///                                                                         ///\n");
         printf("///////////////////////////////////////////////////////////////////////////////\n");
-        printf("\n              # Pressione ENTER para voltar para Menu de Fornecedores ... ");
+        printf("\n              # Pressione ENTER para voltar para Menu de Departamentos ... ");
         getchar();
     }
 	free(dep);
@@ -90,6 +90,7 @@ void pesquisarDepartamento(void) {
 	cpf = telaPesquisarDepartamento();
     dep = buscarDepartamento(cpf);
     exibirDepartamento(dep);
+    
     free(dep); 
 	free(cpf);
 }
@@ -101,16 +102,21 @@ void atualizarDepartamento(void) {
 }
 
 void excluirDepartamento(void) {
-	// função ainda em desenvolvimento
-	// exibe a tela apenas para testes
-    telaExcluirDepartamentos();
+    Departamento* dep;
+	char* cpf;
+
+	cpf = telaExcluirDepartamentos();
+    dep = buscarDepartamento(cpf);
+    excluirDepartamentoExistente(dep);
+    free(dep); 
+	free(cpf);
 }
 
 /////
 // Funcoes Relacionadas ao Modulo Fornecedores
 
 char telaDepartamentos(void) {
-    system("clear||cls");
+    //system("clear||cls");
     char escolha;
 
     printf("\n");
@@ -332,10 +338,11 @@ void telaListarDepartamento(void) {
 
 }
 
-void telaExcluirDepartamentos(void) {
+char* telaExcluirDepartamentos(void) {
     system("clear||cls");
-    char cpf[14];
+    char *cpf;
     int *vet;
+    cpf = (char*) malloc(14*sizeof(char));
     
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -355,10 +362,9 @@ void telaExcluirDepartamentos(void) {
     printf("///                                                                         ///\n");
       
     vet = (int*) malloc(11*sizeof(int));
-    
     printf("///                                                                         ///\n");
     do{
-        printf("///            # Insira o CPF do responsavel pelo departamento:  ");
+         printf("///            # Insira o CPF do responsavel pelo departamento:  ");
         scanf("%[^\n]", cpf);
         getchar();
         int tamArray = 11;
@@ -371,6 +377,8 @@ void telaExcluirDepartamentos(void) {
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n              # Pressione ENTER para voltar para Menu de Departamentos ... ");
     getchar();
+
+    return cpf;
 }
 
 void telaEditarDepartamento(void) {
@@ -554,9 +562,64 @@ void exibirDepartamento(Departamento* dep) {
         printf("///            . Nome do Departamento: %s\n",dep->nome);
         printf("///            . Nome Do Responsavel: %s\n",dep->nome_responsavel);
         printf("///            . Cpf do Responsavel: %s\n", dep->cpf);
+        printf("///            . Status: %c\n", dep->status);
+
 	}
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n              # Pressione ENTER para voltar para Menu de Departamentos ... ");
     getchar();
+}
+
+void excluirDepartamentoExistente(Departamento* depLido){
+    FILE* fp;
+    Departamento* depArq;
+
+    if (depLido == NULL) {
+        system("clear||cls");
+        printf("\n");
+        printf("///////////////////////////////////////////////////////////////////////////////\n");
+        printf("///                                                                         ///\n");
+        printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+        printf("///                   Centro de Ensino Superior do Serido                   ///\n");
+        printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
+        printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
+        printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+        printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+        printf("///                                                                         ///\n");
+        printf("///////////////////////////////////////////////////////////////////////////////\n");
+        printf("///                                                                         ///\n");
+        printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+        printf("///                                                                         ///\n");
+        printf("///                             - Departamento -                            ///\n");
+        printf("///                                                                         ///\n");
+        printf("///             ###############################################             ///\n");
+        printf("///             ####                                       ####             ///\n");
+        printf("///             ####       DEPARTAMENTO INEXISTENTE!       ####             ///\n");
+        printf("///             ####                                       ####             ///\n");
+        printf("///             ###############################################             ///\n");
+        printf("///                                                                         ///\n");
+        printf("///////////////////////////////////////////////////////////////////////////////\n");
+        printf("\n              # Pressione ENTER para voltar para Menu de Departamentos ... ");
+        getchar();
+    }
+    else {
+        depArq = (Departamento*) malloc(sizeof(Departamento));
+        fp = fopen("departamentos.dat", "r+b");
+        if (fp == NULL) {
+            telaErroArquivoDepartamento();
+            exit(1);
+        }
+        
+        while(fread(depArq, sizeof(Departamento), 1, fp)) {
+            if ((strcmp(depArq->cpf, depLido->cpf) == 0) && (depArq->status == '1')) {
+                depArq->status = '0';
+                fseek(fp, -1*sizeof(Departamento), SEEK_CUR);
+                fwrite(depArq, sizeof(Departamento), 1, fp);
+                fclose(fp);
+            }
+	    }
+        fclose(fp);
+    }
+    free(depArq);
 }
