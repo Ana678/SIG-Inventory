@@ -33,7 +33,7 @@ void telaListarFornecedores(void);
 Fornecedor* telaCadastrarFornecedor(void);
 
 char* telaExcluirFornecedores(void);
-void telaEditarFornecedores(void);
+char* telaEditarFornecedor(void); 
 void telaModificarFornecedor(void);
 
 char* telaPesquisarFornecedor(void);
@@ -44,10 +44,17 @@ void pesquisarFornecedor(void);
 
 void gravarFornecedor(Fornecedor* forn);
 Fornecedor* buscarFornecedor(char* cnpj);
-void exibirAluno(Fornecedor* forn);
+void exibirFornecedor(Fornecedor* forn);
 
 void excluirFornecedorExistente(Fornecedor* fornLido);
 void excluirFornecedor(void);
 
 int certezaExclusaoFornecedor(Fornecedor* forn);
 void sucessoExclusaoFornecedor(void);
+
+void fornecedorView(Fornecedor* forn);
+char* escolherElementoEditarFornecedor(Fornecedor* forn);
+void editarFornecedor(void);
+void editarFornecedorExistente(Fornecedor* forn);
+void sucessoEdicaoFornecedor(void);
+void fornecedorInexistente(void);

@@ -13,3 +13,4 @@
 // Assinatura das funções util.c
 
 void cpftoi(char str[],int *v, int tamArray);
+void transformUpper(char s1[], char s2[]);

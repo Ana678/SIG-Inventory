@@ -24,7 +24,7 @@ int validaAcao(char n[2]);
 int validaParametro(char op[2], int max);
 
 int areaAtuacao(char RS[30]);
-int isUpperName(char RS[30],char tipo[10]);
+int isValidNameEmpresa(char RS[30], char tipo[10]);
 int validaTipoEmpresa(char tipo[10]);
 void preencheRazaoSocial(char *razao);
 void preencheEndereco(char *endereco);

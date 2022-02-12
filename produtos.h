@@ -30,13 +30,12 @@ struct produto {
 // Assinatura das funções
 
 void moduloProdutos(void);
-void telaFluxoProdutos(void);
+char* telaFluxoProdutos(void);
 char telaProdutos(void);
 void telaRelatoriosProdutos(void);
 Produto* telaCadastrarProduto(void);
-void telaEditarProduto(void);
+char* telaEditarProduto(void);
 char* telaExcluirProdutos(void);
-void telaModificarProduto(void);
 
 void cadastrarProduto(void);
 void pesquisarProduto(void);
@@ -51,3 +50,16 @@ void excluirProduto(void);
 int certezaExclusaoProduto(Produto* prod);
 void sucessoExclusaoProduto(void);
 void excluirProdutoExistente(Produto* prodLido);
+
+void produtoView(Produto* prod);
+
+void atualizarProduto(void);
+char* escolherElementoEditarProduto(Produto* prod);
+void sucessoEdicaoProduto(void);
+void editarProduto(Produto* prod);
+
+void cadastrarFluxoProdutos(void);
+
+void cadastrarFluxoProdutoExistente(Produto* prod);
+
+void produtoInexistente(void);

@@ -15,7 +15,7 @@
 typedef struct departamento Departamento;
 
 struct departamento
-{
+{   
     char nome[20];
     char cpf[15];
     char nome_responsavel[15];
@@ -33,11 +33,10 @@ char telaDepartamentos(void);
 Departamento* telaCadastrarDepartamento(void);
 
 void telaDetalharDepartamento(void);
-void telaEditarDepartamento(void);
+char* telaEditarDepartamento(void);
 void telaVerProdutosDepartamento(void);
 void telaListarDepartamento(void);
 char* telaExcluirDepartamentos(void);
-void telaModificarDepartamento(void);
 
 void cadastrarDepartamento(void);
 void pesquisarDepartamento(void);
@@ -54,3 +53,9 @@ void exibirDepartamento(Departamento* dep);
 void excluirDepartamentoExistente(Departamento* dep);
 int certezaExclusaoDepartamento(Departamento* dep);
 void sucessoExclusaoDepartamento(void);
+
+void DepartamentoView(Departamento* dep);
+void editarDepartamento(Departamento* dep);
+char* escolherElementoEditar(Departamento* dep);
+void sucessoEdicaoDepartamento(void);
+void departamentoInexistente(void);

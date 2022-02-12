@@ -313,7 +313,7 @@ int areaAtuacao(char RS[30]){
   return 0; 
 }
 
-int isUpperName(char RS[30], char tipo[10]){
+int isValidNameEmpresa(char RS[30], char tipo[10]){
   int valido = 0;
   int len = 0;
 
@@ -478,6 +478,7 @@ void preencheRazaoSocial(char *razao){
   do{
     printf("///              . Qual a natureza juridica da empresa (MEI, EI, LTDA, etc.)? ");
     scanf("%[^\n]",tipo);
+    transformUpper(tipo,tipo);
     getchar();
   }while(!validaTipoEmpresa(tipo));
 
@@ -485,13 +486,15 @@ void preencheRazaoSocial(char *razao){
   do{
       printf("///              . Qual o nome de identificao da empresa? ");
       scanf("%[^\n]",nome_empresa);
+      transformUpper(nome_empresa,nome_empresa);
       getchar();
-  }while(!isUpperName(nome_empresa, tipo));
+  }while(!isValidNameEmpresa(nome_empresa, tipo));
 
   printf("\n");
   do{
       printf("///              . Qual a area de atuacao da empresa? ");
       scanf("%[^\n]",ramo);
+      transformUpper(ramo,ramo);
       getchar();
   }while(!areaAtuacao(ramo));
 
@@ -542,14 +545,13 @@ void preencheEndereco(char *endereco){
   char rua[80];
   char estado[30];
   char cidade[80];
-
-  char virgula = ',';
-  char espaco= ' ';
+  
   char t = '-';
 
   do{
       printf("///              . Qual o Pais (BR|AR|US)? ");
       scanf("%[^\n]",pais);
+      transformUpper(pais,pais);
       getchar();
   }while(!validaPais(pais));
       
@@ -586,15 +588,12 @@ void preencheEndereco(char *endereco){
   }while(!validaQuantidade(numero));
 
   strcpy(endereco,rua);
-  strncat(endereco,&virgula,1);
-  strncat(endereco,&espaco,1);
+  strcat(endereco,", ");
   strcat(endereco,numero);
-  strncat(endereco,&virgula,1);
-  strncat(endereco,&espaco,1);
+  strcat(endereco,", ");
   strcat(endereco,cidade);
   strncat(endereco,&t,1);
   strcat(endereco,estado);
-  strncat(endereco,&virgula,1);
-  strncat(endereco,&espaco,1);
+  strcat(endereco,", ");
   strcat(endereco,pais);
 }
