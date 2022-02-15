@@ -21,9 +21,8 @@
 
 void moduloFornecedores(void) {
     char opcao;
-    Fornecedor *lista;
-    lista = NULL;
-
+    //Fornecedor *lista;
+    //lista = NULL;
 
     do {
         opcao = telaFornecedores();
@@ -751,12 +750,12 @@ void listaFornecedoresAtivos(void) {
     printf("///                   - Lista de Fornecedores Ativos -                      ///\n");
     printf("///                                                                         ///\n");
     printf("///                                                                         ///\n");
-    printf("///   |       CNPJ       |       Nome       |       Endereco    |   R.S  |  ///\n");
+    printf("/// |       CNPJ        |    Nome    |     R.S     |       Endereco       | ///\n");
     printf("///                                                                         ///\n");
 
     while(fread(forn, sizeof(Fornecedor), 1, fp)) {
         if (forn->status == '1') {
-            printf("///     %s            %s                   %s          %s     \n",forn->cnpj,forn->nome, forn->endereco, forn->razao_social);
+            printf("///  %s   %s         %s            %s\n",forn->cnpj,forn->nome, forn->razao_social, forn->endereco);
 
         }
     }

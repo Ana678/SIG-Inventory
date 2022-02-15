@@ -21,8 +21,8 @@
 
 void moduloDepartamentos(void) {
     char opcao;
-    Departamento *lista;
-    lista = NULL;
+    //Departamento *lista;
+    //lista = NULL;
 
     do {
         opcao = telaDepartamentos();

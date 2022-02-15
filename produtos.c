@@ -21,8 +21,8 @@
 
 void moduloProdutos(void) {
     char opcao;
-    Produto *lista;
-    lista = NULL;
+    //Produto *lista;
+    //lista = NULL;
 
     do {
         opcao = telaProdutos();
@@ -30,23 +30,24 @@ void moduloProdutos(void) {
             case '1': 	
                 cadastrarProduto();
                 break;
-            case '2': 	
-                cadastrarFluxoProdutos();
+            case '2':
+                listaProdutosAtivos(); 	
                 break;
             case '3': 	
                 pesquisarProduto();
                 break;
             case '4': 	
-                telaRelatoriosProdutos();
+                cadastrarFluxoProdutos();
                 break;
-            case '5': 	
-                atualizarProduto();
+            case '5': 
+                telaRelatoriosProdutos();	
                 break;
             case '6': 	
-                excluirProduto();
+                atualizarProduto();
                 break;
             case '7':
-                listaProdutosAtivos();
+                excluirProduto();
+                break;
         } 		
     } while (opcao != '0');
 }
@@ -159,13 +160,13 @@ char telaProdutos(void) {
     printf("///                                                                         ///\n");
     printf("///                           - Modulo Produtos -                           ///\n");
     printf("///                                                                         ///\n");  
-    printf("///            1. Cadastrar Novo Produto                                    ///\n");
-    printf("///            2. Cadastrar Fluxo de Produtos                               ///\n");
+    printf("///            1. Cadastrar Novo Produto                                    ///\n"); 
+    printf("///            2. Listar Produtos                                           ///\n");
     printf("///            3. Pesquisar Produto                                         ///\n");
-    printf("///            4. Obter um Relatorio                                        ///\n");
-    printf("///            5. Editar um Produto                                         ///\n");
-    printf("///            6. Excluir um Produto                                        ///\n");
-    printf("///            7. listar Produtos                                           ///\n");
+    printf("///            4. Cadastrar Fluxo de Produtos                               ///\n");   
+    printf("///            5. Obter um Relatorio                                        ///\n");
+    printf("///            6. Editar um Produto                                         ///\n");
+    printf("///            7. Excluir um Produto                                        ///\n");
     printf("///            0. Voltar para Tela Principal                                ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -894,12 +895,12 @@ void listaProdutosAtivos(void) {
     printf("///                   - Lista de Produtos Ativos -                          ///\n");
     printf("///                                                                         ///\n");
     printf("///                                                                         ///\n");
-    printf("///   |       CNPJ       |       Nome       |       Codigo    |   Departamento  | Quantidade | ///\n");
+    printf("///  |     Codigo     |     Nome    | Qtd |      Fornecedor    |   Dep.   | ///\n");
     printf("///                                                                         ///\n");
 
     while(fread(prod, sizeof(Produto), 1, fp)) {
         if (prod->status == '1') {
-            printf("///     %s            %s                   %s          %s      %s \n",prod->cnpj,prod->nome, prod->cod, prod->depar, prod->qtd);
+            printf("///    %s       %s       %s     %s      %s\n" ,prod->cod, prod->nome, prod->qtd, prod->cnpj,prod->depar);
 
         }
     }
