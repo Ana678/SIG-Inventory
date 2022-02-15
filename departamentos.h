@@ -20,7 +20,6 @@ struct departamento
     char cpf[15];
     char nome_responsavel[15];
     char status;
-
 };
 
 /////
@@ -59,3 +58,4 @@ void editarDepartamento(Departamento* dep);
 char* escolherElementoEditar(Departamento* dep);
 void sucessoEdicaoDepartamento(void);
 void departamentoInexistente(void);
+void listaDepartamentosAtivos(void);
