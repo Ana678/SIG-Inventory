@@ -21,6 +21,10 @@
 
 void moduloFornecedores(void) {
     char opcao;
+    Fornecedor *lista;
+    lista = NULL;
+
+
     do {
         opcao = telaFornecedores();
         switch(opcao) {
@@ -28,7 +32,8 @@ void moduloFornecedores(void) {
                 cadastrarFornecedor();
                 break;
             case '2':
-                telaListarFornecedores();
+                //telaListarFornecedores();
+                listaFornecedoresAtivos();
                 break;   
             case '3':
                 pesquisarFornecedor();
@@ -226,7 +231,7 @@ Fornecedor* telaCadastrarFornecedor(void) {
     return forn;
 }
 
-void telaListarFornecedores(void) { 
+/*void telaListarFornecedores(void) { 
     system("clear||cls");
     
     printf("\n");
@@ -256,7 +261,7 @@ void telaListarFornecedores(void) {
     printf("\n              # Pressione ENTER para voltar para Menu de Fornecedores ... ");
     getchar();
     
-}
+}*/
 
 char* telaExcluirFornecedores(void) {
     system("clear||cls");
@@ -716,4 +721,51 @@ void fornecedorInexistente(void){
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n              # Pressione ENTER para voltar para Menu de Fornecedores ... ");
     getchar();
+}
+
+void listaFornecedoresAtivos(void) {
+    FILE* fp;
+    Fornecedor* forn;
+    forn = (Fornecedor*) malloc(sizeof(Fornecedor));
+
+    fp = fopen("fornecedores.dat","rb");
+    if (fp == NULL){
+        telaErroArquivoFornecedor();
+        exit(1);
+    }
+
+    printf("\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
+    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
+    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
+    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                   - Lista de Fornecedores Ativos -                      ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                                                                         ///\n");
+    printf("///   |       CNPJ       |       Nome       |       Endereco    |   R.S  |  ///\n");
+    printf("///                                                                         ///\n");
+
+    while(fread(forn, sizeof(Fornecedor), 1, fp)) {
+        if (forn->status == '1') {
+            printf("///     %s            %s                   %s          %s     \n",forn->cnpj,forn->nome, forn->endereco, forn->razao_social);
+
+        }
+    }
+
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n              # Pressione ENTER para voltar para Menu de Fornecedores ... ");
+    getchar();
+
+    fclose(fp);
+    free(forn);
 }
