@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <unistd.h>
 #include "util.h"
 
 /// cpf char para inteiro
@@ -54,9 +55,9 @@ char* pegarDoisUltimos(char string[]){
   caracteres = (char*) malloc(3*sizeof(char));
   len = strlen(string);
 
-  for(int i = len-2; i < len; i++){
-    strncat(caracteres,&string[i],1);
-  }
+  caracteres[0] = string[len-2];
+  caracteres[1] = string[len-1];
+  caracteres[2] = '\0';
 
   return caracteres;
 }

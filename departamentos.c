@@ -761,9 +761,9 @@ void listaDepartamentosAtivos(void) {
 }
 
 char* telaInserirNomeDepartamento(void){
-    system("clear||cls");
+
     char *nome;
-    
+    system("clear||cls");
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -810,7 +810,7 @@ void telaVerProdutosDepartamento(void) {
     }
 
     depLido = telaInserirNomeDepartamento();
-    printf("%s",depLido);
+
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");

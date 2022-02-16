@@ -881,7 +881,7 @@ void listaProdutosAtivos(void) {
         telaErroArquivoProduto();
         exit(1);
     }
-
+    system("clear||cls");
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -922,7 +922,7 @@ void listaProdutosAtivos(void) {
 char escolherSituacaoListar(void){
 
     char escolha;
-
+    system("clear||cls");
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -966,7 +966,7 @@ void listarProdutosSituacao(void){
     }
 
     situacao = escolherSituacaoListar();
-
+    system("clear||cls");
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -998,7 +998,7 @@ void listarProdutosSituacao(void){
             //(situacao == '3' && qtd < min)
             if ((situacao == '1' && qtd >= min && qtd <= max) || (situacao == '2' && qtd > max) || (situacao == '3' && qtd < min)) {
 
-                printf("///  %s     %s    %s    %s    %s\n" ,prod->cod, prod->nome, prod->qtd,prod->qtd_minima,prod->qtd_maxima);
+                printf("///    %s       %s        %s          %s           %s\n" ,prod->cod, prod->nome, prod->qtd,prod->qtd_minima,prod->qtd_maxima);
             }
         }
     }

@@ -149,7 +149,7 @@ char telaFornecedores(void) {
     printf("///                                                                         ///\n");  
     printf("///            1. Cadastrar Novo Fornecedor                                 ///\n");
     printf("///            2. Listar Fornecedores                                       ///\n");
-    printf("///            3. Listar Fornecedores por Pais                             ///\n");
+    printf("///            3. Listar Fornecedores por Pais                              ///\n");
     printf("///            4. Pesquisar Fornecedor                                      ///\n");
     printf("///            5. Editar Fornecedor                                         ///\n");
     printf("///            6. Excluir Fornecedor                                        ///\n");
@@ -778,7 +778,7 @@ void listaFornecedoresAtivos(void) {
 char* selecionarPais(void){
     char *pais;
     pais = (char*)malloc(3*sizeof(char));
-
+    system("clear||cls");
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -812,7 +812,9 @@ char* selecionarPais(void){
 
 void listaFornecedoresPais(void) {
     FILE* fp;
-    Fornecedor* forn;
+    Fornecedor* forn;    
+    char* pais;
+    char* ultimoscaracteres;
     forn = (Fornecedor*) malloc(sizeof(Fornecedor));
 
     fp = fopen("fornecedores.dat","rb");
@@ -820,10 +822,9 @@ void listaFornecedoresPais(void) {
         telaErroArquivoFornecedor();
         exit(1);
     }
-    char* pais;
-    char* ultimoscaracteres;
-    pais = selecionarPais();
 
+    pais = selecionarPais();
+    system("clear||cls");
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -843,13 +844,15 @@ void listaFornecedoresPais(void) {
     printf("///                                                                         ///\n");
     printf("/// |       CNPJ        |    Nome    |     R.S     |       Endereco       | ///\n");
     printf("///                                                                         ///\n");
-
     while(fread(forn, sizeof(Fornecedor), 1, fp)) {
-        ultimoscaracteres = pegarDoisUltimos(forn->endereco);
-        if (forn->status == '1' && (strcmp(ultimoscaracteres, pais) == 0)) {
-            printf("///  %s   %s         %s            %s\n",forn->cnpj,forn->nome, forn->razao_social, forn->endereco);
+        if (forn->status == '1'){
+            ultimoscaracteres = pegarDoisUltimos(forn->endereco);
+            if (strcmp(ultimoscaracteres, pais) == 0) {
+                printf("///  %s    %s          %s            %s\n",forn->cnpj,forn->nome, forn->razao_social, forn->endereco);
 
+            }
         }
+
     }
 
     printf("///                                                                         ///\n");
