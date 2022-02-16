@@ -59,3 +59,4 @@ char* escolherElementoEditar(Departamento* dep);
 void sucessoEdicaoDepartamento(void);
 void departamentoInexistente(void);
 void listaDepartamentosAtivos(void);
+char* telaInserirNomeDepartamento(void);
