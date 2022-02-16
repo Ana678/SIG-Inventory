@@ -14,3 +14,4 @@
 
 void cpftoi(char str[],int *v, int tamArray);
 void transformUpper(char s1[], char s2[]);
+char* pegarDoisUltimos(char string[]);

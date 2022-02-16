@@ -65,3 +65,5 @@ void cadastrarFluxoProdutoExistente(Produto* prod);
 void produtoInexistente(void);
 
 void listaProdutosAtivos(void);
+void listarProdutosSituacao(void);
+char escolherSituacaoListar(void);

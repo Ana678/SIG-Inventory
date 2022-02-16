@@ -35,12 +35,15 @@ void moduloFornecedores(void) {
                 listaFornecedoresAtivos();
                 break;   
             case '3':
+                listaFornecedoresPais();
+                break;   
+            case '4':
                 pesquisarFornecedor();
                 break;
-            case '4':
+            case '5':
                 editarFornecedor();
                 break;  
-            case '5':
+            case '6':
                 excluirFornecedor();
                 break;      
         } 		
@@ -146,9 +149,10 @@ char telaFornecedores(void) {
     printf("///                                                                         ///\n");  
     printf("///            1. Cadastrar Novo Fornecedor                                 ///\n");
     printf("///            2. Listar Fornecedores                                       ///\n");
-    printf("///            3. Pesquisar Fornecedor                                      ///\n");
-    printf("///            4. Editar Fornecedor                                         ///\n");
-    printf("///            5. Excluir Fornecedor                                        ///\n");
+    printf("///            3. Listar Fornecedores por Pais                             ///\n");
+    printf("///            4. Pesquisar Fornecedor                                      ///\n");
+    printf("///            5. Editar Fornecedor                                         ///\n");
+    printf("///            6. Excluir Fornecedor                                        ///\n");
     printf("///            0. Voltar para Tela Principal                                ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -766,5 +770,95 @@ void listaFornecedoresAtivos(void) {
     getchar();
 
     fclose(fp);
+    free(forn);
+
+}
+
+
+char* selecionarPais(void){
+    char *pais;
+    pais = (char*)malloc(3*sizeof(char));
+
+    printf("\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
+    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
+    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
+    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                         - Pesquisar Fornecedor -                        ///\n");
+    printf("///                                                                         ///\n");  
+    printf("///                                                                         ///\n");
+    do{
+        printf("///            # Insira o pais que deseja pesquisar:  ");
+        scanf("%[^\n]", pais);
+        getchar();
+    }while(!validaPais(pais));
+
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n              . Pesquisando Fornecedores ... ");
+    sleep(1);
+
+    return pais;
+}
+
+void listaFornecedoresPais(void) {
+    FILE* fp;
+    Fornecedor* forn;
+    forn = (Fornecedor*) malloc(sizeof(Fornecedor));
+
+    fp = fopen("fornecedores.dat","rb");
+    if (fp == NULL){
+        telaErroArquivoFornecedor();
+        exit(1);
+    }
+    char* pais;
+    char* ultimoscaracteres;
+    pais = selecionarPais();
+
+    printf("\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
+    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
+    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
+    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                   - Lista de Fornecedores Ativos -                      ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                                                                         ///\n");
+    printf("/// |       CNPJ        |    Nome    |     R.S     |       Endereco       | ///\n");
+    printf("///                                                                         ///\n");
+
+    while(fread(forn, sizeof(Fornecedor), 1, fp)) {
+        ultimoscaracteres = pegarDoisUltimos(forn->endereco);
+        if (forn->status == '1' && (strcmp(ultimoscaracteres, pais) == 0)) {
+            printf("///  %s   %s         %s            %s\n",forn->cnpj,forn->nome, forn->razao_social, forn->endereco);
+
+        }
+    }
+
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n              # Pressione ENTER para voltar para Menu de Fornecedores ... ");
+    getchar();
+
+    fclose(fp);
+    free(pais);
+    free(ultimoscaracteres);
     free(forn);
 }

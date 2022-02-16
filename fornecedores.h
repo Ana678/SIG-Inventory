@@ -59,3 +59,6 @@ void editarFornecedorExistente(Fornecedor* forn);
 void sucessoEdicaoFornecedor(void);
 void fornecedorInexistente(void);
 void listaFornecedoresAtivos(void);
+
+void listaFornecedoresPais(void);
+char* selecionarPais(void);

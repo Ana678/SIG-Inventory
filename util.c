@@ -47,3 +47,16 @@ void transformUpper(char s1[], char s2[]){
     }
     s2[i] = '\0';
 }
+
+char* pegarDoisUltimos(char string[]){
+  int len;
+  char *caracteres;
+  caracteres = (char*) malloc(3*sizeof(char));
+  len = strlen(string);
+
+  for(int i = len-2; i < len; i++){
+    strncat(caracteres,&string[i],1);
+  }
+
+  return caracteres;
+}
