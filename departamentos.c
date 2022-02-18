@@ -268,7 +268,7 @@ char* telaExcluirDepartamentos(void) {
     system("clear||cls");
     char *cpf;
     int *vet;
-    cpf = (char*) malloc(14*sizeof(char));
+    cpf = (char*) malloc(15*sizeof(char));
     
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -310,7 +310,7 @@ char* telaExcluirDepartamentos(void) {
 char* telaEditarDepartamento(void) {
 
     char *cpf;
-    cpf = (char*) malloc(14*sizeof(char));
+    cpf = (char*) malloc(15*sizeof(char));
     int *vet;
 
     system("clear||cls");
@@ -355,7 +355,7 @@ char* telaEditarDepartamento(void) {
 char* telaPesquisarDepartamento(void) {
     system("clear||cls");
     char *cpf;
-    cpf = (char*) malloc(14*sizeof(char));
+    cpf = (char*) malloc(15*sizeof(char));
     int *vet;
     
     printf("\n");
