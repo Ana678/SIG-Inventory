@@ -314,37 +314,6 @@ char* telaPesquisarProduto(void) {
     return cod;
 }
 
-void telaRelatoriosProdutos(void) {  
-    system("clear||cls");
-
-    printf("\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                         ///\n");
-    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
-    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
-    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
-    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
-    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
-    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
-    printf("///                                                                         ///\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                         ///\n");
-    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
-    printf("///                                                                         ///\n");
-    printf("///                       - Relatorio dos Produtos -                        ///\n");
-    printf("///                                                                         ///\n");
-    printf("///            | Codigo do Produto | Quantidade | Situacao |                ///\n");
-    printf("///                                                                         ///\n");
-    printf("///            | 0193467787878     |     6      | Estavel  |                ///\n");
-    printf("///            | 0193467799975     |     11     | Excesso  |                ///\n");
-    printf("///            | 0193345657689     |     8      | Escassa  |                ///\n");
-    printf("///            | 1343490657878     |     20     | Excesso  |                ///\n");
-    printf("///                                                                         ///\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n              # Pressione ENTER para voltar para Menu de Produtos ... ");
-    getchar();
-
-}
 
 char* telaFluxoProdutos(void) {  
     system("clear||cls");

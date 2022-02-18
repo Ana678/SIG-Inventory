@@ -20,7 +20,7 @@ struct fornecedor{
     char razao_social[73];
     char endereco[220];
     char status;
-
+    Fornecedor* prox;
 };
 
 /////
@@ -62,3 +62,5 @@ void listaFornecedoresAtivos(void);
 
 void listaFornecedoresPais(void);
 char* selecionarPais(void);
+
+void listarFornecedoresOrdenadados(void);

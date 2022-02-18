@@ -31,19 +31,21 @@ void moduloFornecedores(void) {
                 cadastrarFornecedor();
                 break;
             case '2':
-                //telaListarFornecedores();
                 listaFornecedoresAtivos();
                 break;   
             case '3':
                 listaFornecedoresPais();
                 break;   
             case '4':
-                pesquisarFornecedor();
+                listarFornecedoresOrdenadados();
                 break;
             case '5':
+                pesquisarFornecedor();
+                break;
+            case '6':
                 editarFornecedor();
                 break;  
-            case '6':
+            case '7':
                 excluirFornecedor();
                 break;      
         } 		
@@ -150,9 +152,10 @@ char telaFornecedores(void) {
     printf("///            1. Cadastrar Novo Fornecedor                                 ///\n");
     printf("///            2. Listar Fornecedores                                       ///\n");
     printf("///            3. Listar Fornecedores por Pais                              ///\n");
-    printf("///            4. Pesquisar Fornecedor                                      ///\n");
-    printf("///            5. Editar Fornecedor                                         ///\n");
-    printf("///            6. Excluir Fornecedor                                        ///\n");
+    printf("///            4. Listar Fornecedores Ordenados                             ///\n");
+    printf("///            5. Pesquisar Fornecedor                                      ///\n");
+    printf("///            6. Editar Fornecedor                                         ///\n");
+    printf("///            7. Excluir Fornecedor                                        ///\n");
     printf("///            0. Voltar para Tela Principal                                ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -864,4 +867,101 @@ void listaFornecedoresPais(void) {
     free(pais);
     free(ultimoscaracteres);
     free(forn);
+}
+
+void listarFornecedoresOrdenadados(void){
+    
+
+    FILE *fp;
+    int i; 
+    Fornecedor* novoForn;
+    Fornecedor* lista;
+
+    fp = fopen("fornecedores.dat","rb");
+    if (fp == NULL){
+        telaErroArquivoFornecedor();
+        exit(1);
+    }
+
+    // Montando a lista ordenada
+    lista = NULL;
+    novoForn = (Fornecedor*) malloc(sizeof(Fornecedor));
+
+    while(fread(novoForn, sizeof(Fornecedor),1, fp)){
+
+        if (novoForn->status == '1'){    
+            if (lista == NULL) {
+                lista = novoForn;
+                novoForn->prox = NULL;
+            } else if (strcmp(novoForn->nome,lista->nome) < 0) {
+
+                novoForn->prox = lista;
+                lista = novoForn;
+
+            } else {
+
+                Fornecedor* anter = lista;
+                Fornecedor* atual = lista->prox;
+
+                while ((atual != NULL) && strcmp(atual->nome,novoForn->nome) < 0) {
+                
+                anter = atual;
+                atual = atual->prox;
+
+                }
+                
+                anter->prox = novoForn;
+                novoForn->prox = atual;
+            }
+        }
+        novoForn = (Fornecedor*) malloc(sizeof(Fornecedor));
+    }
+    fclose(fp);
+
+    // Exibindo a lista ordenada
+    novoForn = lista;
+    i = 1;
+    while (novoForn != NULL) {
+        printf("%d. %s", i, novoForn->nome);
+        novoForn = novoForn->prox;
+        i++;
+    }
+
+    system("clear||cls");
+    printf("\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
+    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
+    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
+    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                      - Lista de Fornecedores Ordenados -                ///\n");
+    printf("///                                                                         ///\n");    
+    novoForn = lista;
+    i = 1;
+    while (novoForn != NULL) {
+        printf("///            %d. %s\n", i, novoForn->nome);
+        novoForn = novoForn->prox;
+        i++;
+    }
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n              # Pressione ENTER para voltar para Menu de Fornecedores ... ");
+   
+    // Limpando a memória
+    novoForn = lista;
+    while (lista != NULL) {
+        lista = lista->prox;
+        free(novoForn->nome);
+        free(novoForn);
+        novoForn = lista;
+    }
+    getchar();
 }

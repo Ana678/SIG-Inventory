@@ -33,7 +33,6 @@ struct produto {
 void moduloProdutos(void);
 char* telaFluxoProdutos(void);
 char telaProdutos(void);
-void telaRelatoriosProdutos(void);
 Produto* telaCadastrarProduto(void);
 char* telaEditarProduto(void);
 char* telaExcluirProdutos(void);
