@@ -37,18 +37,21 @@ void moduloProdutos(void) {
                 listarProdutosSituacao(); 	
                 break;
             case '4': 	
+                listarProdutosOrdenadados();
+                break;
+            case '5': 
                 pesquisarProduto();
                 break;
-            case '5': 	
+            case '6': 	
                 cadastrarFluxoProdutos();
                 break;
-            case '6': 
+            case '7': 
                 telaRelatoriosProdutos();	
                 break;
-            case '7': 	
+            case '8': 	
                 atualizarProduto();
                 break;
-            case '8':
+            case '9':
                 excluirProduto();
                 break;
         } 		
@@ -166,11 +169,12 @@ char telaProdutos(void) {
     printf("///            1. Cadastrar Novo Produto                                    ///\n"); 
     printf("///            2. Listar Produtos                                           ///\n");
     printf("///            3. Listar Produtos por Situacao                              ///\n");
-    printf("///            4. Pesquisar Produto                                         ///\n");
-    printf("///            5. Cadastrar Fluxo de Produtos                               ///\n");   
-    printf("///            6. Obter um Relatorio                                        ///\n");
-    printf("///            7. Editar um Produto                                         ///\n");
-    printf("///            8. Excluir um Produto                                        ///\n");
+    printf("///            4. Listar Produtos Ordenados                                 ///\n");
+    printf("///            5. Pesquisar Produto                                         ///\n");
+    printf("///            6. Cadastrar Fluxo de Produtos                               ///\n");   
+    printf("///            7. Obter um Relatorio                                        ///\n");
+    printf("///            8. Editar um Produto                                         ///\n");
+    printf("///            9. Excluir um Produto                                        ///\n");
     printf("///            0. Voltar para Tela Principal                                ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -770,6 +774,7 @@ void editarProduto(Produto* prod){
             }
         }
         fclose(fp);
+        free(escolha_editar);
     }
     free(prodArq);
 }
@@ -822,9 +827,9 @@ void cadastrarFluxoProdutoExistente(Produto* prod){
                 b = atoi(qtd);
 
                 if(escolha[0] == 'a'){
-                    itoa((a+b),result,10);
+                    sprintf(result, "%d", (a+b));
                 }else if(escolha[0] == 'r'){
-                    itoa((a-b),result,10);
+                    sprintf(result, "%d", (a-b));
                 }  
 
                 strcpy(prodArq->qtd,result);
@@ -838,7 +843,9 @@ void cadastrarFluxoProdutoExistente(Produto* prod){
             }
         }
         fclose(fp);
+        
     }
+    free(escolha);
     free(prodArq);
 }
 
@@ -1010,4 +1017,83 @@ void listarProdutosSituacao(void){
 
     fclose(fp);
     free(prod);
+}
+
+
+void listarProdutosOrdenadados(void){
+    
+    system("clear||cls");
+    FILE *fp;
+    Produto* novoProd;
+    Produto* lista;
+    int i;
+
+    fp = fopen("produtos.dat","rb");
+    if (fp == NULL){
+        telaErroArquivoProduto();
+        exit(1);
+    }
+
+    lista = NULL;
+    novoProd = (Produto*) malloc(sizeof(Produto));
+
+    while(fread(novoProd, sizeof(Produto), 1, fp)){
+
+        if(novoProd->status == '1'){
+            if ((lista == NULL) || (strcmp(novoProd->nome, lista->nome) < 0)){
+            novoProd->prox = lista;
+            lista = novoProd;
+            } else  {
+            Produto* ant = lista;
+            Produto* atu = lista->prox;
+            while ((atu != NULL) && (strcmp(atu->nome, novoProd->nome) < 0)) {
+                ant = atu;
+                atu = atu->prox;
+            }
+            ant->prox = novoProd;
+            novoProd->prox = atu;
+            }
+            novoProd = (Produto*) malloc(sizeof(Produto));
+        }
+    }
+    fclose(fp);
+
+    // Exibindo a lista ordenada
+    system("clear||cls");
+    printf("\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
+    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
+    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
+    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                     - Lista de Produtos Ordenados -                     ///\n");
+    printf("///                                                                         ///\n");    
+    novoProd = lista;
+    i = 1;
+    while (novoProd != NULL) {
+        printf("///            %d. %s\n", i, novoProd->nome);
+        novoProd = novoProd->prox;
+        i++;
+    }
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n              # Pressione ENTER para voltar para Menu de Produtos ... ");
+   
+    // Limpando a memória
+    novoProd = lista;
+    while (lista != NULL) {
+        lista = lista->prox;
+        free(novoProd->nome);
+        free(novoProd);
+        novoProd = lista;
+    } 
+    getchar();
 }

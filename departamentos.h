@@ -20,6 +20,7 @@ struct departamento
     char cpf[15];
     char nome_responsavel[15];
     char status;
+    Departamento *prox;
 };
 
 /////
@@ -38,6 +39,7 @@ void telaListarDepartamento(void);
 char* telaExcluirDepartamentos(void);
 
 void cadastrarDepartamento(void);
+
 void pesquisarDepartamento(void);
 void atualizarDepartamento(void);
 void excluirDepartamento(void);
@@ -60,3 +62,5 @@ void sucessoEdicaoDepartamento(void);
 void departamentoInexistente(void);
 void listaDepartamentosAtivos(void);
 char* telaInserirNomeDepartamento(void);
+
+void listarDepartamentosOrdenadados(void);

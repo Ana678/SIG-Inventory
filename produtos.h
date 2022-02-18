@@ -22,6 +22,7 @@ struct produto {
   char qtd_minima[10];
   char qtd_maxima[10];
   char status;
+  Produto *prox;
 };
 
 //////
@@ -67,3 +68,5 @@ void produtoInexistente(void);
 void listaProdutosAtivos(void);
 void listarProdutosSituacao(void);
 char escolherSituacaoListar(void);
+
+void listarProdutosOrdenadados(void);

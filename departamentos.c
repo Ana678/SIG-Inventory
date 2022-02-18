@@ -22,8 +22,6 @@
 
 void moduloDepartamentos(void) {
     char opcao;
-    //Departamento *lista;
-    //lista = NULL;
 
     do {
         opcao = telaDepartamentos();
@@ -39,12 +37,15 @@ void moduloDepartamentos(void) {
                 telaVerProdutosDepartamento();
                 break;
             case '4':
-                pesquisarDepartamento();
+                listarDepartamentosOrdenadados();
                 break;
             case '5':
-                atualizarDepartamento();
+                pesquisarDepartamento();
                 break;
             case '6':
+                atualizarDepartamento();
+                break;
+            case '7':
                 excluirDepartamento();
                 break;
         }		
@@ -60,6 +61,7 @@ void cadastrarDepartamento(void) {
     
     if(buscarDepartamento(dep->cpf) == NULL){
         gravarDepartamento(dep);
+
     }else{
         system("clear||cls");
         printf("\n");
@@ -152,9 +154,10 @@ char telaDepartamentos(void) {
     printf("///            1. Cadastrar Novo Departamento                               ///\n");
     printf("///            2. Listar Departamentos                                      ///\n");
     printf("///            3. Listar Produtos Departamento                              ///\n");
-    printf("///            4. Pesquisar Departamento                                    ///\n");
-    printf("///            5. Editar Departamento                                       ///\n");
-    printf("///            6. Excluir Departamento                                      ///\n");
+    printf("///            4. Lista Ordenada dos Departamentos                          ///\n");
+    printf("///            5. Pesquisar Departamento                                    ///\n");
+    printf("///            6. Editar Departamento                                       ///\n");
+    printf("///            7. Excluir Departamento                                      ///\n");
     printf("///            0. Voltar para Tela Principal                                ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -680,6 +683,7 @@ void editarDepartamento(Departamento* dep){
         }
         fclose(fp);
     }
+    free(escolha_editar);
     free(depArq);
 }
 
@@ -842,4 +846,114 @@ void telaVerProdutosDepartamento(void) {
     fclose(fp);
     free(depLido);
     free(prod);
+}
+
+
+/*void apagarListaDepartamento(Departamento **lista){
+    Departamento *dep;
+    
+    while (*lista != NULL)
+    {
+   	 dep = *lista;
+   	 *lista = (*lista)->prox;
+   	 free(dep);
+    }
+    //printf("Lista excluida com sucesso! \n");    
+}*/
+
+void listarDepartamentosOrdenadados(void){
+    
+    system("clear||cls");
+    FILE *fp;
+    int i; 
+    Departamento* novoDep;
+    Departamento* lista;
+
+    fp = fopen("departamentos.dat","rb");
+    if (fp == NULL){
+        telaErroArquivoDepartamento();
+        exit(1);
+    }
+
+    // Montando a lista ordenada
+    lista = NULL;
+    novoDep = (Departamento*) malloc(sizeof(Departamento));
+
+    while(fread(novoDep, sizeof(Departamento),1, fp)){
+
+        if (novoDep->status == '1'){    
+            if (lista == NULL) {
+                lista = novoDep;
+                novoDep->prox = NULL;
+            } else if (strcmp(novoDep->nome,lista->nome) < 0) {
+
+                novoDep->prox = lista;
+                lista = novoDep;
+
+            } else {
+
+                Departamento* anter = lista;
+                Departamento* atual = lista->prox;
+
+                while ((atual != NULL) && strcmp(atual->nome,novoDep->nome) < 0) {
+                
+                anter = atual;
+                atual = atual->prox;
+
+                }
+                
+                anter->prox = novoDep;
+                novoDep->prox = atual;
+            }
+        }
+        novoDep = (Departamento*) malloc(sizeof(Departamento));
+    }
+    fclose(fp);
+
+    // Exibindo a lista ordenada
+    novoDep = lista;
+    i = 1;
+    while (novoDep != NULL) {
+        printf("%d. %s", i, novoDep->nome);
+        novoDep = novoDep->prox;
+        i++;
+    }
+
+     system("clear||cls");
+    printf("\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
+    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
+    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
+    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                     - Lista de Departamentos Ordenados -                ///\n");
+    printf("///                                                                         ///\n");    
+    novoDep = lista;
+    i = 1;
+    while (novoDep != NULL) {
+        printf("///            %d. %s\n", i, novoDep->nome);
+        novoDep = novoDep->prox;
+        i++;
+    }
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n              # Pressione ENTER para voltar para Menu de Departamentos ... ");
+   
+    // Limpando a memória
+    novoDep = lista;
+    while (lista != NULL) {
+        lista = lista->prox;
+        free(novoDep->nome);
+        free(novoDep);
+        novoDep = lista;
+    }
+    getchar();
 }
