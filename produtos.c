@@ -46,12 +46,9 @@ void moduloProdutos(void) {
                 cadastrarFluxoProdutos();
                 break;
             case '7': 
-                telaRelatoriosProdutos();	
-                break;
-            case '8': 	
                 atualizarProduto();
                 break;
-            case '9':
+            case '8': 	
                 excluirProduto();
                 break;
         } 		
@@ -172,9 +169,8 @@ char telaProdutos(void) {
     printf("///            4. Listar Produtos Ordenados                                 ///\n");
     printf("///            5. Pesquisar Produto                                         ///\n");
     printf("///            6. Cadastrar Fluxo de Produtos                               ///\n");   
-    printf("///            7. Obter um Relatorio                                        ///\n");
-    printf("///            8. Editar um Produto                                         ///\n");
-    printf("///            9. Excluir um Produto                                        ///\n");
+    printf("///            7. Editar um Produto                                         ///\n");
+    printf("///            8. Excluir um Produto                                        ///\n");
     printf("///            0. Voltar para Tela Principal                                ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -458,9 +454,9 @@ void gravarProduto(Produto* prod) {
 	FILE* fp;
 
 	fp = fopen("produtos.dat", "ab");
-	if (fp == NULL) {
+	/*if (fp == NULL) {
 		telaErroArquivoProduto();
-	}
+	}*/
 	fwrite(prod, sizeof(Produto), 1, fp);
 	fclose(fp);
 }
@@ -1060,7 +1056,6 @@ void listarProdutosOrdenadados(void){
     novoProd = lista;
     while (lista != NULL) {
         lista = lista->prox;
-        free(novoProd->nome);
         free(novoProd);
         novoProd = lista;
     } 

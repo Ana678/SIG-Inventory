@@ -471,9 +471,9 @@ void gravarDepartamento(Departamento * dep) {
 	FILE* fp;
 
 	fp = fopen("departamentos.dat", "ab");
-	if (fp == NULL) {
+	/*if (fp == NULL) {
 		telaErroArquivoDepartamento();
-	}
+	}*/
 	fwrite(dep, sizeof(Departamento), 1, fp);
 	fclose(fp);
 }
@@ -951,7 +951,6 @@ void listarDepartamentosOrdenadados(void){
     novoDep = lista;
     while (lista != NULL) {
         lista = lista->prox;
-        free(novoDep->nome);
         free(novoDep);
         novoDep = lista;
     }

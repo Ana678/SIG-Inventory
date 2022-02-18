@@ -432,9 +432,9 @@ void gravarFornecedor(Fornecedor* forn) {
 	FILE* fp;
 
 	fp = fopen("fornecedores.dat", "ab");
-	if (fp == NULL) {
+	/*if (fp == NULL) {
 		telaErroArquivoFornecedor();
-	}
+	}*/
 	fwrite(forn, sizeof(Fornecedor), 1, fp);
 	fclose(fp);
 }
@@ -959,7 +959,6 @@ void listarFornecedoresOrdenadados(void){
     novoForn = lista;
     while (lista != NULL) {
         lista = lista->prox;
-        free(novoForn->nome);
         free(novoForn);
         novoForn = lista;
     }
