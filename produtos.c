@@ -773,8 +773,9 @@ void editarProduto(Produto* prod){
         }
         fclose(fp);
         free(escolha_editar);
+        free(prodArq);
     }
-    free(prodArq);
+    
 }
 
 char* escolhaFluxo(Produto* prod){
@@ -841,10 +842,10 @@ void cadastrarFluxoProdutoExistente(Produto* prod){
             }
         }
         fclose(fp);
-        
+        free(escolha);
+        free(prodArq);
     }
-    free(escolha);
-    free(prodArq);
+
 }
 
 void produtoInexistente(void){

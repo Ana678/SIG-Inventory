@@ -679,10 +679,11 @@ void editarDepartamento(Departamento* dep){
                 sucessoEdicaoDepartamento();
             }
         }
-        fclose(fp);
+        fclose(fp);    
+        free(escolha_editar);
+        free(depArq);
     }
-    free(escolha_editar);
-    free(depArq);
+
 }
 
 void departamentoInexistente(void){
