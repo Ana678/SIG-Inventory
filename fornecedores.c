@@ -237,38 +237,6 @@ Fornecedor* telaCadastrarFornecedor(void) {
     return forn;
 }
 
-/*void telaListarFornecedores(void) { 
-    system("clear||cls");
-    
-    printf("\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                         ///\n");
-    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
-    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
-    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
-    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
-    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
-    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
-    printf("///                                                                         ///\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                         ///\n");
-    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
-    printf("///                                                                         ///\n");
-    printf("///                       - Listagem de Fornecedores -                      ///\n");
-    printf("///                                                                         ///\n");
-    printf("///        |   N*  |         CNPJ        |     Nome da Empresa     |        ///\n");
-    printf("///                                                                         ///\n");
-    printf("///        |   1   | 14.854.618/0001-23  |         Havaianas       |        ///\n");
-    printf("///        |   2   | 60.409.075/0001-52  |          Nestle         |        ///\n");
-    printf("///        |   3   | 09.911.270/0001-29  |          Nescau         |        ///\n");
-    printf("///        |   4   | 23.643.315/0110-06  |          Danone         |        ///\n");
-    printf("///                                                                         ///\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n              # Pressione ENTER para voltar para Menu de Fornecedores ... ");
-    getchar();
-    
-}*/
-
 char* telaExcluirFornecedores(void) {
     system("clear||cls");
     char* cnpj;
@@ -427,15 +395,47 @@ void telaErroArquivoFornecedor(void) {
 
 }
 
+void sucessoCriacaoFornecedor(void) {  
+    system("clear||cls");
+
+    printf("\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
+    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
+    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
+    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                              - Fornecedor -                             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///             ###############################################             ///\n");
+    printf("///             ####                                       ####             ///\n");
+    printf("///             ####           SUCESSO NA CRIACAO          ####             ///\n");
+    printf("///             ####                                       ####             ///\n");
+    printf("///             ###############################################             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n              # Pressione ENTER para voltar para Menu de Fornecedores ... ");
+    getchar();
+
+}
+
 
 void gravarFornecedor(Fornecedor* forn) {
 	FILE* fp;
 
 	fp = fopen("fornecedores.dat", "ab");
-	/*if (fp == NULL) {
+	if (fp == NULL) {
 		telaErroArquivoFornecedor();
-	}*/
+	}
 	fwrite(forn, sizeof(Fornecedor), 1, fp);
+    sucessoCriacaoFornecedor();
 	fclose(fp);
 }
 
@@ -447,6 +447,7 @@ Fornecedor* buscarFornecedor(char* cnpj) {
 	fp = fopen("fornecedores.dat", "rb");
 	if (fp == NULL) {
 		telaErroArquivoFornecedor();
+        return NULL;
 	}
 	while(fread(forn, sizeof(Fornecedor), 1, fp)) {
 		if ((strcmp(forn->cnpj, cnpj) == 0) && (forn->status == '1')) {
@@ -740,6 +741,7 @@ void listaFornecedoresAtivos(void) {
         exit(1);
     }
 
+    system("clear||cls");
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");

@@ -69,3 +69,4 @@ void listarProdutosSituacao(void);
 char escolherSituacaoListar(void);
 
 void listarProdutosOrdenadados(void);
+void sucessoCriacaoProduto(void);

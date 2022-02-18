@@ -450,14 +450,46 @@ void telaErroArquivoProduto(void) {
 
 }
 
+void sucessoCriacaoProduto(void) {  
+    system("clear||cls");
+
+    printf("\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
+    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
+    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
+    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                                - Produto -                              ///\n");
+    printf("///                                                                         ///\n");
+    printf("///             ###############################################             ///\n");
+    printf("///             ####                                       ####             ///\n");
+    printf("///             ####           SUCESSO NA CRIACAO          ####             ///\n");
+    printf("///             ####                                       ####             ///\n");
+    printf("///             ###############################################             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n              # Pressione ENTER para voltar para Menu de Produtos ... ");
+    getchar();
+
+}
+
 void gravarProduto(Produto* prod) {
 	FILE* fp;
 
 	fp = fopen("produtos.dat", "ab");
-	/*if (fp == NULL) {
+	if (fp == NULL) {
 		telaErroArquivoProduto();
-	}*/
+	}
 	fwrite(prod, sizeof(Produto), 1, fp);
+    sucessoCriacaoProduto();
 	fclose(fp);
 }
 
@@ -470,6 +502,7 @@ Produto* buscarProduto(char* cod) {
 	fp = fopen("produtos.dat", "rb");
 	if (fp == NULL) {
 		telaErroArquivoProduto();
+        return NULL;
 	}
 	while(fread(prod, sizeof(Produto), 1, fp)) {
 		if ((strcmp(prod->cod, cod) == 0) && (prod->status == '1')) {

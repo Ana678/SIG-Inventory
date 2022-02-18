@@ -132,7 +132,7 @@ void excluirDepartamento(void) {
 // Funcoes Relacionadas ao Modulo Departamentos
 
 char telaDepartamentos(void) {
-    //system("clear||cls");
+    system("clear||cls");
     char escolha;
 
     printf("\n");
@@ -228,41 +228,6 @@ Departamento* telaCadastrarDepartamento(void) {
    
    return dep;
 }
-
-/*void telaListarDepartamento(void) {
-    system("clear||cls");
-    int escolha;
-
-    printf("\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                         ///\n");
-    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
-    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
-    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
-    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
-    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
-    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
-    printf("///                                                                         ///\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                         ///\n");
-    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
-    printf("///                                                                         ///\n");
-    printf("///                       - Lista de Departamentos -                        ///\n");
-    printf("///                                                                         ///\n");    
-    printf("///            1. Frios e Laticineos                                        ///\n");
-    printf("///            2. Produtos de Limpeza                                       ///\n");
-    printf("///            3. Produtos Higienicos                                       ///\n");
-    printf("///            4. Padaria e Confeitaria                                     ///\n");
-    printf("///            5. Condimentos                                               ///\n");    
-    printf("///            6. Enlatados                                                 ///\n");  
-    printf("///            7. Bebidas                                                   ///\n");
-    printf("///            8. Vestuario                                                 ///\n"); 
-    printf("///                                                                         ///\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n              # Pressione ENTER para voltar para Menu de Departamentos ... ");
-    getchar();
-
-}*/
 
 char* telaExcluirDepartamentos(void) {
     system("clear||cls");
@@ -467,14 +432,46 @@ void DepartamentoView(Departamento* dep){
     printf("///////////////////////////////////////////////////////////////////////////////\n");
 }
 
+void sucessoCriacaoDepartamento(void) {  
+    system("clear||cls");
+
+    printf("\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///               Universidade Federal do Rio Grande do Norte               ///\n");
+    printf("///                   Centro de Ensino Superior do Serido                   ///\n");
+    printf("///                 Departamento de Computacao e Tecnologia                 ///\n");
+    printf("///                    Disciplina DCT1106 -- Programacao                    ///\n");
+    printf("///                  Projeto Sistema de Controle de Estoque                 ///\n");
+    printf("///            Developed by @ana678 and @daviddevolin - Out, 2021           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///           = = = = = Sistema de Controle de Estoques = = = = =           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                             - Departamento -                            ///\n");
+    printf("///                                                                         ///\n");
+    printf("///             ###############################################             ///\n");
+    printf("///             ####                                       ####             ///\n");
+    printf("///             ####           SUCESSO NA CRIACAO          ####             ///\n");
+    printf("///             ####                                       ####             ///\n");
+    printf("///             ###############################################             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n              # Pressione ENTER para voltar para Menu de Departamentos ... ");
+    getchar();
+
+}
+
 void gravarDepartamento(Departamento * dep) {
 	FILE* fp;
 
 	fp = fopen("departamentos.dat", "ab");
-	/*if (fp == NULL) {
+	if (fp == NULL) {
 		telaErroArquivoDepartamento();
-	}*/
+	}
 	fwrite(dep, sizeof(Departamento), 1, fp);
+    sucessoCriacaoDepartamento();
 	fclose(fp);
 }
 
@@ -486,6 +483,7 @@ Departamento* buscarDepartamento(char* cpf) {
 	fp = fopen("departamentos.dat", "rb");
 	if (fp == NULL) {
 		telaErroArquivoDepartamento();
+        return NULL;
 	}
 	while(fread(dep, sizeof(Departamento), 1, fp)) {
 		if ((strcmp(dep->cpf, cpf) == 0) && (dep->status == '1')) {
@@ -727,7 +725,7 @@ void listaDepartamentosAtivos(void) {
         telaErroArquivoDepartamento();
         exit(1);
     }
-
+    system("clear||cls");
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -801,7 +799,7 @@ char* telaInserirNomeDepartamento(void){
 }
 
 void telaVerProdutosDepartamento(void) {  
-    system("clear||cls");
+    
     FILE* fp;
     Produto* prod;
     char *depLido;
@@ -814,7 +812,7 @@ void telaVerProdutosDepartamento(void) {
     }
 
     depLido = telaInserirNomeDepartamento();
-
+    system("clear||cls");
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -848,19 +846,6 @@ void telaVerProdutosDepartamento(void) {
     free(prod);
 }
 
-
-/*void apagarListaDepartamento(Departamento **lista){
-    Departamento *dep;
-    
-    while (*lista != NULL)
-    {
-   	 dep = *lista;
-   	 *lista = (*lista)->prox;
-   	 free(dep);
-    }
-    //printf("Lista excluida com sucesso! \n");    
-}*/
-
 void listarDepartamentosOrdenadados(void){
     
     system("clear||cls");
@@ -889,19 +874,14 @@ void listarDepartamentosOrdenadados(void){
 
                 novoDep->prox = lista;
                 lista = novoDep;
-
             } else {
-
                 Departamento* anter = lista;
                 Departamento* atual = lista->prox;
 
                 while ((atual != NULL) && strcmp(atual->nome,novoDep->nome) < 0) {
-                
-                anter = atual;
-                atual = atual->prox;
-
+                    anter = atual;
+                    atual = atual->prox;
                 }
-                
                 anter->prox = novoDep;
                 novoDep->prox = atual;
             }
@@ -919,7 +899,7 @@ void listarDepartamentosOrdenadados(void){
         i++;
     }
 
-     system("clear||cls");
+    system("clear||cls");
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");

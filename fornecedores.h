@@ -64,3 +64,4 @@ void listaFornecedoresPais(void);
 char* selecionarPais(void);
 
 void listarFornecedoresOrdenadados(void);
+void sucessoCriacaoFornecedor(void);

@@ -64,3 +64,4 @@ void listaDepartamentosAtivos(void);
 char* telaInserirNomeDepartamento(void);
 
 void listarDepartamentosOrdenadados(void);
+void sucessoCriacaoDepartamento(void);
