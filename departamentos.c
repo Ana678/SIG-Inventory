@@ -680,7 +680,6 @@ void editarDepartamento(Departamento* dep){
             }
         }
         fclose(fp);    
-        free(escolha_editar);
         free(depArq);
     }
 

@@ -697,7 +697,6 @@ void editarFornecedorExistente(Fornecedor* forn){
         }
         fclose(fp);
         free(fornArq);
-        free(escolha_editar);
     }
     
 }

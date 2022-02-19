@@ -772,7 +772,6 @@ void editarProduto(Produto* prod){
             }
         }
         fclose(fp);
-        free(escolha_editar);
         free(prodArq);
     }
     
@@ -842,7 +841,6 @@ void cadastrarFluxoProdutoExistente(Produto* prod){
             }
         }
         fclose(fp);
-        free(escolha);
         free(prodArq);
     }
 
