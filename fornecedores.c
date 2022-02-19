@@ -478,7 +478,7 @@ void excluirFornecedorExistente(Fornecedor* fornLido){
             fp = fopen("fornecedores.dat", "r+b");
             if (fp == NULL) {
                 telaErroArquivoFornecedor();
-                exit(1);
+                return;
             }
             
             while(fread(fornArq, sizeof(Fornecedor), 1, fp)) {
@@ -640,7 +640,7 @@ void editarFornecedorExistente(Fornecedor* forn){
         fp = fopen("fornecedores.dat", "r+b");
         if (fp == NULL) {
             telaErroArquivoFornecedor();
-            exit(1);
+            return;
         }
 
         while(fread(fornArq, sizeof(Fornecedor), 1, fp)) {
@@ -739,7 +739,7 @@ void listaFornecedoresAtivos(void) {
     fp = fopen("fornecedores.dat","rb");
     if (fp == NULL){
         telaErroArquivoFornecedor();
-        exit(1);
+        return;
     }
 
     system("clear||cls");
@@ -826,7 +826,7 @@ void listaFornecedoresPais(void) {
     fp = fopen("fornecedores.dat","rb");
     if (fp == NULL){
         telaErroArquivoFornecedor();
-        exit(1);
+        return;
     }
 
     pais = selecionarPais();
@@ -883,7 +883,7 @@ void listarFornecedoresOrdenadados(void){
     fp = fopen("fornecedores.dat","rb");
     if (fp == NULL){
         telaErroArquivoFornecedor();
-        exit(1);
+        return;
     }
 
     // Montando a lista ordenada

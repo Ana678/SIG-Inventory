@@ -514,7 +514,7 @@ void excluirDepartamentoExistente(Departamento* depLido){
             fp = fopen("departamentos.dat", "r+b");
             if (fp == NULL) {
                 telaErroArquivoDepartamento();
-                exit(1);
+                return;
             }
             while(fread(depArq, sizeof(Departamento), 1, fp)) {
                 if ((strcmp(depArq->cpf, depLido->cpf) == 0) && (depArq->status == '1')) {
@@ -634,7 +634,7 @@ void editarDepartamento(Departamento* dep){
         fp = fopen("departamentos.dat", "r+b");
         if (fp == NULL) {
             telaErroArquivoDepartamento();
-            exit(1);
+            return;
         }
 
         while(fread(depArq, sizeof(Departamento), 1, fp)) {
@@ -723,7 +723,7 @@ void listaDepartamentosAtivos(void) {
     fp = fopen("departamentos.dat","rb");
     if (fp == NULL){
         telaErroArquivoDepartamento();
-        exit(1);
+        return;
     }
     system("clear||cls");
     printf("\n");
@@ -808,7 +808,7 @@ void telaVerProdutosDepartamento(void) {
     fp = fopen("produtos.dat","rb");
     if (fp == NULL){
         telaErroArquivoDepartamento();
-        exit(1);
+        return;
     }
 
     depLido = telaInserirNomeDepartamento();
@@ -857,7 +857,7 @@ void listarDepartamentosOrdenadados(void){
     fp = fopen("departamentos.dat","rb");
     if (fp == NULL){
         telaErroArquivoDepartamento();
-        exit(1);
+        return;
     }
 
     // Montando a lista ordenada

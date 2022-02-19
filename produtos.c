@@ -535,7 +535,7 @@ void excluirProdutoExistente(Produto* prodLido){
             fp = fopen("produtos.dat", "r+b");
             if (fp == NULL) {
                 telaErroArquivoProduto();
-                exit(1);
+                return;
             }
             while(fread(prodArq, sizeof(Produto), 1, fp)) {
                 if ((strcmp(prodArq->cod, prodLido->cod) == 0) && (prodArq->status == '1')) {
@@ -696,7 +696,7 @@ void editarProduto(Produto* prod){
         fp = fopen("produtos.dat", "r+b");
         if (fp == NULL) {
             telaErroArquivoProduto();
-            exit(1);
+            return;
         }
 
         while(fread(prodArq, sizeof(Produto), 1, fp)) {
@@ -806,7 +806,7 @@ void cadastrarFluxoProdutoExistente(Produto* prod){
         fp = fopen("produtos.dat", "r+b");
         if (fp == NULL) {
             telaErroArquivoProduto();
-            exit(1);
+            return;
         }
 
         while(fread(prodArq, sizeof(Produto), 1, fp)) {
@@ -883,7 +883,7 @@ void listaProdutosAtivos(void) {
     fp = fopen("produtos.dat","rb");
     if (fp == NULL){
         telaErroArquivoProduto();
-        exit(1);
+        return;
     }
     system("clear||cls");
     printf("\n");
@@ -966,7 +966,7 @@ void listarProdutosSituacao(void){
     fp = fopen("produtos.dat","rb");
     if (fp == NULL){
         telaErroArquivoProduto();
-        exit(1);
+        return;
     }
 
     situacao = escolherSituacaoListar();
@@ -1028,7 +1028,7 @@ void listarProdutosOrdenadados(void){
     fp = fopen("produtos.dat","rb");
     if (fp == NULL){
         telaErroArquivoProduto();
-        exit(1);
+        return;
     }
 
     lista = NULL;
