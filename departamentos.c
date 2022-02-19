@@ -482,7 +482,7 @@ Departamento* buscarDepartamento(char* cpf) {
 	dep = (Departamento*) malloc(sizeof(Departamento));
 	fp = fopen("departamentos.dat", "rb");
 	if (fp == NULL) {
-		telaErroArquivoDepartamento();
+		//telaErroArquivoDepartamento();
         return NULL;
 	}
 	while(fread(dep, sizeof(Departamento), 1, fp)) {
@@ -673,7 +673,6 @@ void editarDepartamento(Departamento* dep){
 
                 fseek(fp, -1*sizeof(Departamento), SEEK_CUR);
                 fwrite(depArq, sizeof(Departamento), 1, fp);
-                fclose(fp);
                 printf("\n              -> Editando o Departamento . . .");
                 sleep(1);
                 sucessoEdicaoDepartamento();
@@ -681,6 +680,7 @@ void editarDepartamento(Departamento* dep){
         }
         fclose(fp);    
         free(depArq);
+        free(escolha_editar);
     }
 
 }

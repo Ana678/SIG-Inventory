@@ -501,7 +501,7 @@ Produto* buscarProduto(char* cod) {
 	prod = (Produto*) malloc(sizeof(Produto));
 	fp = fopen("produtos.dat", "rb");
 	if (fp == NULL) {
-		telaErroArquivoProduto();
+		//telaErroArquivoProduto();
         return NULL;
 	}
 	while(fread(prod, sizeof(Produto), 1, fp)) {
@@ -765,7 +765,6 @@ void editarProduto(Produto* prod){
 
                 fseek(fp, -1*sizeof(Produto), SEEK_CUR);
                 fwrite(prodArq, sizeof(Produto), 1, fp);
-                fclose(fp);
                 printf("\n              -> Editando Produto . . .");
                 sleep(1);
                 sucessoEdicaoProduto();
@@ -773,6 +772,7 @@ void editarProduto(Produto* prod){
         }
         fclose(fp);
         free(prodArq);
+        free(escolha_editar);
     }
     
 }
@@ -834,7 +834,6 @@ void cadastrarFluxoProdutoExistente(Produto* prod){
                         
                 fseek(fp, -1*sizeof(Produto), SEEK_CUR);
                 fwrite(prodArq, sizeof(Produto), 1, fp);
-                fclose(fp);
                 printf("\n              -> Cadastrando Fluxo . . .");
                 sleep(1);
                 sucessoEdicaoProduto();
@@ -842,6 +841,7 @@ void cadastrarFluxoProdutoExistente(Produto* prod){
         }
         fclose(fp);
         free(prodArq);
+        free(escolha);
     }
 
 }

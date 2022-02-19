@@ -446,7 +446,7 @@ Fornecedor* buscarFornecedor(char* cnpj) {
 	forn = (Fornecedor*) malloc(sizeof(Fornecedor));
 	fp = fopen("fornecedores.dat", "rb");
 	if (fp == NULL) {
-		telaErroArquivoFornecedor();
+		//telaErroArquivoFornecedor();
         return NULL;
 	}
 	while(fread(forn, sizeof(Fornecedor), 1, fp)) {
@@ -689,7 +689,6 @@ void editarFornecedorExistente(Fornecedor* forn){
 
                 fseek(fp, -1*sizeof(Fornecedor), SEEK_CUR);
                 fwrite(fornArq, sizeof(Fornecedor), 1, fp);
-                fclose(fp);
                 printf("\n              -> Editando o Fornecedor . . .");
                 sleep(1);
                 sucessoEdicaoFornecedor();
@@ -697,6 +696,7 @@ void editarFornecedorExistente(Fornecedor* forn){
         }
         fclose(fp);
         free(fornArq);
+        free(escolha_editar);
     }
     
 }
